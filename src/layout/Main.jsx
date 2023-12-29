@@ -1,7 +1,9 @@
+import { Outlet } from "react-router-dom";
+
 const Main = () => {
   return (
-    <div className="flex flex-col item-center justify-center border p-5 my-10">
-      <h1 className="text-4xl text-center font-bold">Main</h1>
+    <div className="flex flex-col item-center justify-center ">
+      <Outlet />
     </div>
   );
 };
