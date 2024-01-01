@@ -1,14 +1,58 @@
+import { Cross as Hamburger } from "hamburger-react";
+import { useState } from "react";
+import { Bounce, Fade } from "react-awesome-reveal";
+import { navLinks } from "../links/dummyLinks";
+
 const Navbar = () => {
+  // state
+  const [isOpen, setOpen] = useState(false);
+
   return (
-    <div className="">
-      <div className="drop-shadow-md z-[100] fixed w-full flex items-center justify-between container bg-deep-green mx-auto">
-        <div className="text-5xl font-[1000]">
-          M<span className="text-light-blue">i</span>ndJ
-          <span className="text-deep-rose">o</span>t
+    <div className="relative">
+      <div className="w-full fixed bg-light-rose z-[100]">
+        <div className="flex justify-between py-5 w-full px-2 max-xsm:px-2 xsm:px-5 sm:px-10 md:px-20 lg:px-24 xl:px-28 2xl:px-36">
+          {/* logo */}
+          <div>
+            <div className="text-5xl font-[1000]">
+              <Fade className="inline-block" cascade damping={0.1}>
+                <span>M</span>
+                <span className="text-light-blue">i</span> <span>n</span>
+                <span>d</span>
+                <span>J</span>
+                <span className="text-deep-rose">o</span> <span>t</span>
+              </Fade>
+            </div>
+          </div>
+          {/* lg Device links */}
+          <div className="flex items-center gap-10">
+            <Fade cascade delay={800} damping={0.3} className="max-lg:hidden">
+              {navLinks.map(link => (
+                <span
+                  key={link.name}
+                  className="text-2xl px-5 cursor-pointer font-extrabold duration-500 opacity-70 hover:opacity-100"
+                >
+                  {link.name}
+                </span>
+              ))}
+            </Fade>
+            {/* hamburger , thats hidden when screen is lg  */}
+            <div className="lg:hidden">
+              <div className="">
+                <Hamburger toggled={isOpen} toggle={setOpen} />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="bg-deep-rose text-white font-extrabold text-3xl p-5">
-          <p>links</p>
-        </div>
+      </div>
+
+      <div
+        className={`lg:hidden absolute w-full max-lg:flex flex-col duration-500 ease-out bg-slate-200 z-[9] ${
+          isOpen ? "top-16" : "-top-[100vh]"
+        } `}
+      >
+        {navLinks.map(link => (
+          <p key={link.name}>{link.name}</p>
+        ))}
       </div>
     </div>
   );
