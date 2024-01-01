@@ -1,6 +1,13 @@
 import { Cross as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import { Bounce, Fade } from "react-awesome-reveal";
+import {
+  AttentionSeeker,
+  Bounce,
+  Fade,
+  JackInTheBox,
+  Slide,
+  Zoom,
+} from "react-awesome-reveal";
 import { navLinks } from "../links/dummyLinks";
 
 const Navbar = () => {
@@ -8,7 +15,7 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="fixed w-full">
       <div className="w-full fixed bg-light-rose z-[100]">
         <div className="flex justify-between py-5 w-full px-2 max-xsm:px-2 xsm:px-5 sm:px-10 md:px-20 lg:px-24 xl:px-28 2xl:px-36">
           {/* logo */}
@@ -46,12 +53,19 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`lg:hidden absolute w-full max-lg:flex flex-col duration-500 ease-out bg-slate-200 z-[9] ${
-          isOpen ? "top-16" : "-top-[100vh]"
+        className={`lg:hidden py-20 absolute w-full max-lg:flex flex-col items-center justify-center duration-500 ease-out bg-deep-green z-[99] ${
+          isOpen ? "top-[88px]" : "-top-[100vh]"
         } `}
       >
-        {navLinks.map(link => (
-          <p key={link.name}>{link.name}</p>
+        {navLinks.map((link, index) => (
+          <Fade
+            direction="up"
+            duration={index * 500}
+            className="bg-deep-green w-full text-3xl text-center my-5"
+            key={link.name}
+          >
+            {link.name}
+          </Fade>
         ))}
       </div>
     </div>
