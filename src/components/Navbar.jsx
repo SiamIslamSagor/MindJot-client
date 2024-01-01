@@ -36,7 +36,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-4xl font-[1000] text-red-400">
+          daisyUI
+        </a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
