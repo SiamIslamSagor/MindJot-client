@@ -33,4 +33,19 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/dashboard",
+    errorElement: <ErrorPage />,
+    element: <Auth />,
+    children: [
+      {
+        path: "signIn",
+        element: <SignIn />,
+      },
+      {
+        path: "signUp",
+        element: <SignUp />,
+      },
+    ],
+  },
 ]);

@@ -2,15 +2,52 @@ import { Sling as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import { Bounce, Fade, Slide } from "react-awesome-reveal";
 import { navLinks } from "../links/dummyLinks";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useDataContext from "../hooks/useDataContext";
+import {
+  FaArrowRightFromBracket,
+  FaArrowRightToBracket,
+} from "react-icons/fa6";
+import toast, { Toaster } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   // state
   const [isOpen, setOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  // hook
+  const { user, logout } = useDataContext();
+
+  // handler
+  const handleSignUp = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be log out this account form this device!",
+      icon: "warning",
+      iconColor: "#ffb8b8",
+      showCancelButton: true,
+      confirmButtonColor: "#6c63ff",
+      cancelButtonColor: "#fd5467",
+      confirmButtonText: "Yes, Sign up.",
+    }).then(result => {
+      if (result.isConfirmed) {
+        const toastId = toast.loading("processing...");
+        console.log("clicked");
+        logout()
+          .then(() => {
+            toast.success("Log out successfully.", { id: toastId });
+          })
+          .catch(() => {
+            toast.error("Log out Failed.", { id: toastId });
+          });
+      }
+    });
+  };
+
   return (
     <div className="fixed w-full">
+      <Toaster></Toaster>
       <div className="w-full fixed shadow-xl bg-white z-[100]">
         <div className="flex items-center justify-between py-5 w-full px-2 max-xsm:px-2 xsm:px-5 sm:px-10 md:px-20 xl:px-24 2xl:px-28">
           {/* logo */}
@@ -29,12 +66,13 @@ const Navbar = () => {
             {/* lg routes with fade animation */}
             <Fade cascade delay={800} damping={0.3} className="max-lg:hidden">
               {navLinks.map(link => (
-                <span
+                <NavLink
                   key={link.name}
-                  className="text-2xl px-5 cursor-pointer font-extrabold duration-500 opacity-70 hover:opacity-100"
+                  to={link.path}
+                  className="text-2xl px-2 xl:px-5 cursor-pointer font-extrabold duration-500 opacity-70 hover:opacity-100"
                 >
                   {link.name}
-                </span>
+                </NavLink>
               ))}
             </Fade>
 
@@ -50,10 +88,7 @@ const Navbar = () => {
                     role="button"
                     className="w-10 h-10 lg:w-14 lg:h-14 rounded-full"
                   >
-                    <img
-                      src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                      alt="Avatar"
-                    />
+                    <img src={user && user?.photoURL} alt="Avatar" />
                   </div>
                 </Slide>
               </div>
@@ -70,12 +105,21 @@ const Navbar = () => {
 
             {/* authentication action */}
             <Bounce delay={2200} className="">
-              <Link
-                to={"/auth/signIn"}
-                className="btn max-lg:btn-sm opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4"
-              >
-                Sign In
-              </Link>
+              {user ? (
+                <button
+                  onClick={handleSignUp}
+                  className="btn max-lg:btn-sm lg:text-base opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4"
+                >
+                  Sign out <FaArrowRightFromBracket className="lg:text-lg" />
+                </button>
+              ) : (
+                <Link
+                  to={"/auth/signIn"}
+                  className="btn max-lg:btn-sm lg:text-base opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4"
+                >
+                  Sign In <FaArrowRightToBracket className="lg:text-lg" />
+                </Link>
+              )}
             </Bounce>
 
             {/* hamburger , thats hidden when screen is lg  */}

@@ -40,6 +40,7 @@ const SignIn = () => {
     googleAuth()
       .then(() => {
         console.log("google authorized successfully");
+        navigate("/");
       })
       .catch(err => {
         console.log("something is wrong. ERR:", err);
