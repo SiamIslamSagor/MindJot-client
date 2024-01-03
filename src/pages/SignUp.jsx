@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaAngleLeft } from "react-icons/fa6";
-import { Bounce, Slide, Fade } from "react-awesome-reveal";
+import { Bounce, Fade } from "react-awesome-reveal";
 
 const SignUp = () => {
   const [isEmailSignUpPage, setIsEmailSignUpPage] = useState(false);
@@ -17,7 +17,7 @@ const SignUp = () => {
 
       {/* main */}
       {isEmailSignUpPage && (
-        <div className="fixed top-5 md:top-10 left-5 md:left-10  overflow-hidden">
+        <div className="fixed z-[90] top-5 md:top-10 left-5 md:left-10  overflow-hidden">
           <Bounce delay={1000}>
             <button
               onClick={() => setIsEmailSignUpPage(!isEmailSignUpPage)}
@@ -43,6 +43,16 @@ const SignUp = () => {
                   <input
                     type="text"
                     placeholder="your name"
+                    className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
+                  />
+                </div>
+                <div className="w-full mb-4">
+                  <label className="label">
+                    <span className="text-lg font-bold">Your Photo url</span>
+                  </label>
+                  <input
+                    type="url"
+                    placeholder="your photo url"
                     className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
                   />
                 </div>
