@@ -5,9 +5,25 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaAngleLeft } from "react-icons/fa6";
 import { Bounce, Fade } from "react-awesome-reveal";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
   const [isEmailSignUpPage, setIsEmailSignUpPage] = useState(false);
+
+  // hook form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  // handler
+  // form submit handler
+  const onSubmit = data => {
+    console.log(data);
+  };
+
   return (
     <div>
       <Helmet>
@@ -34,7 +50,7 @@ const SignUp = () => {
           <h2 className="text-3xl my-10 font-bold">Sign up to MindJot</h2>
 
           {isEmailSignUpPage ? (
-            <form className="overflow-hidden">
+            <form onSubmit={handleSubmit(onSubmit)} className="overflow-hidden">
               <Fade direction="down">
                 <div className="w-full mb-4">
                   <label className="label">
@@ -43,8 +59,17 @@ const SignUp = () => {
                   <input
                     type="text"
                     placeholder="your name"
+                    {...register("name", {
+                      required: "Name is required *",
+                    })}
+                    aria-invalid={errors.name ? "true" : "false"}
                     className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
                   />
+                  {errors.name && (
+                    <p className="text-sm text-red-600 mt-1">
+                      {errors.name?.message}
+                    </p>
+                  )}
                 </div>
                 <div className="w-full mb-4">
                   <label className="label">
@@ -53,8 +78,61 @@ const SignUp = () => {
                   <input
                     type="url"
                     placeholder="your photo url"
+                    {...register("photoUrl", {
+                      required: "photo url is required *",
+                    })}
+                    aria-invalid={errors.photoUrl ? "true" : "false"}
                     className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
                   />
+                  {errors.photoUrl && (
+                    <p className="text-sm text-red-600 mt-1">
+                      {errors.photoUrl?.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="w-full mb-4">
+                  <label className="label">
+                    <span className="text-lg font-bold">Your Password</span>
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="6+ characters"
+                    {...register("password", {
+                      required: true,
+                      minLength: 6,
+                      maxLength: 32,
+                      pattern:
+                        /(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*[0-9])(?=.*[a-z])/,
+                    })}
+                    aria-invalid={errors.password ? "true" : "false"}
+                    className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
+                  />
+                  {errors.password?.type === "required" && (
+                    <p className="text-sm text-red-600 mt-1">
+                      {errors.password && (
+                        <p className="text-sm text-red-600 mt-1">
+                          Password is required *
+                        </p>
+                      )}
+                    </p>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <p className="text-sm text-red-600 mt-1">
+                      Password must be 6 characters *
+                    </p>
+                  )}
+                  {errors.password?.type === "maxLength" && (
+                    <p className="text-sm text-red-600 mt-1">
+                      Password must be 20 characters *
+                    </p>
+                  )}
+                  {errors?.password?.type === "pattern" && (
+                    <p className="text-sm text-red-600 mt-1">
+                      password at least 6 char long & at most 32 char long.
+                      spacial char, digit, uppercase, lowercase required *
+                    </p>
+                  )}
                 </div>
                 <div className="w-full mb-4">
                   <label className="label">
@@ -63,18 +141,17 @@ const SignUp = () => {
                   <input
                     type="email"
                     placeholder="your email"
+                    {...register("email", {
+                      required: "Email address is required *",
+                    })}
+                    aria-invalid={errors.email ? "true" : "false"}
                     className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
                   />
-                </div>
-                <div className="w-full mb-4">
-                  <label className="label">
-                    <span className="text-lg font-bold">Your Password</span>
-                  </label>
-                  <input
-                    type="password"
-                    placeholder="6+ characters"
-                    className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
-                  />
+                  {errors.email && (
+                    <p className="text-sm text-red-600 mt-1">
+                      {errors.email?.message}
+                    </p>
+                  )}
                 </div>
                 <button className="btn bg-light-black text-white text-base opacity-100 hover:bg-light-black hover:opacity-90 rounded-full w-full font-bold h-16 mt-6">
                   Sign in
