@@ -3,12 +3,13 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useDataContext from "../hooks/useDataContext";
 
 const SignIn = () => {
   // hook
-  const { googleAuth } = useDataContext();
+  const { googleAuth, login } = useDataContext();
+  const navigate = useNavigate();
 
   // hook form
   const {
@@ -22,6 +23,16 @@ const SignIn = () => {
   // form submit handler
   const onSubmit = data => {
     console.log(data);
+    // create user by using firebase promise
+    login(data?.email, data?.password)
+      .then(() => {
+        console.log("sign in successfully");
+        reset();
+        navigate("/");
+      })
+      .catch(err => {
+        console.log("something is wrong. ERR:", err);
+      });
   };
 
   // google auth handler
@@ -80,7 +91,9 @@ const SignIn = () => {
             <div className="w-full mb-4">
               <label className="label">
                 <span className="text-lg font-bold">Your Password</span>
-                <span className="label-text underline">Forgot Password?</span>
+                <span className="label-text underline cursor-pointer">
+                  Forgot Password?
+                </span>
               </label>
               <input
                 type="password"

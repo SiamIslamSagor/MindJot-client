@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaAngleLeft } from "react-icons/fa6";
 import { Bounce, Fade } from "react-awesome-reveal";
@@ -13,7 +13,9 @@ const SignUp = () => {
   const [isEmailSignUpPage, setIsEmailSignUpPage] = useState(false);
 
   // hook
-  const { googleAuth } = useDataContext();
+  const { googleAuth, createUser, updateUserNameAndPhoto, logout } =
+    useDataContext();
+  const navigate = useNavigate();
 
   // react hook form
   const {
@@ -27,6 +29,23 @@ const SignUp = () => {
   // form submit handler
   const onSubmit = data => {
     console.log(data);
+    // create user by using firebase promise
+    createUser(data?.email, data?.password)
+      .then(() => {
+        updateUserNameAndPhoto(data?.name, data?.photoUrl)
+          .then(() => {
+            console.log("Account created successfully");
+            reset();
+            logout();
+            navigate("/auth/signIn");
+          })
+          .catch(err => {
+            console.log("something is wrong. ERR:", err);
+          });
+      })
+      .catch(err => {
+        console.log("something is wrong. ERR:", err);
+      });
   };
 
   // google auth handler
