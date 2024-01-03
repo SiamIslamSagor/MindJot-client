@@ -14,19 +14,19 @@ const Navbar = () => {
       <div className="w-full fixed shadow-xl bg-white z-[100]">
         <div className="flex items-center justify-between py-5 w-full px-2 max-xsm:px-2 xsm:px-5 sm:px-10 md:px-20 xl:px-24 2xl:px-28">
           {/* logo */}
-          <div>
-            <div className="max-xsm:text-4xl xsm:text-5xl font-[1000] text-center">
-              <Fade className="inline-block text-center" cascade damping={0.1}>
-                <span>M</span>
-                <span className="text-light-blue">i</span> <span>n</span>
-                <span>d</span>
-                <span>J</span>
-                <span className="text-deep-rose">o</span> <span>t</span>
-              </Fade>
-            </div>
+          <div className="max-xsm:text-4xl xsm:text-5xl font-[1000] text-center">
+            <Fade className="inline-block text-center" cascade damping={0.1}>
+              <span>M</span>
+              <span className="text-light-blue">i</span> <span>n</span>
+              <span>d</span>
+              <span>J</span>
+              <span className="text-deep-rose">o</span> <span>t</span>
+            </Fade>
           </div>
+
           {/* lg Device links */}
           <div className="flex items-center gap-0  xl:gap-2 2xl:gap-5">
+            {/* lg routes with fade animation */}
             <Fade cascade delay={800} damping={0.3} className="max-lg:hidden">
               {navLinks.map(link => (
                 <span
@@ -37,43 +37,8 @@ const Navbar = () => {
                 </span>
               ))}
             </Fade>
-            {/* user dropdown */}
 
-            {/* <div className="dropdown dropdown-end mr-2">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full lg:flex items-center justify-center  ">
-                  <Slide
-                    delay={1500}
-                    direction="down"
-                    className="w-10 h-10  rounded-full"
-                  >
-                    <img
-                      className="w-10 h-10  rounded-full"
-                      alt="Tailwind CSS Navbar component"
-                      src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                    />
-                  </Slide>
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content p-28 mt-2 z-[95] p2 shadow bg-base-100 rounded-box w-64"
-              >
-                <li>
-                  <a>Profile</a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div> */}
+            {/* user dropdown */}
             <div className="relative">
               <div
                 className="overflow-hidden rounded-full flex items-center justify-center mr-2 cursor-pointer"
@@ -102,11 +67,17 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+
+            {/* authentication action */}
             <Bounce delay={2200} className="">
-              <Link className="btn max-lg:btn-sm opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4">
+              <Link
+                to={"/auth/signIn"}
+                className="btn max-lg:btn-sm opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4"
+              >
                 Sign In
               </Link>
             </Bounce>
+
             {/* hamburger , thats hidden when screen is lg  */}
             <div className="overflow-hidden rounded-md">
               <Slide direction="up" className="lg:hidden">
