@@ -14,7 +14,6 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   // state
   const [isOpen, setOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // hook
   const { user, logout } = useDataContext();
@@ -76,32 +75,41 @@ const Navbar = () => {
               ))}
             </Fade>
 
-            {/* user dropdown */}
-            <div className="relative">
-              <div
-                className="overflow-hidden rounded-full flex items-center justify-center mr-2 cursor-pointer"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
-                <Slide delay={1500} direction="down" className="avatar">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className="w-10 h-10 lg:w-14 lg:h-14 rounded-full"
-                  >
-                    <img src={user && user?.photoURL} alt="Avatar" />
-                  </div>
-                </Slide>
-              </div>
-
-              {isDropdownOpen && (
+            {/* dropdown for max-xl */}
+            {user && (
+              <div className="dropdown dropdown-end">
                 <div
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className=" absolute top-0 -right-10 mt-12 w-64 bg-white border rounded shadow-md"
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
                 >
-                  <p>Dropdown Content</p>
+                  <div className="w-10 xl:w-16 rounded-full">
+                    <img alt="author image" src={user?.photoURL} />
+                  </div>
                 </div>
-              )}
-            </div>
+                <ul className="max-sm:-mr-28 mt-3 z-[1] p-2 py-10 md:p-6 border shadow menu menu-sm dropdown-content bg-base-100 rounded-box max-lg:w-80 lg:w-96 text-center font-medium text-s-color">
+                  <li className="justify-center mt-2 p-2 text-center w-full max-w-full leading-3 lg:text-base">
+                    Name: {user?.displayName}
+                  </li>
+                  <li className="justify-center -mt-2 leading-3 p-2 text-center tracking-tight  lg:text-base">
+                    Email: {user?.email}
+                  </li>
+                  <button
+                    onClick={handleSignUp}
+                    className="btn max-lg:btn-sm lg:text-base opacity-90  bg-deep-rose text-white hover:bg-deep-rose hover:opacity-100 shadow-2xl  hover:drop-shadow-lg duration-1000 sm:mr-4 my-2 mt-5"
+                  >
+                    Edit Profile{" "}
+                    <FaArrowRightFromBracket className="lg:text-lg" />
+                  </button>
+                  <button
+                    onClick={handleSignUp}
+                    className="btn max-lg:btn-sm lg:text-base opacity-90  bg-light-blue text-white hover:bg-light-blue hover:opacity-100 shadow-2xl  hover:drop-shadow-lg duration-1000 sm:mr-4 my-2"
+                  >
+                    Sign out <FaArrowRightFromBracket className="lg:text-lg" />
+                  </button>
+                </ul>
+              </div>
+            )}
 
             {/* authentication action */}
             <Bounce delay={2200} className="">
