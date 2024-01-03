@@ -59,6 +59,7 @@ const SignUp = () => {
                   <input
                     type="text"
                     placeholder="your name"
+                    autoFocus
                     {...register("name", {
                       required: "Name is required *",
                     })}
@@ -90,7 +91,25 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-
+                <div className="w-full mb-4">
+                  <label className="label">
+                    <span className="text-lg font-bold">Your Email</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="your email"
+                    {...register("email", {
+                      required: "Email address is required *",
+                    })}
+                    aria-invalid={errors.email ? "true" : "false"}
+                    className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-red-600 mt-1">
+                      {errors.email?.message}
+                    </p>
+                  )}
+                </div>
                 <div className="w-full mb-4">
                   <label className="label">
                     <span className="text-lg font-bold">Your Password</span>
@@ -111,9 +130,9 @@ const SignUp = () => {
                   {errors.password?.type === "required" && (
                     <p className="text-sm text-red-600 mt-1">
                       {errors.password && (
-                        <p className="text-sm text-red-600 mt-1">
+                        <span className="text-sm text-red-600 mt-1">
                           Password is required *
-                        </p>
+                        </span>
                       )}
                     </p>
                   )}
@@ -131,25 +150,6 @@ const SignUp = () => {
                     <p className="text-sm text-red-600 mt-1">
                       password at least 6 char long & at most 32 char long.
                       spacial char, digit, uppercase, lowercase required *
-                    </p>
-                  )}
-                </div>
-                <div className="w-full mb-4">
-                  <label className="label">
-                    <span className="text-lg font-bold">Your Email</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="your email"
-                    {...register("email", {
-                      required: "Email address is required *",
-                    })}
-                    aria-invalid={errors.email ? "true" : "false"}
-                    className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
-                  />
-                  {errors.email && (
-                    <p className="text-sm text-red-600 mt-1">
-                      {errors.email?.message}
                     </p>
                   )}
                 </div>

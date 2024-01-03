@@ -1,10 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
 import { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
+  // hook form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  // handler
+  // form submit handler
+  const onSubmit = data => {
+    console.log(data);
+  };
+
   return (
     <div>
       <Helmet>
@@ -23,7 +38,7 @@ const SignIn = () => {
           <div className="divider my-5 text-slate-400">
             or sign in with email
           </div>
-          <form className="">
+          <form onSubmit={handleSubmit(onSubmit)} className="">
             <div className="w-full mb-4">
               <label className="label">
                 <span className="text-lg font-bold">Your Email</span>
@@ -31,8 +46,18 @@ const SignIn = () => {
               <input
                 type="email"
                 placeholder="your email"
+                autoFocus
+                {...register("email", {
+                  required: "Email address is required *",
+                })}
+                aria-invalid={errors.email ? "true" : "false"}
                 className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
               />
+              {errors.email && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.email?.message}
+                </p>
+              )}
             </div>
             <div className="w-full mb-4">
               <label className="label">
@@ -40,9 +65,35 @@ const SignIn = () => {
                 <span className="label-text underline">Forgot Password?</span>
               </label>
               <input
-                type="email"
+                type="password"
+                placeholder="6+ characters"
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  maxLength: 32,
+                })}
+                aria-invalid={errors.password ? "true" : "false"}
                 className="border w-full rounded-xl px-5 h-16 hover:shadow-md hover:shadow-light-rose focus:shadow-md focus:shadow-light-rose duration-700 outline-none text-lg"
               />
+              {errors.password?.type === "required" && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.password && (
+                    <span className="text-sm text-red-600 mt-1">
+                      Password is required *
+                    </span>
+                  )}
+                </p>
+              )}
+              {errors.password?.type === "minLength" && (
+                <p className="text-sm text-red-600 mt-1">
+                  Password must be 6 characters *
+                </p>
+              )}
+              {errors.password?.type === "maxLength" && (
+                <p className="text-sm text-red-600 mt-1">
+                  Password must be 20 characters *
+                </p>
+              )}
             </div>
             <button className="btn bg-light-black text-white text-base opacity-100 hover:bg-light-black hover:opacity-90 rounded-full w-full font-bold h-16 mt-6">
               Sign in
