@@ -6,7 +6,7 @@ const Home = () => {
       <Helmet>
         <title>MindJot | Home</title>
       </Helmet>
-      {/* <div className=" h-[300vh] bg-light-blue"></div> */}
+      <div className=" h-[300vh] bg-light-blue"></div>
     </div>
   );
 };

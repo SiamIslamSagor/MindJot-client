@@ -6,3 +6,8 @@
 body {
   font-family: Nunito;
 }
+
+/* error page svg style */
+.anim-div > div > svg {
+  max-width: 700px !important;
+}
