@@ -4,8 +4,12 @@ import { useForm } from "react-hook-form";
 import { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import useDataContext from "../hooks/useDataContext";
 
 const SignIn = () => {
+  // hook
+  const { googleAuth } = useDataContext();
+
   // hook form
   const {
     register,
@@ -20,6 +24,17 @@ const SignIn = () => {
     console.log(data);
   };
 
+  // google auth handler
+  const handleGoogleAuth = () => {
+    googleAuth()
+      .then(() => {
+        console.log("google authorized successfully");
+      })
+      .catch(err => {
+        console.log("something is wrong. ERR:", err);
+      });
+  };
+
   return (
     <div>
       <Helmet>
@@ -31,7 +46,10 @@ const SignIn = () => {
       <main className="px-5">
         <div className="mt-20 xsm:mt-28 lg:mt-40 rounded-md max-w-md mx-auto w-full">
           <h2 className="text-3xl my-10 font-bold">Sign in to MindJot</h2>
-          <button className="btn bg-white opacity-90 hover:bg-white hover:opacity-100 rounded-full w-full font-bold h-16 text-base">
+          <button
+            onClick={handleGoogleAuth}
+            className="btn bg-white opacity-90 hover:bg-white hover:opacity-100 rounded-full w-full font-bold h-16 text-base"
+          >
             <FcGoogle className="text-2xl" />
             Sign in with Google
           </button>

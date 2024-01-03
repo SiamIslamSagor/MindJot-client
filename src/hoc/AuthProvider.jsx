@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
-
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -67,7 +66,7 @@ const AuthProvider = ({ children }) => {
   //   auth observer to observe auth all time any where
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, presentUser => {
-      console.log("onAuthStateChanged %%%):>", presentUser);
+      console.log("onAuthStateChanged %%%%%):=>", presentUser);
       // set the present user in the user state and when user set complete then set loading to false
       setUser(presentUser);
       setLoading(false);

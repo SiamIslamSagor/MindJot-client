@@ -6,11 +6,16 @@ import { FcGoogle } from "react-icons/fc";
 import { FaAngleLeft } from "react-icons/fa6";
 import { Bounce, Fade } from "react-awesome-reveal";
 import { useForm } from "react-hook-form";
+import useDataContext from "../hooks/useDataContext";
 
 const SignUp = () => {
+  // state
   const [isEmailSignUpPage, setIsEmailSignUpPage] = useState(false);
 
-  // hook form
+  // hook
+  const { googleAuth } = useDataContext();
+
+  // react hook form
   const {
     register,
     handleSubmit,
@@ -22,6 +27,17 @@ const SignUp = () => {
   // form submit handler
   const onSubmit = data => {
     console.log(data);
+  };
+
+  // google auth handler
+  const handleGoogleAuth = () => {
+    googleAuth()
+      .then(() => {
+        console.log("google authorized successfully");
+      })
+      .catch(err => {
+        console.log("something is wrong. ERR:", err);
+      });
   };
 
   return (
@@ -160,7 +176,10 @@ const SignUp = () => {
             </form>
           ) : (
             <>
-              <button className="btn bg-light-black text-white text-base opacity-100 hover:bg-light-black hover:opacity-90 rounded-full w-full font-bold h-16 mt-6">
+              <button
+                onClick={handleGoogleAuth}
+                className="btn bg-light-black text-white text-base opacity-100 hover:bg-light-black hover:opacity-90 rounded-full w-full font-bold h-16 mt-6"
+              >
                 <FcGoogle className="text-2xl" />
                 Sign up with Google
               </button>
