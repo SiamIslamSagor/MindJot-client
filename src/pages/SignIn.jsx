@@ -13,7 +13,7 @@ const SignIn = () => {
       <Toaster></Toaster>
 
       {/* main */}
-      <div className="px-5">
+      <main className="px-5">
         <div className="mt-20 xsm:mt-28 lg:mt-40 rounded-md max-w-md mx-auto w-full">
           <h2 className="text-3xl my-10 font-bold">Sign in to MindJot</h2>
           <button className="btn bg-white opacity-90 hover:bg-white hover:opacity-100 rounded-full w-full font-bold h-16 text-base">
@@ -55,7 +55,7 @@ const SignIn = () => {
             </Link>
           </p>
         </div>
-      </div>
+      </main>
     </div>
   );
 };
