@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const MainDash = () => {
   return (
-    <div className="flex flex-col item-center justify-center">
+    <div className="min-h-screen bg-base-200">
       <Outlet />
     </div>
   );

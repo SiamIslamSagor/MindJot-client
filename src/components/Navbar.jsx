@@ -35,10 +35,10 @@ const Navbar = () => {
         console.log("clicked");
         logout()
           .then(() => {
-            toast.success("Log out successfully.", { id: toastId });
+            toast.success("Sign out successfully.", { id: toastId });
           })
           .catch(() => {
-            toast.error("Log out Failed.", { id: toastId });
+            toast.error("Sign out Failed.", { id: toastId });
           });
       }
     });
@@ -83,8 +83,18 @@ const Navbar = () => {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 xl:w-16 rounded-full">
-                    <img alt="author image" src={user?.photoURL} />
+                  <div className="overflow-hidden rounded-full">
+                    <Slide
+                      delay={700}
+                      direction="down"
+                      className="w-10 xl:w-16 rounded-full"
+                    >
+                      <img
+                        className="rounded-full"
+                        alt="author image"
+                        src={user?.photoURL}
+                      />
+                    </Slide>
                   </div>
                 </div>
                 <ul className="max-sm:-mr-28 mt-3 z-[1] p-2 py-10 md:p-6 border shadow menu menu-sm dropdown-content bg-base-100 rounded-box max-lg:w-80 lg:w-96 text-center font-medium text-s-color">

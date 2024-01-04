@@ -1,7 +1,8 @@
-import { IoMdAddCircleOutline } from "react-icons/io";
-import { FaRegCircleUser } from "react-icons/fa6";
-import { PiNotePencil } from "react-icons/pi";
-import { FaPenAlt } from "react-icons/fa";
+import { RxDashboard } from "react-icons/rx";
+import { MdAddTask } from "react-icons/md";
+import { CiViewList } from "react-icons/ci";
+import { PiNoteDuotone } from "react-icons/pi";
+import { TbListDetails } from "react-icons/tb";
 
 export const navLinks = [
   {
@@ -23,34 +24,43 @@ export const navLinks = [
 ];
 
 export const dashboardLinks = [
+  // user info
   {
-    title: "Dashboard",
-    links: [
-      {
-        name: "Profile",
-        icon: FaRegCircleUser,
-      },
-      {
-        name: "Create Task",
-        icon: IoMdAddCircleOutline,
-      },
-      {
-        name: "Manage Task",
-        icon: PiNotePencil,
-      },
-    ],
+    heading: "Dashboard",
+    link: "/dashboard",
+    icon: RxDashboard,
+  },
+  // task
+  {
+    heading: "Add Todo",
+    link: "/addTodo",
+    icon: MdAddTask,
   },
   {
-    title: "Thoughts",
-    links: [
-      {
-        name: "Write Thought",
-        icon: FaPenAlt,
-      },
-      {
-        name: "All Thought",
-        icon: IoMdAddCircleOutline,
-      },
-    ],
+    heading: "Manage Task",
+    link: "/manageTask",
+    icon: CiViewList,
+  },
+  // thought
+  {
+    heading: "Write Thought",
+    link: "/writeThought",
+    icon: PiNoteDuotone,
+  },
+  {
+    heading: "All Thoughts",
+    link: "/allThoughts",
+    icon: TbListDetails,
+  },
+  // blog
+  {
+    heading: "Create Blog",
+    link: "/createBlog",
+    icon: RxDashboard,
+  },
+  {
+    heading: "All Blogs",
+    link: "/allBlogs",
+    icon: RxDashboard,
   },
 ];

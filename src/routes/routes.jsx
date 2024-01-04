@@ -5,6 +5,8 @@ import ErrorPage from "../pages/ErrPage";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import Auth from "../layout/Auth";
+import MainDash from "../layout/MainDash";
+import Dashboard from "../pages/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -36,14 +38,14 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     errorElement: <ErrorPage />,
-    element: <Auth />,
+    element: <MainDash />,
     children: [
       {
-        path: "signIn",
-        element: <SignIn />,
+        index: true,
+        element: <Dashboard />,
       },
       {
-        path: "signUp",
+        path: "createTodo",
         element: <SignUp />,
       },
     ],
