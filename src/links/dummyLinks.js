@@ -19,7 +19,7 @@ export const navLinks = [
   },
   {
     name: "Dashboard",
-    path: "/mainDash",
+    path: "/mainDash/dashboard",
   },
 ];
 
@@ -32,8 +32,8 @@ export const dashboardLinks = [
   },
   // task
   {
-    heading: "Add Todo",
-    path: "/addTodo",
+    heading: "Add Task",
+    path: "/addTask",
     icon: MdAddTask,
   },
   {

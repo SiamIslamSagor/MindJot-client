@@ -7,7 +7,12 @@ import SignUp from "../pages/SignUp";
 import Auth from "../layout/Auth";
 import MainDash from "../layout/MainDash";
 import Dashboard from "../pages/Dashboard";
-import AddTodo from "../pages/AddTodo";
+import ManageTodo from "../pages/ManageTodo";
+import AddTask from "../pages/AddTask";
+import WriteThought from "../pages/WriteThought";
+import AllThoughts from "../pages/AllThoughts";
+import CreateBlog from "../pages/CreateBlog";
+import AllBlogs from "../pages/AllBlogs";
 
 export const router = createBrowserRouter([
   {
@@ -42,12 +47,32 @@ export const router = createBrowserRouter([
     element: <MainDash />,
     children: [
       {
-        index: true,
+        path: "dashboard",
         element: <Dashboard />,
       },
       {
-        path: "addTodo",
-        element: <AddTodo />,
+        path: "addTask",
+        element: <AddTask />,
+      },
+      {
+        path: "manageTask",
+        element: <ManageTodo />,
+      },
+      {
+        path: "writeThought",
+        element: <WriteThought />,
+      },
+      {
+        path: "allThoughts",
+        element: <AllThoughts />,
+      },
+      {
+        path: "createBlog",
+        element: <CreateBlog />,
+      },
+      {
+        path: "allBlogs",
+        element: <AllBlogs />,
       },
     ],
   },
