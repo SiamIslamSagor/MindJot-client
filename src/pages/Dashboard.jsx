@@ -7,7 +7,7 @@ const Dashboard = () => {
         <title>MindJot | Dashboard</title>
       </Helmet>
       <h1 className="text-4xl text-center font-bold">Dashboard</h1>
-      <div className=" h-[300vh] sm:bg-light-blue"></div>
+      {/* <div className=" h-[300vh] sm:bg-light-blue"></div> */}
     </div>
   );
 };
