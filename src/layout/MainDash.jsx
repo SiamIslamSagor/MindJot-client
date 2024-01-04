@@ -16,7 +16,7 @@ const MainDash = () => {
       </Helmet>
       <div className="flex gap-10 min-h-screen">
         {/* sidebar */}
-        <div className="max-w-sm w-full bg-base-100">
+        <div className="max-w-sm w-full bg-base-100 h-screen sticky top-0 max-lg:hidden">
           <div className="max-w-64 mx-auto">
             {/* logo */}
             <div className="my-16">
@@ -31,8 +31,8 @@ const MainDash = () => {
                   isActive ? activeLinkStyle : normalLinkStyle
                 }
               >
-                <div className="flex items-center gap-5 text-2xl  p-4">
-                  {<link.icon className="text-3xl" />}
+                <div className="flex items-center gap-3 md:gap-5 max-sm:text-lg max-lg:text-xl  lg:text-2xl p-3 md:p-4">
+                  {<link.icon className=" max-lg:text-lg lg:text-3xl" />}
                   {link.heading}
                 </div>
               </NavLink>
