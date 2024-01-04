@@ -1,6 +1,6 @@
 import { RxDashboard } from "react-icons/rx";
 import { MdAddTask } from "react-icons/md";
-import { CiViewList } from "react-icons/ci";
+import { GoTasklist } from "react-icons/go";
 import { PiNoteDuotone } from "react-icons/pi";
 import { TbListDetails } from "react-icons/tb";
 
@@ -39,7 +39,7 @@ export const dashboardLinks = [
   {
     heading: "Manage Task",
     link: "/manageTask",
-    icon: CiViewList,
+    icon: GoTasklist,
   },
   // thought
   {
