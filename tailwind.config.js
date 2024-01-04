@@ -9,6 +9,7 @@ export default {
         "light-rose": "#ffb8b8",
         "deep-green": "#38d39f",
         "light-black": "#1b1a2e",
+        "gray-black": "#737791",
       },
       keyframes: {
         "move-x": {

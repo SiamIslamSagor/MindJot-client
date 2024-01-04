@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp";
 import Auth from "../layout/Auth";
 import MainDash from "../layout/MainDash";
 import Dashboard from "../pages/Dashboard";
+import AddTodo from "../pages/AddTodo";
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "/mainDash",
     errorElement: <ErrorPage />,
     element: <MainDash />,
     children: [
@@ -45,8 +46,8 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "createTodo",
-        element: <SignUp />,
+        path: "addTodo",
+        element: <AddTodo />,
       },
     ],
   },

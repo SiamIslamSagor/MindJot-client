@@ -19,7 +19,7 @@ export const navLinks = [
   },
   {
     name: "Dashboard",
-    path: "/dashboard",
+    path: "/mainDash",
   },
 ];
 
@@ -27,40 +27,40 @@ export const dashboardLinks = [
   // user info
   {
     heading: "Dashboard",
-    link: "/dashboard",
+    path: "/dashboard",
     icon: RxDashboard,
   },
   // task
   {
     heading: "Add Todo",
-    link: "/addTodo",
+    path: "/addTodo",
     icon: MdAddTask,
   },
   {
     heading: "Manage Task",
-    link: "/manageTask",
+    path: "/manageTask",
     icon: GoTasklist,
   },
   // thought
   {
     heading: "Write Thought",
-    link: "/writeThought",
+    path: "/writeThought",
     icon: PiNoteDuotone,
   },
   {
     heading: "All Thoughts",
-    link: "/allThoughts",
+    path: "/allThoughts",
     icon: TbListDetails,
   },
   // blog
   {
     heading: "Create Blog",
-    link: "/createBlog",
+    path: "/createBlog",
     icon: RxDashboard,
   },
   {
     heading: "All Blogs",
-    link: "/allBlogs",
+    path: "/allBlogs",
     icon: RxDashboard,
   },
 ];
