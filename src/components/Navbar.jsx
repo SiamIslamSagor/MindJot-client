@@ -46,9 +46,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed w-full">
+    <div className="fixed w-full z-[100]">
       <Toaster></Toaster>
-      <div className="w-full fixed shadow-xl bg-white z-[100]">
+      <div className="w-full z-[100] fixed shadow-xl bg-white ">
         <div className="flex items-center justify-between py-5 w-full px-2 max-xsm:px-2 xsm:px-5 sm:px-10 md:px-20 xl:px-24 2xl:px-28">
           {/* logo */}
           <Logo />
@@ -70,7 +70,7 @@ const Navbar = () => {
 
             {/* dropdown for max-xl */}
             {user && (
-              <div className="dropdown dropdown-end">
+              <div className="dropdown z-50 dropdown-end">
                 <div
                   tabIndex={0}
                   role="button"
@@ -144,15 +144,15 @@ const Navbar = () => {
       </div>
       {/* max-lg routes */}
       <div
-        className={`lg:hidden py-20 absolute w-full max-lg:flex flex-col items-center justify-center duration-500 ease-out bg-deep-green z-[99] ${
-          isOpen ? "top-[88px]" : "-top-[100vh]"
+        className={`lg:hidden py-20 absolute w-full max-lg:flex flex-col items-center justify-center duration-500 ease-out bgdeep-green backdrop-blur-[300px] border-b-2 z-[80] ${
+          isOpen ? "top-[58px]" : "-top-[100vh]"
         } `}
       >
         {navLinks.map((link, index) => (
           <Fade
             direction="up"
             duration={index * 500}
-            className="bg-deep-green w-full text-3xl text-center my-5"
+            className="bgdeep-green w-full text-3xl text-center my-5"
             key={link.name}
           >
             <Link
