@@ -1,17 +1,6 @@
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Tooltip,
-  useDisclosure,
-} from "@nextui-org/react";
+import { Button, Tooltip, useDisclosure } from "@nextui-org/react";
 import { Bounce } from "react-awesome-reveal";
 import { IoMdAdd } from "react-icons/io";
-import { HiDotsVertical } from "react-icons/hi";
-import { AiOutlineDelete } from "react-icons/ai";
-import { FiEdit3 } from "react-icons/fi";
 import StickyForm from "../components/StickyForm";
 import StickyNote from "../components/StickyNote";
 
@@ -37,7 +26,7 @@ const StickyWall = () => {
       </div>
 
       {/* create new sticky note button with proper style and animation */}
-      <div className="fixed bottom-32 sm:bottom-40 lg:bottom-16 right-4 xsm:right-6 sm:right-10">
+      <div className="fixed bottom-32 sm:bottom-40 lg:bottom-16 right-4 xsm:right-6 sm:right-10 z-[70]">
         <Bounce duration={1200}>
           <Tooltip content={"Create new sticky note"}>
             <Button

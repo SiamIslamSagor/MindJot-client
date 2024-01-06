@@ -6,13 +6,41 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  Checkbox,
   Input,
-  Link,
   Textarea,
+  Select,
+  SelectItem,
 } from "@nextui-org/react";
+import { stickyColors } from "../links/dummyLinks";
+import { IoMdAdd } from "react-icons/io";
+import { useRef, useState } from "react";
+import useDataContext from "../hooks/useDataContext";
 
 const StickyForm = ({ isOpen, onOpenChange }) => {
+  // state
+  const [descriptionText, setDescriptionText] = useState("");
+  const [noteThemeColor, setNoteThemeColor] = useState("black");
+
+  //   hook
+  const { user } = useDataContext();
+
+  // ref
+  const descriptionRef = useRef(null);
+
+  //   handler
+  // form submit handler
+  const onSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      heading: form.heading.value || "not given",
+      description: descriptionText.replace(/\n/g, " ") || "not given",
+      noteThemeColor: noteThemeColor || "not given",
+      email: (user && user?.email) || "not given",
+    };
+    console.log(data);
+  };
+
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
       <ModalContent>
@@ -22,37 +50,54 @@ const StickyForm = ({ isOpen, onOpenChange }) => {
               Sticky Note
             </ModalHeader>
             <ModalBody>
-              <Input
-                autoFocus
-                label="Heading"
-                placeholder="Enter your note heading"
-                variant="bordered"
-              />
-              <Textarea
-                label="Description"
-                placeholder="Enter your note description"
-              />
-              <div className="flex py-2 px-1 justify-between">
-                <Checkbox
-                  classNames={{
-                    label: "text-small",
-                  }}
+              <form onSubmit={onSubmit} className="">
+                <div className="w-full mb-4">
+                  <Input
+                    isRequired
+                    autoFocus
+                    label="Heading"
+                    name="heading"
+                    placeholder="Enter your note heading"
+                    variant="bordered"
+                  />
+                </div>
+                <div className="w-full mb-4">
+                  <Textarea
+                    ref={descriptionRef}
+                    onChange={() =>
+                      setDescriptionText(descriptionRef.current.value)
+                    }
+                    isRequired
+                    label="Description"
+                    placeholder="Enter your note description"
+                  />
+                </div>
+                <div className="w-full mb-4">
+                  <Select
+                    isRequired
+                    onChange={e => {
+                      setNoteThemeColor(e.target.value);
+                    }}
+                    label="Select note theme color"
+                    placeholder="Select note theme color"
+                    defaultSelectedKeys={["black"]}
+                  >
+                    {stickyColors.map(color => (
+                      <SelectItem key={color} value={color}>
+                        {color}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                </div>
+                <Button
+                  color="primary"
+                  type="submit"
+                  endContent={<IoMdAdd className="text-lg" />}
                 >
-                  Remember me
-                </Checkbox>
-                <Link color="primary" href="#" size="sm">
-                  Forgot password?
-                </Link>
-              </div>
+                  Add Note
+                </Button>
+              </form>
             </ModalBody>
-            <ModalFooter>
-              <Button color="danger" variant="flat" onPress={onClose}>
-                Close
-              </Button>
-              <Button color="primary" onPress={onClose}>
-                Sign in
-              </Button>
-            </ModalFooter>
           </>
         )}
       </ModalContent>

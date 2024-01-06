@@ -37,7 +37,6 @@ const StickyNote = ({ color = "green", heading, description }) => {
           <DropdownTrigger>
             <Button isIconOnly radius="full" variant="light">
               <HiDotsVertical
-                //   className={"text-white"}
                 className={`text-xl ${
                   color === "light pink" ? "" : "text-white"
                 }`}
