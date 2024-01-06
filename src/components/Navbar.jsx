@@ -74,7 +74,7 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost max-xl:btn-circle avatar"
+                  className="max-xl:btn max-xl:btn-ghost max-xl:btn-circle avatar"
                 >
                   <div className="overflow-hidden flex items-center justify-center rounded-full ">
                     <Slide
