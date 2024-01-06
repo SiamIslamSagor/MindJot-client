@@ -51,7 +51,7 @@ const MainDash = () => {
           </div>
         </div>
         {/* max-lg navigation bar */}
-        <div className="p-1 sm:p-4 fixed bottom-0 lg:hidden w-full">
+        <div className="p-1 sm:p-4 fixed bottom-0 lg:hidden w-full z-[75]">
           <div className="flex items-center justify-center gap-1 xsm:gap-5 sm:gap-8 border-4 p-5 rounded-full backdrop-blur-[300px]">
             {dashboardLinks.map(link => (
               <NavLink

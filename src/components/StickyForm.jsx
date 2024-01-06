@@ -9,6 +9,7 @@ import {
   Checkbox,
   Input,
   Link,
+  Textarea,
 } from "@nextui-org/react";
 
 const StickyForm = ({ isOpen, onOpenChange }) => {
@@ -17,19 +18,19 @@ const StickyForm = ({ isOpen, onOpenChange }) => {
       <ModalContent>
         {onClose => (
           <>
-            <ModalHeader className="flex flex-col gap-1">Log in</ModalHeader>
+            <ModalHeader className="flex flex-col gap-1">
+              Sticky Note
+            </ModalHeader>
             <ModalBody>
               <Input
                 autoFocus
-                label="Email"
-                placeholder="Enter your email"
+                label="Heading"
+                placeholder="Enter your note heading"
                 variant="bordered"
               />
-              <Input
-                label="Password"
-                placeholder="Enter your password"
-                type="password"
-                variant="bordered"
+              <Textarea
+                label="Description"
+                placeholder="Enter your note description"
               />
               <div className="flex py-2 px-1 justify-between">
                 <Checkbox

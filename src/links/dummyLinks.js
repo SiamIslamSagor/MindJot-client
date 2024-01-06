@@ -75,3 +75,5 @@ export const tabletAndMobileActiveLinkStyle =
   "scale-100 duration-300 opacity-100 p-2 sm:p-3 rounded-full bg-gray-100  bg-gray-200 shadow-2xl border border-gray-300";
 export const tabletAndMobileNormalLinkStyle =
   "scale-75 duration-300 opacity-50 p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200";
+
+export const stickyColors = ["green", "blue", "black", "pink", "light pink"];
