@@ -20,7 +20,7 @@ const Navbar = () => {
   const { user, logout } = useDataContext();
 
   // handler
-  const handleSignUp = () => {
+  const handleSignOut = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be log out this account form this device!",
@@ -98,14 +98,14 @@ const Navbar = () => {
                     Email: {user?.email}
                   </li>
                   <button
-                    onClick={handleSignUp}
+                    onClick={handleSignOut}
                     className="btn max-lg:btn-sm lg:text-base opacity-90  bg-deep-rose text-white hover:bg-deep-rose hover:opacity-100 shadow-2xl  hover:drop-shadow-lg duration-1000 sm:mr-4 my-2 mt-5"
                   >
                     Edit Profile{" "}
                     <FaArrowRightFromBracket className="lg:text-lg" />
                   </button>
                   <button
-                    onClick={handleSignUp}
+                    onClick={handleSignOut}
                     className="btn max-lg:btn-sm lg:text-base opacity-90  bg-light-blue text-white hover:bg-light-blue hover:opacity-100 shadow-2xl  hover:drop-shadow-lg duration-1000 sm:mr-4 my-2"
                   >
                     Sign out <FaArrowRightFromBracket className="lg:text-lg" />
@@ -118,7 +118,7 @@ const Navbar = () => {
             <Bounce delay={2200} className="">
               {user ? (
                 <button
-                  onClick={handleSignUp}
+                  onClick={handleSignOut}
                   className="btn max-xl:btn-sm xl:text-base opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4"
                 >
                   Sign out <FaArrowRightFromBracket className="lg:text-lg" />

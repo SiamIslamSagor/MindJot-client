@@ -1,32 +1,29 @@
 import {
   Navbar,
-  NavbarBrand,
-  NavbarMenuToggle,
-  NavbarMenuItem,
-  NavbarMenu,
   NavbarContent,
   NavbarItem,
-  Link,
-  Button,
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
+  DropdownMenu,
+  Avatar,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
 } from "@nextui-org/react";
+import { NavLink } from "react-router-dom";
+import useDataContext from "../hooks/useDataContext";
 import { useState } from "react";
-import Logo from "./Logo";
+import { navLinks } from "../links/dummyLinks";
+
+// import Logo from "./Logo";
 
 const NextNav = () => {
+  const { user } = useDataContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+  const activeLinkStyle = "font-bold text-light-blue text-lg md:text-2xl";
+  const normalLinkStyle = "text-lg md:text-2xl";
 
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
@@ -36,61 +33,59 @@ const NextNav = () => {
         />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3" justify="center">
-        <NavbarBrand>
-          <Logo />
-        </NavbarBrand>
+      <NavbarContent
+        className="hidden sm:flex gap-4 md:gap-6 lg:gap-4 xl:gap-10 "
+        justify="center"
+      >
+        {navLinks.map((link, index) => (
+          <NavbarItem key={`${link.path}-${index}:lg routes`}>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? activeLinkStyle : normalLinkStyle
+              }
+              to={link.path}
+            >
+              {link.name}
+            </NavLink>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand>
-          <Logo />
-        </NavbarBrand>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
+      <NavbarContent as="div" justify="end">
+        <Dropdown>
+          <DropdownTrigger>
+            <Avatar
+              isBordered
+              as="button"
+              className="transition-transform"
+              color="primary"
+              size="sm"
+              src={user && user?.photoURL}
+            />
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Static Actions">
+            <DropdownItem key={user?.displayName}>
+              {user?.displayName}
+            </DropdownItem>
+            <DropdownItem key={user?.email}>{user?.email}</DropdownItem>
+            <DropdownItem key="sign out" className="text-danger" color="danger">
+              Sign Out
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
+        {navLinks.map((link, index) => (
+          <NavbarMenuItem key={`${link.path}-${index}:max-lg routes`}>
+            <NavLink
               className="w-full"
-              color={
-                index === 2
-                  ? "warning"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              href="#"
+              color={"foreground"}
+              to={link.path}
               size="lg"
             >
-              {item}
-            </Link>
+              {link.name}
+            </NavLink>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
