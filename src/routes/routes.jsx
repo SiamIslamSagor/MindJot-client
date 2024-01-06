@@ -8,11 +8,11 @@ import Auth from "../layout/Auth";
 import MainDash from "../layout/MainDash";
 import Dashboard from "../pages/Dashboard";
 import ManageTodo from "../pages/ManageTodo";
-import AddTask from "../pages/AddTask";
 import WriteThought from "../pages/WriteThought";
 import AllThoughts from "../pages/AllThoughts";
 import CreateBlog from "../pages/CreateBlog";
 import AllBlogs from "../pages/AllBlogs";
+import StickyWall from "../pages/StickyWall";
 
 export const router = createBrowserRouter([
   {
@@ -51,8 +51,8 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "addTask",
-        element: <AddTask />,
+        path: "stickyWall",
+        element: <StickyWall />,
       },
       {
         path: "manageTask",

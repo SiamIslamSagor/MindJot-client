@@ -32,15 +32,16 @@ export const dashboardLinks = [
   },
   // task
   {
-    heading: "Add Task",
-    path: "/addTask",
-    icon: MdAddTask,
-  },
-  {
     heading: "Manage Task",
     path: "/manageTask",
     icon: GoTasklist,
   },
+  {
+    heading: "Sticky Wall",
+    path: "/stickyWall",
+    icon: MdAddTask,
+  },
+
   // thought
   {
     heading: "Write Thought",
