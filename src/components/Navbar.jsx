@@ -1,5 +1,5 @@
 import { Sling as Hamburger } from "hamburger-react";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Bounce, Fade, Slide } from "react-awesome-reveal";
 import { navLinks } from "../links/dummyLinks";
 import { Link, NavLink } from "react-router-dom";
@@ -11,10 +11,18 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import Logo from "./Logo";
+import {
+  Avatar,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@nextui-org/react";
 
 const Navbar = () => {
   // state
   const [isOpen, setOpen] = useState(false);
+  const [avatarSize, setAvatarSize] = useState("sm");
 
   // hook
   const { user, logout } = useDataContext();
@@ -45,6 +53,23 @@ const Navbar = () => {
     });
   };
 
+  const handleResize = useCallback(() => {
+    const width = window.innerWidth;
+
+    if (width >= 1280) {
+      setAvatarSize("lg");
+    } else setAvatarSize("sm");
+  }, []);
+
+  // side effect
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
+
   return (
     <div className="fixed w-full z-[100]">
       <Toaster></Toaster>
@@ -69,7 +94,7 @@ const Navbar = () => {
             </Fade>
 
             {/* dropdown for max-xl */}
-            {user && (
+            {/*  {user && (
               <div className="dropdown z-50 dropdown-end">
                 <div
                   tabIndex={0}
@@ -112,14 +137,43 @@ const Navbar = () => {
                   </button>
                 </ul>
               </div>
-            )}
+            )} */}
+            {/*  */}
+            <div className=" max-2xl:mx-4">
+              <Dropdown>
+                <DropdownTrigger>
+                  <Avatar
+                    isBordered
+                    as="button"
+                    className="transition-transform"
+                    color="primary"
+                    size={avatarSize}
+                    src={user && user?.photoURL}
+                  />
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Static Actions">
+                  <DropdownItem key={user?.displayName}>
+                    {user?.displayName}
+                  </DropdownItem>
+                  <DropdownItem key={user?.email}>{user?.email}</DropdownItem>
+                  <DropdownItem
+                    key="sign out"
+                    className="text-danger"
+                    color="danger"
+                  >
+                    Sign Out
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+            {/*  */}
 
             {/* authentication action */}
             <Bounce delay={2200} className="">
               {user ? (
                 <button
                   onClick={handleSignOut}
-                  className="btn max-xl:btn-sm xl:text-base opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4"
+                  className="btn max-xl:btn-sm xl:text-base opacity-80 duration-300 bg-light-blue text-white hover:bg-light-blue hover:opacity-100 sm:mr-4 max-2xsm:hidden"
                 >
                   Sign out <FaArrowRightFromBracket className="lg:text-lg" />
                 </button>

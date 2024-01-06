@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 const Logo = () => {
   return (
     <div>
-      <div className="max-xsm:text-4xl xsm:text-5xl font-[1000]">
+      <div className="max-2xsm:text-3xl max-xsm:text-4xl xsm:text-5xl font-[1000]">
         <Fade className="inline-block text-center" cascade damping={0.1}>
           <span>M</span>
           <span className="text-light-blue">i</span> <span>n</span>

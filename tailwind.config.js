@@ -46,6 +46,8 @@ export default {
       },
     },
     screens: {
+      "2xsm": "375px",
+      // => @media (min-width: 440px) { ... }
       xsm: "440px",
       // => @media (min-width: 440px) { ... }
 
