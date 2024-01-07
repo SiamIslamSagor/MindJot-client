@@ -94,51 +94,6 @@ const Navbar = () => {
             </Fade>
 
             {/* dropdown for max-xl */}
-            {/*  {user && (
-              <div className="dropdown z-50 dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="max-xl:btn max-xl:btn-ghost max-xl:btn-circle avatar"
-                >
-                  <div className="overflow-hidden flex items-center justify-center rounded-full ">
-                    <Slide
-                      delay={700}
-                      direction="down"
-                      className="w-10 h-10 xl:w-16 xl:h-16 rounded-full "
-                    >
-                      <img
-                        className="w-10 h-10 xl:w-16 xl:h-16 rounded-full"
-                        alt="author image"
-                        src={user?.photoURL}
-                      />
-                    </Slide>
-                  </div>
-                </div>
-                <ul className="max-sm:-mr-28 mt-3 z-[1] p-2 py-10 md:p-6 border shadow menu menu-sm dropdown-content bg-base-100 rounded-box max-lg:w-80 lg:w-96 text-center font-medium text-s-color">
-                  <li className="justify-center mt-2 p-2 text-center w-full max-w-full leading-3 lg:text-base">
-                    Name: {user?.displayName}
-                  </li>
-                  <li className="justify-center -mt-2 leading-3 p-2 text-center tracking-tight  lg:text-base">
-                    Email: {user?.email}
-                  </li>
-                  <button
-                    onClick={handleSignOut}
-                    className="btn max-lg:btn-sm lg:text-base opacity-90  bg-deep-rose text-white hover:bg-deep-rose hover:opacity-100 shadow-2xl  hover:drop-shadow-lg duration-1000 sm:mr-4 my-2 mt-5"
-                  >
-                    Edit Profile{" "}
-                    <FaArrowRightFromBracket className="lg:text-lg" />
-                  </button>
-                  <button
-                    onClick={handleSignOut}
-                    className="btn max-lg:btn-sm lg:text-base opacity-90  bg-light-blue text-white hover:bg-light-blue hover:opacity-100 shadow-2xl  hover:drop-shadow-lg duration-1000 sm:mr-4 my-2"
-                  >
-                    Sign out <FaArrowRightFromBracket className="lg:text-lg" />
-                  </button>
-                </ul>
-              </div>
-            )} */}
-            {/*  */}
             <div className=" max-2xl:mx-4">
               <Dropdown>
                 <DropdownTrigger>
@@ -198,7 +153,7 @@ const Navbar = () => {
       </div>
       {/* max-lg routes */}
       <div
-        className={`lg:hidden py-20 absolute w-full max-lg:flex flex-col items-center justify-center duration-500 ease-out bgdeep-green backdrop-blur-[300px] border-b-2 z-[80] ${
+        className={`lg:hidden py-20 absolute w-full max-lg:flex flex-col items-center justify-center duration-500 ease-out backdrop-blur-[300px] border-b-2 z-[80] ${
           isOpen ? "top-[58px]" : "-top-[100vh]"
         } `}
       >
@@ -206,7 +161,7 @@ const Navbar = () => {
           <Fade
             direction="up"
             duration={index * 500}
-            className="bgdeep-green w-full text-3xl text-center my-5"
+            className="w-full text-3xl text-center my-5"
             key={link.name}
           >
             <Link

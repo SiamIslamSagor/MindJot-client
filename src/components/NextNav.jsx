@@ -15,6 +15,7 @@ import { NavLink } from "react-router-dom";
 import useDataContext from "../hooks/useDataContext";
 import { useState } from "react";
 import { navLinks } from "../links/dummyLinks";
+import Logo from "./Logo";
 
 // import Logo from "./Logo";
 
@@ -31,6 +32,10 @@ const NextNav = () => {
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
+      </NavbarContent>
+
+      <NavbarContent className="lg:hidden" justify="center">
+        <Logo />
       </NavbarContent>
 
       <NavbarContent
@@ -51,7 +56,7 @@ const NextNav = () => {
         ))}
       </NavbarContent>
 
-      <NavbarContent as="div" justify="end">
+      <NavbarContent as="div" justify="center">
         <Dropdown>
           <DropdownTrigger>
             <Avatar
