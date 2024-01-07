@@ -14,7 +14,7 @@ const StickyWall = () => {
         <h1 className="text-4xl text-center font-bold my-10">StickyWall</h1>
 
         {/* sticky notes */}
-        <div className="flex justify-center gap-4 flex-wrap">
+        <div className="flex justify-center gap-10 flex-wrap">
           <StickyNote
             color="blue"
             description={
