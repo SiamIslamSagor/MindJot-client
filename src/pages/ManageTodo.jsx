@@ -1,11 +1,11 @@
-import { Fade } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 import CreateButton from "../components/CreateButton";
 import { Accordion, AccordionItem, ScrollShadow } from "@nextui-org/react";
 import ThreeDot from "../components/ThreeDot";
 import { taskData } from "../links/dummyLinks";
 import TaskHeading from "../components/TaskHeading";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaAngleLeft } from "react-icons/fa6";
 
@@ -25,6 +25,29 @@ const onDragEnd = result => {
 const ManageTodo = () => {
   const divRef = useRef(null);
   console.log(divRef);
+
+  // custom accordion js
+
+  const handlerAccordion = e => {
+    const descriptionDivClass = e.target.nextElementSibling.classList;
+    const rotateIcnClass = e.target.childNodes[2].classList;
+
+    // console.log(e.target.childNodes);
+
+    if (descriptionDivClass.contains("hidden")) {
+      console.log("hidden element, please visible");
+      descriptionDivClass.remove("hidden");
+      rotateIcnClass.add("-rotate-90");
+    } else {
+      console.log("visible element, please hidden");
+      descriptionDivClass.add("hidden");
+      rotateIcnClass.remove("-rotate-90");
+    }
+
+    // console.log(descriptionDiv.classList.add("hidden"));
+  };
+
+  useEffect(() => {}, []);
   return (
     <DragDropContext onDragEnd={result => onDragEnd(result)}>
       <div>
@@ -103,23 +126,29 @@ const ManageTodo = () => {
               <div className="bg-deepgreen space-y-2">
                 {taskData
                   .filter(task => task.status === "todo")
-                  .map((task, index) => (
+                  .map(task => (
                     <div
-                      className="max-w-80 bg-white p-4 rounded-lg"
+                      className="max-w-80 bg-white p-4 rounded-lg duration-400"
                       key={task._id}
                     >
-                      <h3 className="flex items-center justify-between">
-                        {task.heading} <FaAngleLeft />
-                      </h3>
-                      <div>
-                        <p>{task.description}</p>
-                        <hr />
-                        <p className="flex items-center justify-between">
-                          status: {task.status}{" "}
-                          <span>
-                            <HiDotsVertical />
-                          </span>
-                        </p>
+                      <h4
+                        onClick={handlerAccordion}
+                        className="flex items-center justify-between text-lg   cursor-pointer py-1 select-none"
+                      >
+                        {task.heading}{" "}
+                        <FaAngleLeft className="duration-300 pointer-events-none" />
+                      </h4>
+                      <div className="description Div hidden overflow-hidden">
+                        <Fade direction="down">
+                          <p className="py-3">{task.description}</p>
+                          <hr className="mb-2" />
+                          <p className="flex items-center justify-between">
+                            status: {task.status}{" "}
+                            <span>
+                              <HiDotsVertical />
+                            </span>
+                          </p>
+                        </Fade>
                       </div>
                     </div>
                   ))}
