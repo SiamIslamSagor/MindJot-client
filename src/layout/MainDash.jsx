@@ -75,7 +75,7 @@ const MainDash = () => {
           </div>
         </div>
         {/* outlet */}
-        <div className="w-full bg-white">
+        <div className="w-full bg-white overflow-hidden">
           <NextNav />
           <Outlet />
           <div className="lg:hidden h-24 sm:h-36 relative"></div>
