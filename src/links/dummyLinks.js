@@ -76,7 +76,7 @@ export const tabletAndMobileActiveLinkStyle =
 export const tabletAndMobileNormalLinkStyle =
   "scale-75 duration-300 opacity-50 p-2 sm:p-3 rounded-full bg-gray-100 hover:bg-gray-200";
 
-export const stickyColors = ["green", "blue", "black", "pink", "light pink"];
+export const stickyColors = ["green", "blue", "black", "pink", "dark-black"];
 
 export const taskData = [
   {
@@ -260,5 +260,78 @@ export const taskData = [
     description:
       "Initiate the hiring process for additional team members required for project expansion.",
     status: "ongoing",
+  },
+];
+
+export const stickyNotesData = [
+  {
+    _id: "note1",
+    themeColor: "green",
+    heading: "Meeting Agenda",
+    description:
+      "Discuss project updates and assign tasks for the upcoming sprint.",
+  },
+  {
+    _id: "note2",
+    themeColor: "blue",
+    heading: "Client Call",
+    description:
+      "Scheduled client call at 2:00 PM. Prepare project status and key points for discussion.",
+  },
+  {
+    _id: "note3",
+    themeColor: "black",
+    heading: "Code Review",
+    description:
+      "Perform code review for recent feature implementation. Check for best practices and optimizations.",
+  },
+  {
+    _id: "note4",
+    themeColor: "pink",
+    heading: "Team Building",
+    description:
+      "Plan team-building activities for next month to enhance collaboration and morale.",
+  },
+  {
+    _id: "note5",
+    themeColor: "light-pink",
+    heading: "Birthday Celebration",
+    description:
+      "Buy a birthday cake for John's birthday on Friday. Decorate the breakroom with balloons.",
+  },
+  {
+    _id: "note6",
+    themeColor: "green",
+    heading: "Project Deadline",
+    description:
+      "Project X deadline approaching. Ensure all tasks are on track and meet the timeline.",
+  },
+  {
+    _id: "note7",
+    themeColor: "blue",
+    heading: "Sprint Planning",
+    description:
+      "Prepare for the next sprint planning meeting. Review backlog and prioritize user stories.",
+  },
+  {
+    _id: "note8",
+    themeColor: "black",
+    heading: "Bug Fixing",
+    description:
+      "Address and fix reported bugs. Test thoroughly before deploying the bug fixes.",
+  },
+  {
+    _id: "note9",
+    themeColor: "pink",
+    heading: "Team Outing",
+    description:
+      "Explore options for a team outing. Gather preferences and finalize the plan.",
+  },
+  {
+    _id: "note10",
+    themeColor: "light-pink",
+    heading: "Training Session",
+    description:
+      "Schedule a training session for the new team members joining next week.",
   },
 ];

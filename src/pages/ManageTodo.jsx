@@ -1,11 +1,10 @@
-import { Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import CreateButton from "../components/CreateButton";
-import { Accordion, AccordionItem, ScrollShadow } from "@nextui-org/react";
-import ThreeDot from "../components/ThreeDot";
+import { ScrollShadow } from "@nextui-org/react";
 import { taskData } from "../links/dummyLinks";
 import TaskHeading from "../components/TaskHeading";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaAngleLeft } from "react-icons/fa6";
 
@@ -17,34 +16,24 @@ const onDragEnd = result => {
     console.log("source.droppableId !== destination.droppableId");
     console.log(result);
   } else {
-    console.log("else block (source.droppableId !== destination.droppableId)");
+    console.log("else block (in same status div)");
     console.log(result);
   }
 };
 
 const ManageTodo = () => {
-  const divRef = useRef(null);
-  console.log(divRef);
-
   // custom accordion js
 
   const handlerAccordion = e => {
     const descriptionDivClass = e.target.nextElementSibling.classList;
     const rotateIcnClass = e.target.childNodes[2].classList;
-
-    // console.log(e.target.childNodes);
-
     if (descriptionDivClass.contains("hidden")) {
-      console.log("hidden element, please visible");
       descriptionDivClass.remove("hidden");
       rotateIcnClass.add("-rotate-90");
     } else {
-      console.log("visible element, please hidden");
       descriptionDivClass.add("hidden");
       rotateIcnClass.remove("-rotate-90");
     }
-
-    // console.log(descriptionDiv.classList.add("hidden"));
   };
 
   useEffect(() => {}, []);
@@ -54,18 +43,15 @@ const ManageTodo = () => {
         <Fade>
           <div className="flex justify-center flex-wrap gap-10 my-20">
             {/* todo */}
-            <ScrollShadow
+            {/* <ScrollShadow
               orientation="horizontal"
               hideScrollBar={true}
               as={"div"}
               className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4 duration-500"
             >
-              <div
-                ref={divRef}
-                className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"
-              ></div>
+              <div className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
               <TaskHeading text={"Todo"} taskType={"todo"} />
-              <Droppable droppableId="todo-area" key={"todo-area"}>
+              <Droppable droppableId="todo-area-old" key={"todo-area"}>
                 {provided => (
                   <Accordion
                     ref={provided.innerRef}
@@ -110,25 +96,215 @@ const ManageTodo = () => {
                   </Accordion>
                 )}
               </Droppable>
-            </ScrollShadow>
-            {/* todo */}
+            </ScrollShadow> */}
+            {/* todo with customized accordion */}
             <ScrollShadow
               orientation="horizontal"
               hideScrollBar={true}
               as={"div"}
               className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4 duration-500"
             >
-              <div
-                ref={divRef}
-                className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"
-              ></div>
+              <div className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
               <TaskHeading text={"Todo"} taskType={"todo"} />
-              <div className="bg-deepgreen space-y-2">
+              <Droppable droppableId="todo-area" key={"todo-area"}>
+                {(provided, snapshot) => (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className={`space-y-2 duration-400 rounded-lg ${
+                      snapshot.isDraggingOver && "bg-base-300"
+                    }`}
+                  >
+                    {taskData
+                      .filter(task => task.status === "todo")
+                      .map((task, index) => (
+                        <Draggable
+                          key={task._id}
+                          draggableId={task._id}
+                          index={index}
+                        >
+                          {(provided, snapshot) => (
+                            <div
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              className={`max-w-[350px] mx-auto bg-white shadow-2xl p-4 rounded-2xl duration-400 select-none ${
+                                snapshot.isDragging ? "drop-shadow-2xl" : ""
+                              }`}
+                            >
+                              <h4
+                                onClick={handlerAccordion}
+                                className="flex items-center justify-between text-lg   cursor-pointer py-1 select-none"
+                              >
+                                {task.heading}{" "}
+                                <FaAngleLeft className="duration-300 pointer-events-none opacity-50 text-base" />
+                              </h4>
+                              <div className="description Div hidden overflow-hidden">
+                                <Fade direction="down">
+                                  <p className="py-3">{task.description}</p>
+                                  <hr className="mb-2" />
+                                  <p className="flex items-center justify-between">
+                                    status: {task.status}{" "}
+                                    <span>
+                                      <HiDotsVertical />
+                                    </span>
+                                  </p>
+                                </Fade>
+                              </div>
+                            </div>
+                          )}
+                        </Draggable>
+                      ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </ScrollShadow>
+            {/* ongoing with customized accordion */}
+            <ScrollShadow
+              orientation="horizontal"
+              hideScrollBar={true}
+              as={"div"}
+              className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4 duration-500"
+            >
+              <div className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
+              <TaskHeading text={"Ongoing"} taskType={"ongoing"} />
+              <Droppable droppableId="ongoing-area" key={"ongoing-area"}>
+                {(provided, snapshot) => (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className={`space-y-2 duration-400 rounded-lg ${
+                      snapshot.isDraggingOver && "bg-base-300"
+                    }`}
+                  >
+                    {taskData
+                      .filter(task => task.status === "ongoing")
+                      .map((task, index) => (
+                        <Draggable
+                          key={task._id}
+                          draggableId={task._id}
+                          index={index}
+                        >
+                          {(provided, snapshot) => (
+                            <div
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              className={`max-w-[350px] mx-auto bg-white shadow-2xl p-4 rounded-2xl duration-400 select-none ${
+                                snapshot.isDragging ? "drop-shadow-2xl" : ""
+                              }`}
+                            >
+                              <h4
+                                onClick={handlerAccordion}
+                                className="flex items-center justify-between text-lg   cursor-pointer py-1 select-none"
+                              >
+                                {task.heading}{" "}
+                                <FaAngleLeft className="duration-300 pointer-events-none opacity-50 text-base" />
+                              </h4>
+                              <div className="description Div hidden overflow-hidden">
+                                <Fade direction="down">
+                                  <p className="py-3">{task.description}</p>
+                                  <hr className="mb-2" />
+                                  <p className="flex items-center justify-between">
+                                    status: {task.status}{" "}
+                                    <span>
+                                      <HiDotsVertical />
+                                    </span>
+                                  </p>
+                                </Fade>
+                              </div>
+                            </div>
+                          )}
+                        </Draggable>
+                      ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </ScrollShadow>
+            {/* completed with customized accordion */}
+            <ScrollShadow
+              orientation="horizontal"
+              hideScrollBar={true}
+              as={"div"}
+              className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4 duration-500"
+            >
+              <div className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
+              <TaskHeading text={"Completed"} taskType={"completed"} />
+              <Droppable droppableId="completed-area" key={"completed-area"}>
+                {(provided, snapshot) => (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className={`space-y-2 duration-400 rounded-lg ${
+                      snapshot.isDraggingOver && "bg-base-300"
+                    }`}
+                  >
+                    {taskData
+                      .filter(task => task.status === "completed")
+                      .map((task, index) => (
+                        <Draggable
+                          key={task._id}
+                          draggableId={task._id}
+                          index={index}
+                        >
+                          {(provided, snapshot) => (
+                            <div
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              className={`max-w-[350px] mx-auto bg-white shadow-2xl p-4 rounded-2xl duration-400 select-none ${
+                                snapshot.isDragging ? "drop-shadow-2xl" : ""
+                              }`}
+                            >
+                              <h4
+                                onClick={handlerAccordion}
+                                className="flex items-center justify-between text-lg   cursor-pointer py-1 select-none"
+                              >
+                                {task.heading}{" "}
+                                <FaAngleLeft className="duration-300 pointer-events-none opacity-50 text-base" />
+                              </h4>
+                              <div className="description Div hidden overflow-hidden">
+                                <Fade direction="down">
+                                  <p className="py-3">{task.description}</p>
+                                  <hr className="mb-2" />
+                                  <p className="flex items-center justify-between">
+                                    status: {task.status}{" "}
+                                    <span>
+                                      <HiDotsVertical />
+                                    </span>
+                                  </p>
+                                </Fade>
+                              </div>
+                            </div>
+                          )}
+                        </Draggable>
+                      ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </ScrollShadow>
+
+            {/*  */}
+            {/*  */}
+            {/*  */}
+            {/* ongoing with customized accordion */}
+            {/* <ScrollShadow
+              orientation="horizontal"
+              hideScrollBar={true}
+              as={"div"}
+              className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4 duration-500"
+            >
+              <div className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
+              <TaskHeading text={"Ongoing"} taskType={"ongoing"} />
+              <div className=" space-y-2">
                 {taskData
-                  .filter(task => task.status === "todo")
+                  .filter(task => task.status === "ongoing")
                   .map(task => (
                     <div
-                      className="max-w-80 bg-white p-4 rounded-lg duration-400"
+                      className="max-w-[350px] mx-auto bg-white shadow-2xl p-4 rounded-2xl duration-400"
                       key={task._id}
                     >
                       <h4
@@ -136,7 +312,7 @@ const ManageTodo = () => {
                         className="flex items-center justify-between text-lg   cursor-pointer py-1 select-none"
                       >
                         {task.heading}{" "}
-                        <FaAngleLeft className="duration-300 pointer-events-none" />
+                        <FaAngleLeft className="duration-300 pointer-events-none opacity-50 text-base" />
                       </h4>
                       <div className="description Div hidden overflow-hidden">
                         <Fade direction="down">
@@ -153,64 +329,9 @@ const ManageTodo = () => {
                     </div>
                   ))}
               </div>
-            </ScrollShadow>
-            {/* ongoing */}
-            {/* <ScrollShadow
-              orientation="horizontal"
-              hideScrollBar={true}
-              as={"div"}
-              className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4 duration-500"
-            >
-              <div className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
-              <TaskHeading text={"Ongoing"} taskType={"ongoing"} />
-              <Droppable droppableId="ongoing-area" key={"ongoing-area"}>
-                {provided => (
-                  <Accordion
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                    variant="splitted"
-                  >
-                    {taskData
-                      .filter(task => task.status === "ongoing")
-                      .map((task, index) => (
-                        <AccordionItem
-                          key={task._id}
-                          aria-label={task.heading}
-                          title={task.heading}
-                          className="max-w-[350px] mx-2 relative "
-                        >
-                          <Draggable
-                            key={task._id}
-                            draggableId={task._id}
-                            index={index}
-                          >
-                            {(provided, snapshot) => (
-                              <p
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                className={`pb-12 ${
-                                  snapshot.isDragging ? "bg-red-200" : ""
-                                }`}
-                                style={{
-                                  userSelect: "none",
-                                  ...provided.draggableProps.style,
-                                }}
-                              >
-                                {task.description}
-                              </p>
-                            )}
-                          </Draggable>
-                          <ThreeDot />
-                          {provided.placeholder}
-                        </AccordionItem>
-                      ))}
-                  </Accordion>
-                )}
-              </Droppable>
             </ScrollShadow> */}
-            {/* completed */}
-            {/*  <ScrollShadow
+            {/* completed with customized accordion */}
+            {/* <ScrollShadow
               orientation="horizontal"
               hideScrollBar={true}
               as={"div"}
@@ -218,238 +339,37 @@ const ManageTodo = () => {
             >
               <div className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
               <TaskHeading text={"Completed"} taskType={"completed"} />
-              <Accordion variant="splitted">
+              <div className=" space-y-2">
                 {taskData
                   .filter(task => task.status === "completed")
                   .map(task => (
-                    <AccordionItem
+                    <div
+                      className="max-w-[350px] mx-auto bg-white shadow-2xl p-4 rounded-2xl duration-400"
                       key={task._id}
-                      aria-label={task.heading}
-                      title={task.heading}
-                      className="max-w-[350px] mx-2 relative "
                     >
-                      <p className="pb-12"> {task.description}</p>
-                      <ThreeDot />
-                    </AccordionItem>
+                      <h4
+                        onClick={handlerAccordion}
+                        className="flex items-center justify-between text-lg   cursor-pointer py-1 select-none"
+                      >
+                        {task.heading}{" "}
+                        <FaAngleLeft className="duration-300 pointer-events-none opacity-50 text-base" />
+                      </h4>
+                      <div className="description Div hidden overflow-hidden">
+                        <Fade direction="down">
+                          <p className="py-3">{task.description}</p>
+                          <hr className="mb-2" />
+                          <p className="flex items-center justify-between">
+                            status: {task.status}{" "}
+                            <span>
+                              <HiDotsVertical />
+                            </span>
+                          </p>
+                        </Fade>
+                      </div>
+                    </div>
                   ))}
-              </Accordion>
+              </div>
             </ScrollShadow> */}
-            {/* <ScrollShadow
-            orientation="horizontal"
-            hideScrollBar={true}
-            as={"div"}
-            className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4"
-          >
-            <div className="h-6 rounded-tmd sticky -top-4 bg-base-200"></div>
-            <h3 className="bg-deep-rose rounded-lg text-white text-center p-3 text-2xl sticky top-0 max-2xsm:min-w-72 max-xsm:min-w-80 xsm:min-w-96">
-              Todo
-            </h3>
-            <ul>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-              <li className="text-center my-2 bg-deep-rose   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Todo
-              </li>
-            </ul>
-          </ScrollShadow> */}
-            {/* <div className="bg-base-200 min-h-96 max-h-[65vh] min-w-96  rounded-xl p-4">
-            <h3 className="bg-deep-green rounded-lg text-white text-center p-3 text-2xl">
-              Ongoing
-            </h3>
-            <ul>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-              <li className="text-center my-2 bg-deep-green   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Ongoing
-              </li>
-            </ul>
-          </div>
-          <div className="bg-base-200 min-h-96 max-h-[65vh] min-w-96  rounded-xl p-4">
-            <h3 className="bg-light-blue rounded-lg text-white text-center p-3 text-2xl">
-              Completed
-            </h3>
-            <ul>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-              <li className="text-center my-2 bg-light-blue   font-bold text-lg p-2 rounded-md bg-opacity-25">
-                Completed
-              </li>
-            </ul>
-          </div> */}
           </div>
         </Fade>
         <CreateButton tooltip="Create new todo" />

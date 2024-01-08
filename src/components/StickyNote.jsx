@@ -23,16 +23,30 @@ const StickyNote = ({ color = "green", heading, description }) => {
           ? "bg-light-black"
           : color === "pink"
           ? "bg-deep-rose"
-          : color === "light pink"
-          ? "bg-light-rose"
+          : color === "dark-black"
+          ? "bg-black"
           : "bg-black"
-      } ${color === "light pink" ? "" : "text-white"} rounded-lg`}
+      } text-white rounded-lg`}
       orientation="horizontal"
       hideScrollBar={true}
       as={"div"}
     >
       <div className="relative ">
-        <div className="flex items-center  mb-2 justify-between">
+        <div
+          className={`sticky -top-5  flex items-center  mb-2 justify-between py-2 ${
+            color === "green"
+              ? "bg-deep-green"
+              : color === "blue"
+              ? "bg-light-blue"
+              : color === "black"
+              ? "bg-light-black"
+              : color === "pink"
+              ? "bg-deep-rose"
+              : color === "dark-black"
+              ? "bg-black"
+              : "bg-black"
+          } `}
+        >
           <h3 className="text-center text-2xl md:font-bold max-w-72">
             {heading ? heading : "Heading ..."}
           </h3>{" "}
@@ -41,11 +55,7 @@ const StickyNote = ({ color = "green", heading, description }) => {
             <Dropdown>
               <DropdownTrigger>
                 <Button isIconOnly radius="full" variant="light">
-                  <HiDotsVertical
-                    className={`text-xl ${
-                      color === "light pink" ? "" : "text-white"
-                    }`}
-                  />
+                  <HiDotsVertical className={`text-xl text-white`} />
                 </Button>
               </DropdownTrigger>
               <DropdownMenu aria-label="Static Actions">
