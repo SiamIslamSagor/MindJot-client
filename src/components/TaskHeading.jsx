@@ -10,7 +10,7 @@ const TaskHeading = ({ text, taskType }) => {
           : taskType === "completed"
           ? "bg-light-blue"
           : ""
-      }  rounded-lg text-white text-center p-3 text-2xl sticky top-0 max-2xsm:min-w-72 max-xsm:min-w-80 xsm:min-w-96 z-[70] mb-5`}
+      }  rounded-lg text-white text-center p-3 text-2xl sticky top-0 max-2xsm:min-w-72 max-xsm:min-w-80 xsm:min-w-96 z-[30] mb-5`}
     >
       {text}
     </h3>
