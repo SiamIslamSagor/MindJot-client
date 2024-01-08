@@ -6,6 +6,8 @@ import { taskData } from "../links/dummyLinks";
 import TaskHeading from "../components/TaskHeading";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useRef } from "react";
+import { HiDotsVertical } from "react-icons/hi";
+import { FaAngleLeft } from "react-icons/fa6";
 
 const onDragEnd = result => {
   if (!result.destination) return;
@@ -86,8 +88,45 @@ const ManageTodo = () => {
                 )}
               </Droppable>
             </ScrollShadow>
-            {/* ongoing */}
+            {/* todo */}
             <ScrollShadow
+              orientation="horizontal"
+              hideScrollBar={true}
+              as={"div"}
+              className="bg-base-200 min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl p-4 duration-500"
+            >
+              <div
+                ref={divRef}
+                className="z-10 h-6 rounded-tmd sticky -top-4 bg-base-200"
+              ></div>
+              <TaskHeading text={"Todo"} taskType={"todo"} />
+              <div className="bg-deepgreen space-y-2">
+                {taskData
+                  .filter(task => task.status === "todo")
+                  .map((task, index) => (
+                    <div
+                      className="max-w-80 bg-white p-4 rounded-lg"
+                      key={task._id}
+                    >
+                      <h3 className="flex items-center justify-between">
+                        {task.heading} <FaAngleLeft />
+                      </h3>
+                      <div>
+                        <p>{task.description}</p>
+                        <hr />
+                        <p className="flex items-center justify-between">
+                          status: {task.status}{" "}
+                          <span>
+                            <HiDotsVertical />
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </ScrollShadow>
+            {/* ongoing */}
+            {/* <ScrollShadow
               orientation="horizontal"
               hideScrollBar={true}
               as={"div"}
@@ -140,9 +179,9 @@ const ManageTodo = () => {
                   </Accordion>
                 )}
               </Droppable>
-            </ScrollShadow>
+            </ScrollShadow> */}
             {/* completed */}
-            <ScrollShadow
+            {/*  <ScrollShadow
               orientation="horizontal"
               hideScrollBar={true}
               as={"div"}
@@ -165,7 +204,7 @@ const ManageTodo = () => {
                     </AccordionItem>
                   ))}
               </Accordion>
-            </ScrollShadow>
+            </ScrollShadow> */}
             {/* <ScrollShadow
             orientation="horizontal"
             hideScrollBar={true}
