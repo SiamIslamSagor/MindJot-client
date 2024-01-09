@@ -294,7 +294,7 @@ export const stickyNotesData = [
   },
   {
     _id: "note5",
-    themeColor: "light-pink",
+    themeColor: "pure-black",
     heading: "Birthday Celebration",
     description:
       "Buy a birthday cake for John's birthday on Friday. Decorate the breakroom with balloons.",
@@ -329,7 +329,7 @@ export const stickyNotesData = [
   },
   {
     _id: "note10",
-    themeColor: "light-pink",
+    themeColor: "pure-black",
     heading: "Training Session",
     description:
       "Schedule a training session for the new team members joining next week.",
