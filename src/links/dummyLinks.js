@@ -81,6 +81,7 @@ export const stickyColors = ["green", "blue", "black", "pink", "dark-black"];
 export const taskData = [
   {
     _id: "abc12345",
+    email: "msiamislam12345@gmail.com",
     heading: "Complete Project Proposal",
     description:
       "Draft and finalize the project proposal for client presentation.",
@@ -88,6 +89,7 @@ export const taskData = [
   },
   {
     _id: "def67890",
+    email: "msiamislam12345@gmail.com",
     heading: "Develop Homepage",
     description:
       "Code the homepage layout and design according to client's specifications.",
@@ -95,6 +97,7 @@ export const taskData = [
   },
   {
     _id: "ghi54321",
+    email: "msiamislam12345@gmail.com",
     heading: "Review Codebase",
     description:
       "Conduct a thorough code review to identify and fix any bugs or issues.",
@@ -102,6 +105,7 @@ export const taskData = [
   },
   {
     _id: "jkl98765",
+    email: "msiamislam12345@gmail.com",
     heading: "Client Meeting",
     description:
       "Schedule and conduct a meeting with the client to discuss project progress.",
@@ -109,6 +113,7 @@ export const taskData = [
   },
   {
     _id: "mno24680",
+    email: "msiamislam12345@gmail.com",
     heading: "Testing Phase",
     description:
       "Execute comprehensive testing to ensure the functionality and stability of the application.",
@@ -116,6 +121,7 @@ export const taskData = [
   },
   {
     _id: "pqr13579",
+    email: "msiamislam12345@gmail.com",
     heading: "Update Documentation",
     description:
       "Revise and update project documentation to reflect recent changes and improvements.",
@@ -123,6 +129,7 @@ export const taskData = [
   },
   {
     _id: "stu24680",
+    email: "msiamislam12345@gmail.com",
     heading: "Deploy to Production",
     description:
       "Prepare the application for production deployment and ensure a smooth rollout.",
@@ -130,6 +137,7 @@ export const taskData = [
   },
   {
     _id: "vwx98765",
+    email: "msiamislam12345@gmail.com",
     heading: "User Training",
     description:
       "Conduct training sessions for end-users to familiarize them with the new features.",
@@ -137,6 +145,7 @@ export const taskData = [
   },
   {
     _id: "yzab1234",
+    email: "msiamislam12345@gmail.com",
     heading: "Bug Fixes",
     description:
       "Address and fix any reported bugs or issues in the application.",
@@ -144,6 +153,7 @@ export const taskData = [
   },
   {
     _id: "cdef5678",
+    email: "msiamislam12345@gmail.com",
     heading: "Optimize Performance",
     description:
       "Identify and implement optimizations to enhance the overall performance of the application.",
@@ -151,6 +161,7 @@ export const taskData = [
   },
   {
     _id: "ghij9012",
+    email: "msiamislam12345@gmail.com",
     heading: "Marketing Campaign",
     description:
       "Plan and launch a marketing campaign to promote the newly released features.",
@@ -158,6 +169,7 @@ export const taskData = [
   },
   {
     _id: "klmn3456",
+    email: "msiamislam12345@gmail.com",
     heading: "Data Backup",
     description:
       "Ensure regular and secure backups of the application data to prevent data loss.",
@@ -165,6 +177,7 @@ export const taskData = [
   },
   {
     _id: "opqr7890",
+    email: "msiamislam12345@gmail.com",
     heading: "Customer Support",
     description:
       "Provide ongoing customer support and address user inquiries and issues.",
@@ -172,6 +185,7 @@ export const taskData = [
   },
   {
     _id: "stuv2345",
+    email: "msiamislam12345@gmail.com",
     heading: "UI/UX Refinement",
     description:
       "Refine the user interface and user experience based on user feedback and usability testing.",
@@ -179,6 +193,7 @@ export const taskData = [
   },
   {
     _id: "wxyz6789",
+    email: "msiamislam12345@gmail.com",
     heading: "Feature Development",
     description:
       "Plan and implement additional features based on user requirements and market trends.",
@@ -186,6 +201,7 @@ export const taskData = [
   },
   {
     _id: "1234abcd",
+    email: "msiamislam12345@gmail.com",
     heading: "Security Audit",
     description:
       "Conduct a thorough security audit to identify and address potential vulnerabilities.",
@@ -193,6 +209,7 @@ export const taskData = [
   },
   {
     _id: "5678efgh",
+    email: "msiamislam12345@gmail.com",
     heading: "Collaboration with Design Team",
     description:
       "Collaborate with the design team to ensure consistency in visual elements and branding.",
@@ -200,6 +217,7 @@ export const taskData = [
   },
   {
     _id: "9012ijkl",
+    email: "msiamislam12345@gmail.com",
     heading: "Server Maintenance",
     description:
       "Perform regular maintenance tasks to optimize server performance and security.",
@@ -207,6 +225,7 @@ export const taskData = [
   },
   {
     _id: "3456mnop",
+    email: "msiamislam12345@gmail.com",
     heading: "Product Demo",
     description:
       "Prepare and conduct a product demo for potential clients and stakeholders.",
@@ -214,6 +233,7 @@ export const taskData = [
   },
   {
     _id: "7890qrst",
+    email: "msiamislam12345@gmail.com",
     heading: "Financial Reporting",
     description:
       "Generate and review financial reports related to project expenditures and revenue.",
@@ -221,6 +241,7 @@ export const taskData = [
   },
   {
     _id: "abcd1234",
+    email: "msiamislam12345@gmail.com",
     heading: "Team Meeting",
     description:
       "Organize a team meeting to discuss project updates and address any team-related issues.",
@@ -228,6 +249,7 @@ export const taskData = [
   },
   {
     _id: "efgh5678",
+    email: "msiamislam12345@gmail.com",
     heading: "Mobile App Development",
     description:
       "Start development of the mobile application version of the project.",
@@ -235,6 +257,7 @@ export const taskData = [
   },
   {
     _id: "ijkl9012",
+    email: "msiamislam12345@gmail.com",
     heading: "Legal Compliance Check",
     description:
       "Ensure the project adheres to all relevant legal and compliance requirements.",
@@ -242,6 +265,7 @@ export const taskData = [
   },
   {
     _id: "mnop3456",
+    email: "msiamislam12345@gmail.com",
     heading: "Social Media Marketing",
     description:
       "Create and execute a social media marketing strategy to increase project visibility.",
@@ -249,6 +273,7 @@ export const taskData = [
   },
   {
     _id: "qrst7890",
+    email: "msiamislam12345@gmail.com",
     heading: "Quality Assurance",
     description:
       "Conduct a comprehensive quality assurance process to ensure a bug-free release.",
@@ -256,6 +281,7 @@ export const taskData = [
   },
   {
     _id: "uvwx2345",
+    email: "msiamislam12345@gmail.com",
     heading: "Hiring Process",
     description:
       "Initiate the hiring process for additional team members required for project expansion.",
@@ -297,7 +323,7 @@ export const stickyNotesData = [
     themeColor: "pure-black",
     heading: "Birthday Celebration",
     description:
-      "Buy a birthday cake for John's birthday on Friday. Decorate the breakroom with balloons.",
+      "Buy a birthday cake for John's birthday on Friday. Decorate the breadroot with balloons.",
   },
   {
     _id: "note6",
