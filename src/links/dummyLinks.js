@@ -80,7 +80,7 @@ export const stickyColors = ["green", "blue", "black", "pink", "dark-black"];
 
 export const taskData = [
   {
-    _id: "abc12345",
+    index: 1,
     email: "msiamislam12345@gmail.com",
     heading: "Complete Project Proposal",
     description:
@@ -88,7 +88,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "def67890",
+    index: 2,
     email: "msiamislam12345@gmail.com",
     heading: "Develop Homepage",
     description:
@@ -96,7 +96,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "ghi54321",
+    index: 3,
     email: "msiamislam12345@gmail.com",
     heading: "Review Codebase",
     description:
@@ -104,7 +104,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "jkl98765",
+    index: 4,
     email: "msiamislam12345@gmail.com",
     heading: "Client Meeting",
     description:
@@ -112,7 +112,7 @@ export const taskData = [
     status: "completed",
   },
   {
-    _id: "mno24680",
+    index: 5,
     email: "msiamislam12345@gmail.com",
     heading: "Testing Phase",
     description:
@@ -120,7 +120,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "pqr13579",
+    index: 6,
     email: "msiamislam12345@gmail.com",
     heading: "Update Documentation",
     description:
@@ -128,7 +128,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "stu24680",
+    index: 7,
     email: "msiamislam12345@gmail.com",
     heading: "Deploy to Production",
     description:
@@ -136,7 +136,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "vwx98765",
+    index: 8,
     email: "msiamislam12345@gmail.com",
     heading: "User Training",
     description:
@@ -144,7 +144,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "yzab1234",
+    index: 9,
     email: "msiamislam12345@gmail.com",
     heading: "Bug Fixes",
     description:
@@ -152,7 +152,7 @@ export const taskData = [
     status: "completed",
   },
   {
-    _id: "cdef5678",
+    index: 10,
     email: "msiamislam12345@gmail.com",
     heading: "Optimize Performance",
     description:
@@ -160,7 +160,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "ghij9012",
+    index: 11,
     email: "msiamislam12345@gmail.com",
     heading: "Marketing Campaign",
     description:
@@ -168,7 +168,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "klmn3456",
+    index: 12,
     email: "msiamislam12345@gmail.com",
     heading: "Data Backup",
     description:
@@ -176,7 +176,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "opqr7890",
+    index: 13,
     email: "msiamislam12345@gmail.com",
     heading: "Customer Support",
     description:
@@ -184,7 +184,7 @@ export const taskData = [
     status: "completed",
   },
   {
-    _id: "stuv2345",
+    index: 14,
     email: "msiamislam12345@gmail.com",
     heading: "UI/UX Refinement",
     description:
@@ -192,7 +192,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "wxyz6789",
+    index: 15,
     email: "msiamislam12345@gmail.com",
     heading: "Feature Development",
     description:
@@ -200,7 +200,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "1234abcd",
+    index: 16,
     email: "msiamislam12345@gmail.com",
     heading: "Security Audit",
     description:
@@ -208,7 +208,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "5678efgh",
+    index: 17,
     email: "msiamislam12345@gmail.com",
     heading: "Collaboration with Design Team",
     description:
@@ -216,7 +216,7 @@ export const taskData = [
     status: "completed",
   },
   {
-    _id: "9012ijkl",
+    index: 18,
     email: "msiamislam12345@gmail.com",
     heading: "Server Maintenance",
     description:
@@ -224,7 +224,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "3456mnop",
+    index: 19,
     email: "msiamislam12345@gmail.com",
     heading: "Product Demo",
     description:
@@ -232,7 +232,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "7890qrst",
+    index: 20,
     email: "msiamislam12345@gmail.com",
     heading: "Financial Reporting",
     description:
@@ -240,7 +240,7 @@ export const taskData = [
     status: "completed",
   },
   {
-    _id: "abcd1234",
+    index: 21,
     email: "msiamislam12345@gmail.com",
     heading: "Team Meeting",
     description:
@@ -248,7 +248,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "efgh5678",
+    index: 22,
     email: "msiamislam12345@gmail.com",
     heading: "Mobile App Development",
     description:
@@ -256,7 +256,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "ijkl9012",
+    index: 23,
     email: "msiamislam12345@gmail.com",
     heading: "Legal Compliance Check",
     description:
@@ -264,7 +264,7 @@ export const taskData = [
     status: "ongoing",
   },
   {
-    _id: "mnop3456",
+    index: 24,
     email: "msiamislam12345@gmail.com",
     heading: "Social Media Marketing",
     description:
@@ -272,7 +272,7 @@ export const taskData = [
     status: "todo",
   },
   {
-    _id: "qrst7890",
+    index: 25,
     email: "msiamislam12345@gmail.com",
     heading: "Quality Assurance",
     description:
@@ -280,7 +280,7 @@ export const taskData = [
     status: "completed",
   },
   {
-    _id: "uvwx2345",
+    index: 26,
     email: "msiamislam12345@gmail.com",
     heading: "Hiring Process",
     description:
