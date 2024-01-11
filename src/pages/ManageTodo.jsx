@@ -1,12 +1,14 @@
 import { Fade } from "react-awesome-reveal";
 import CreateButton from "../components/CreateButton";
 import { ScrollShadow } from "@nextui-org/react";
-import { taskData } from "../links/dummyLinks";
 import TaskHeading from "../components/TaskHeading";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useEffect } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaAngleLeft } from "react-icons/fa6";
+import { useTasks } from "../hooks/useTasks";
+import axios from "axios";
+import useDataContext from "../hooks/useDataContext";
 
 const onDragEnd = result => {
   if (!result.destination) return;
@@ -22,8 +24,12 @@ const onDragEnd = result => {
 };
 
 const ManageTodo = () => {
-  // custom accordion js
+  // hooks
+  const { allTasks } = useTasks();
+  console.log(allTasks);
+  const { user } = useDataContext();
 
+  // custom accordion js
   const handlerAccordion = e => {
     const descriptionDivClass = e.target.nextElementSibling.classList;
     const rotateIcnClass = e.target.childNodes[2].classList;
@@ -36,7 +42,11 @@ const ManageTodo = () => {
     }
   };
 
-  useEffect(() => {}, []);
+  /* useEffect(() => {
+    axios.get(`http://localhost:5000/all-task/${user?.email}`).then(res => {
+      console.log(res.data);
+    });
+  }, [user?.email]); */
   return (
     <DragDropContext onDragEnd={result => onDragEnd(result)}>
       <div>
@@ -59,7 +69,7 @@ const ManageTodo = () => {
                     }`}
                   >
                     <TaskHeading text={"Todo"} taskType={"todo"} />
-                    {taskData
+                    {allTasks
                       .filter(task => task.status === "todo")
                       .map((task, index) => (
                         <Draggable
@@ -121,7 +131,7 @@ const ManageTodo = () => {
                     }`}
                   >
                     <TaskHeading text={"Ongoing"} taskType={"ongoing"} />
-                    {taskData
+                    {allTasks
                       .filter(task => task.status === "ongoing")
                       .map((task, index) => (
                         <Draggable
@@ -183,7 +193,7 @@ const ManageTodo = () => {
                     }`}
                   >
                     <TaskHeading text={"Completed"} taskType={"completed"} />
-                    {taskData
+                    {allTasks
                       .filter(task => task.status === "completed")
                       .map((task, index) => (
                         <Draggable

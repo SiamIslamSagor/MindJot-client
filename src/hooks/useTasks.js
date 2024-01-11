@@ -14,7 +14,7 @@ export const useTasks = () => {
   } = useQuery({
     queryKey: ["allTasks"],
     queryFn: () =>
-      axiosPublic.get(`all-task/${user && user?.email}`).then(res => {
+      axiosPublic.get(`/all-task/${user && user?.email}`).then(res => {
         return res.data;
       }),
     staleTime: 1000 * 10,

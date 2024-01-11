@@ -13,6 +13,7 @@ import AllThoughts from "../pages/AllThoughts";
 import CreateBlog from "../pages/CreateBlog";
 import AllBlogs from "../pages/AllBlogs";
 import StickyWall from "../pages/StickyWall";
+import PrivetRoute from "../hoc/PrivetRoute";
 
 export const router = createBrowserRouter([
   {
@@ -48,31 +49,59 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivetRoute>
+            <Dashboard />
+          </PrivetRoute>
+        ),
       },
       {
         path: "stickyWall",
-        element: <StickyWall />,
+        element: (
+          <PrivetRoute>
+            <StickyWall />
+          </PrivetRoute>
+        ),
       },
       {
         path: "manageTask",
-        element: <ManageTodo />,
+        element: (
+          <PrivetRoute>
+            <ManageTodo />
+          </PrivetRoute>
+        ),
       },
       {
         path: "writeThought",
-        element: <WriteThought />,
+        element: (
+          <PrivetRoute>
+            <WriteThought />
+          </PrivetRoute>
+        ),
       },
       {
         path: "allThoughts",
-        element: <AllThoughts />,
+        element: (
+          <PrivetRoute>
+            <AllThoughts />
+          </PrivetRoute>
+        ),
       },
       {
         path: "createBlog",
-        element: <CreateBlog />,
+        element: (
+          <PrivetRoute>
+            <CreateBlog />
+          </PrivetRoute>
+        ),
       },
       {
         path: "allBlogs",
-        element: <AllBlogs />,
+        element: (
+          <PrivetRoute>
+            <AllBlogs />
+          </PrivetRoute>
+        ),
       },
     ],
   },
