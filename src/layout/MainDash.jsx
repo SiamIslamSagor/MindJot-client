@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet-async";
 import { Tooltip } from "@nextui-org/react";
 import { Fade } from "react-awesome-reveal";
 import NextNav from "../components/NextNav";
+import { Toaster } from "react-hot-toast";
 
 const MainDash = () => {
   return (
@@ -77,6 +78,7 @@ const MainDash = () => {
         {/* outlet */}
         <div className="w-full bg-white overflow-hidden">
           <NextNav />
+          <Toaster />
           <Outlet />
           <div className="lg:hidden h-24 sm:h-36 relative"></div>
         </div>

@@ -1,25 +1,25 @@
 import { Fade } from "react-awesome-reveal";
 import CreateButton from "../components/CreateButton";
-import { ScrollShadow } from "@nextui-org/react";
+import { ScrollShadow, useDisclosure } from "@nextui-org/react";
 import TaskHeading from "../components/TaskHeading";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { useEffect } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaAngleLeft } from "react-icons/fa6";
 import { useTasks } from "../hooks/useTasks";
-import axios from "axios";
 import useDataContext from "../hooks/useDataContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast, { Toaster } from "react-hot-toast";
 import { useAxiosPublic } from "../hooks/useAxiosPublic";
+import TaskForm from "../components/TaskForm";
 
 const ManageTodo = () => {
   // hooks
   const { user } = useDataContext();
   const { allTasks, refetch } = useTasks();
-  console.log(allTasks);
   const axiosPublic = useAxiosPublic();
   const queryClient = useQueryClient();
+  // nextUI modal hook
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   // mutations
   const { mutate } = useMutation({
@@ -283,7 +283,9 @@ const ManageTodo = () => {
             </ScrollShadow>
           </div>
         </Fade>
-        <CreateButton tooltip="Create new todo" />
+        <CreateButton onOpen={onOpen} tooltip="Create new todo" />
+
+        <TaskForm isOpen={isOpen} onOpenChange={onOpenChange} />
       </div>
     </DragDropContext>
   );
