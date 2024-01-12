@@ -15,7 +15,7 @@ import TaskForm from "../components/TaskForm";
 const ManageTodo = () => {
   // hooks
   const { user } = useDataContext();
-  const { allTasks, refetch } = useTasks();
+  const { allTasks } = useTasks();
   const axiosPublic = useAxiosPublic();
   const queryClient = useQueryClient();
   // nextUI modal hook
@@ -26,7 +26,7 @@ const ManageTodo = () => {
     mutationFn: async data => {
       const toastId = toast.loading("processing...");
       return axiosPublic
-        .patch(`/update-task/${data.draggableId}`, data)
+        .patch(`/update-task-status/${data.draggableId}`, data)
         .then(res => {
           console.log(res.data);
           toast.success("Task updated successfully.", {

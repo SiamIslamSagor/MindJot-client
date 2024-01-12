@@ -43,7 +43,7 @@ const StickyForm = ({ isOpen, onOpenChange }) => {
   return (
     <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
       <ModalContent>
-        {onClose => (
+        {() => (
           <>
             <ModalHeader className="flex flex-col gap-1">
               Sticky Note
