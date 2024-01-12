@@ -9,25 +9,67 @@ import { FaAngleLeft } from "react-icons/fa6";
 import { useTasks } from "../hooks/useTasks";
 import axios from "axios";
 import useDataContext from "../hooks/useDataContext";
-
-const onDragEnd = result => {
-  if (!result.destination) return;
-  const { source, destination } = result;
-
-  if (source.droppableId !== destination.droppableId) {
-    console.log("source.droppableId !== destination.droppableId");
-    console.log(result);
-  } else {
-    console.log("else block (in same status div)");
-    console.log(result);
-  }
-};
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast, { Toaster } from "react-hot-toast";
+import { useAxiosPublic } from "../hooks/useAxiosPublic";
 
 const ManageTodo = () => {
   // hooks
-  const { allTasks } = useTasks();
-  console.log(allTasks);
   const { user } = useDataContext();
+  const { allTasks, refetch } = useTasks();
+  console.log(allTasks);
+  const axiosPublic = useAxiosPublic();
+  const queryClient = useQueryClient();
+
+  // mutations
+  const { mutate } = useMutation({
+    mutationFn: async data => {
+      const toastId = toast.loading("processing...");
+      return axiosPublic
+        .patch(`/update-task/${data.draggableId}`, data)
+        .then(res => {
+          console.log(res.data);
+          toast.success("Task updated successfully.", {
+            id: toastId,
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          toast.error("Task updated failed.", {
+            id: toastId,
+          });
+        });
+    },
+    onSuccess: () => {
+      console.log("Task update by mutate");
+      queryClient.invalidateQueries([`allTasks ${user?.email}`]);
+    },
+  });
+
+  const onDragEnd = result => {
+    if (!result.destination) return;
+    const { source, destination, draggableId } = result;
+
+    if (source.droppableId !== destination.droppableId) {
+      console.log(
+        `send this task "${source.droppableId}" and index "${source.index}" to "${destination.droppableId}" and index "${destination.index}"`
+      );
+      console.log(result);
+      const updatedInfo = {
+        sourceStatus: source.droppableId,
+        sourceIndex: source.index,
+        destinationStatus: destination.droppableId,
+        destinationIndex: destination.index,
+      };
+      console.log(updatedInfo);
+      mutate({ draggableId, updatedInfo });
+    } else {
+      console.log(
+        `It is same block, just change there index "${source.index}" to "${destination.index}"`
+      );
+      console.log(result);
+    }
+  };
 
   // custom accordion js
   const handlerAccordion = e => {
@@ -50,6 +92,7 @@ const ManageTodo = () => {
   return (
     <DragDropContext onDragEnd={result => onDragEnd(result)}>
       <div>
+        <Toaster />
         <Fade>
           <div className="flex justify-center flex-wrap gap-10 my-20">
             {/* todo with customized accordion */}
@@ -59,7 +102,7 @@ const ManageTodo = () => {
               as={"div"}
               className="bg-base-200 bg-opacity-50 shadow-xl border min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl duration-500"
             >
-              <Droppable droppableId="todo-area" key={"todo-area"}>
+              <Droppable droppableId="todo" key={"todo"}>
                 {(provided, snapshot) => (
                   <div
                     {...provided.droppableProps}
@@ -121,7 +164,7 @@ const ManageTodo = () => {
               as={"div"}
               className="bg-base-200 bg-opacity-50 shadow-xl border min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl duration-500"
             >
-              <Droppable droppableId="ongoing-area" key={"ongoing-area"}>
+              <Droppable droppableId="ongoing" key={"ongoing"}>
                 {(provided, snapshot) => (
                   <div
                     {...provided.droppableProps}
@@ -183,7 +226,7 @@ const ManageTodo = () => {
               as={"div"}
               className="bg-base-200 bg-opacity-50 shadow-xl border min-h-96 max-h-[65vh] max-xsm: xsm:min-w-96  rounded-xl duration-500"
             >
-              <Droppable droppableId="completed-area" key={"completed-area"}>
+              <Droppable droppableId="completed" key={"completed"}>
                 {(provided, snapshot) => (
                   <div
                     {...provided.droppableProps}

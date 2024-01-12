@@ -12,7 +12,7 @@ export const useTasks = () => {
     isError,
     refetch,
   } = useQuery({
-    queryKey: ["allTasks"],
+    queryKey: [`allTasks ${user?.email}`],
     queryFn: () =>
       axiosPublic.get(`/all-task/${user && user?.email}`).then(res => {
         return res.data;
