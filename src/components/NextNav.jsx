@@ -20,7 +20,7 @@ import Logo from "./Logo";
 // import Logo from "./Logo";
 
 const NextNav = () => {
-  const { user } = useDataContext();
+  const { user, handleSignOut } = useDataContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const activeLinkStyle = "font-bold text-light-blue text-lg md:text-2xl";
@@ -73,7 +73,12 @@ const NextNav = () => {
               {user?.displayName}
             </DropdownItem>
             <DropdownItem key={user?.email}>{user?.email}</DropdownItem>
-            <DropdownItem key="sign out" className="text-danger" color="danger">
+            <DropdownItem
+              onClick={handleSignOut}
+              key="sign out"
+              className="text-danger"
+              color="danger"
+            >
               Sign Out
             </DropdownItem>
           </DropdownMenu>

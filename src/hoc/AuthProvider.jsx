@@ -10,6 +10,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 // create a new context and export
 export const AuthContext = createContext(null);
@@ -55,6 +57,32 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const handleSignOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be log out this account form this device!",
+      icon: "warning",
+      iconColor: "#ffb8b8",
+      showCancelButton: true,
+      confirmButtonColor: "#6c63ff",
+      cancelButtonColor: "#fd5467",
+      confirmButtonText: "Yes, Sign up.",
+    }).then(result => {
+      if (result.isConfirmed) {
+        const toastId = toast.loading("processing...");
+        console.log("clicked");
+        signOut(auth)
+          .then(() => {
+            setLoading(true);
+            toast.success("Sign out successfully.", { id: toastId });
+          })
+          .catch(() => {
+            toast.error("Sign out Failed.", { id: toastId });
+          });
+      }
+    });
+  };
+
   //   to goo to top by treegrid this function
   const scrollTop = () => {
     window.scrollTo({
@@ -88,6 +116,7 @@ const AuthProvider = ({ children }) => {
     setIsUserUpdate,
     updateUserNameAndPhoto,
     logout,
+    handleSignOut,
     scrollTop,
   };
 

@@ -190,7 +190,7 @@ const SignUp = () => {
                   )}
                 </div>
                 <button className="btn bg-light-black text-white text-base opacity-100 hover:bg-light-black hover:opacity-90 rounded-full w-full font-bold h-16 mt-6">
-                  Sign in
+                  Sign up
                 </button>
               </Fade>
             </form>

@@ -3,13 +3,14 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useDataContext from "../hooks/useDataContext";
 
 const SignIn = () => {
   // hook
   const { googleAuth, login } = useDataContext();
   const navigate = useNavigate();
+  const location = useLocation();
 
   // hook form
   const {
@@ -28,7 +29,7 @@ const SignIn = () => {
       .then(() => {
         console.log("sign in successfully");
         reset();
-        navigate("/");
+        navigate(location.state ? location.state : "/");
       })
       .catch(err => {
         console.log("something is wrong. ERR:", err);
@@ -40,7 +41,7 @@ const SignIn = () => {
     googleAuth()
       .then(() => {
         console.log("google authorized successfully");
-        navigate("/");
+        navigate(location.state ? location.state : "/");
       })
       .catch(err => {
         console.log("something is wrong. ERR:", err);
