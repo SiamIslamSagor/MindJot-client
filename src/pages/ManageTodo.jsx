@@ -114,6 +114,7 @@ const ManageTodo = () => {
                     <TaskHeading text={"Todo"} taskType={"todo"} />
                     {allTasks
                       .filter(task => task.status === "todo")
+                      .reverse()
                       .map((task, index) => (
                         <Draggable
                           key={task._id}
@@ -176,6 +177,7 @@ const ManageTodo = () => {
                     <TaskHeading text={"Ongoing"} taskType={"ongoing"} />
                     {allTasks
                       .filter(task => task.status === "ongoing")
+                      .reverse()
                       .map((task, index) => (
                         <Draggable
                           key={task._id}
@@ -238,6 +240,7 @@ const ManageTodo = () => {
                     <TaskHeading text={"Completed"} taskType={"completed"} />
                     {allTasks
                       .filter(task => task.status === "completed")
+                      .reverse()
                       .map((task, index) => (
                         <Draggable
                           key={task._id}
