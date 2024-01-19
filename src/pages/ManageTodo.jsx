@@ -84,11 +84,6 @@ const ManageTodo = () => {
     }
   };
 
-  /* useEffect(() => {
-    axios.get(`http://localhost:5000/all-task/${user?.email}`).then(res => {
-      console.log(res.data);
-    });
-  }, [user?.email]); */
   return (
     <DragDropContext onDragEnd={result => onDragEnd(result)}>
       <div>
