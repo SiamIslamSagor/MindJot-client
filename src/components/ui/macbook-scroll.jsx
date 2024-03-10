@@ -23,7 +23,6 @@ import {
   IconVolume3,
   IconWorld,
 } from "@tabler/icons-react";
-import { Image } from "@nextui-org/react";
 import { cn } from "../../utils/cn";
 
 export const MacbookScroll = ({ src, showGradient, title, badge }) => {
@@ -144,7 +143,7 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
         className="h-96 w-[35rem] absolute inset-0 bg-[#010101] rounded-2xl p-2"
       >
         <div className="absolute inset-0 bg-[#272729] rounded-lg" />
-        <Image
+        <img
           src={src}
           alt="aceternity logo"
           className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full"
