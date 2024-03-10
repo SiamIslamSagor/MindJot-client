@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 // import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { PinContainer } from "../components/ui/3d-pin";
 import { MacbookScroll } from "../components/ui/macbook-scroll";
 import { SparklesCore } from "../components/ui/sparkles";
+import { LampContainer } from "../components/ui/lamp";
 
 const Dashboard = () => {
   return (
@@ -67,6 +69,20 @@ const Dashboard = () => {
           showGradient={false}
         />
       </div>
+      <LampContainer>
+        <motion.h1
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        >
+          Build lamps <br /> the right way
+        </motion.h1>
+      </LampContainer>
       <div className="min-h-screen bg-indigo-400"></div>
     </div>
   );
