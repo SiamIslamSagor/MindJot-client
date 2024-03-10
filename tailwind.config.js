@@ -1,11 +1,14 @@
 // tailwind.config.js
 const { nextui } = require("@nextui-org/react");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -48,7 +51,7 @@ export default {
     screens: {
       "2xsm": "375px",
       // => @media (min-width: 440px) { ... }
-      xsm: "440px",
+      xsm: "425px",
       // => @media (min-width: 440px) { ... }
 
       sm: "640px",
@@ -68,5 +71,17 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [require("daisyui"), nextui()],
+  plugins: [require("daisyui"), nextui(), addVariablesForColors],
 };
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
