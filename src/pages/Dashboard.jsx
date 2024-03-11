@@ -7,6 +7,7 @@ import { MacbookScroll } from "../components/ui/macbook-scroll";
 import { SparklesCore } from "../components/ui/sparkles";
 import { LampContainer } from "../components/ui/lamp";
 import { HeroParallax } from "../components/ui/hero-kparallax";
+import TicTacToe from "../components/ui/TicTacToe";
 
 const Dashboard = () => {
   const products = [
@@ -107,6 +108,7 @@ const Dashboard = () => {
 
   return (
     <div className="">
+      <TicTacToe />
       <div className="h-[40rem] w-full flex items-center justify-center ">
         <PinContainer
           title="/ui.aceternity.com"
@@ -156,7 +158,7 @@ const Dashboard = () => {
           <div className="absolute inset-0 w-full h-full bg-neutral-950  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
         </div>
       </div>
-      <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full 2xl:border-4 border-red-400 lg:p-10">
+      <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full lg:p-10">
         <MacbookScroll
           title={
             <span>
