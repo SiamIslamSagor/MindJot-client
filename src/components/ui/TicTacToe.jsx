@@ -3,8 +3,9 @@ import Board from "./Board";
 import Square from "./Square";
 import "../../../src/App.css";
 import { cn } from "../../utils/cn";
+import { Button } from "@nextui-org/react";
 
-const defaultSquares = () => new Array(9).fill(null);
+let defaultSquares = () => new Array(9).fill(null);
 
 const lines = [
   [0, 1, 2],
@@ -18,6 +19,8 @@ const lines = [
 ];
 const TicTacToe = () => {
   const [squares, setSquares] = useState(defaultSquares());
+  const [squareXValue, setSquareXValue] = useState(false);
+  const [squareOValue, setSquareOValue] = useState(false);
   const [winner, setWinner] = useState(null);
   const [isMatchDraw, setIsMatchDraw] = useState(false);
   const [winingLineClass1, setWiningLineClass1] = useState("");
@@ -99,15 +102,17 @@ const TicTacToe = () => {
       setWinner("o");
     }
     const putComputerAt = index => {
-      let newSquares = squares;
-      newSquares[index] = "o";
-      console.log(squares);
-      console.log([...newSquares].includes(null));
-      if ([...newSquares].includes(null)) {
-        setSquares([...newSquares]);
-      } else {
-        setIsMatchDraw(true);
-        console.log("board is full, no have enough space for putComputerAt");
+      if (!winner) {
+        let newSquares = squares;
+        newSquares[index] = "o";
+        console.log(squares);
+        console.log([...newSquares].includes(null));
+        if ([...newSquares].includes(null)) {
+          setSquares([...newSquares]);
+        } else {
+          setIsMatchDraw(true);
+          console.log("board is full, no have enough space for putComputerAt");
+        }
       }
     };
     if (isComputerTurn) {
@@ -141,10 +146,14 @@ const TicTacToe = () => {
         emptyIndexes[Math.ceil(Math.random() * emptyIndexes.length)];
       putComputerAt(randomIndex);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [squares]);
 
   function handleSquareClick(index, e) {
+    console.log(e.target.parentNode);
     if (e.target.innerText !== "o" && !winner) {
+      setSquareXValue(false);
+      setSquareOValue(false);
       const isPlayerTurn =
         squares.filter(square => square !== null).length % 2 === 0;
       if (isPlayerTurn) {
@@ -155,6 +164,34 @@ const TicTacToe = () => {
     }
   }
 
+  const handleMatchReset = e => {
+    console.log(
+      e.target.parentNode.parentNode.childNodes[0].childNodes[8].childNodes
+        .length
+    );
+    e.target.parentNode.parentNode.childNodes[0].childNodes[8].childNodes.forEach(
+      element => {
+        element.innerText = "";
+      }
+    );
+    setIsMatchDraw(false);
+    setWinner(null);
+    setWiningLineClass1("");
+    setWiningLineClass2("");
+    setWiningLineClass3("");
+    setWiningLineClass4("");
+    setWiningLineClass5("");
+    setWiningLineClass6("");
+    setWiningLineClass7("");
+    setWiningLineClass8("");
+    setSquareXValue(true);
+    setSquareOValue(true);
+    setSquares([null, null, null, null, null, null, null, null, null]);
+    // defaultSquares = [null, null, null, null, null, null, null, null, null];
+    // defaultSquares = () => new Array(9).fill(null);
+
+    // TODO: fil up the defaultSquares by array which have 9 null
+  };
   // console.log("isMatchDraw", isMatchDraw);
 
   return (
@@ -220,17 +257,23 @@ const TicTacToe = () => {
       <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-110 ml-[148px] mt-[8px] -rotate-[135deg]"></div> */}
 
         <Board>
-          {squares.map((square, index) => (
-            <Square
-              key={index}
-              x={square === "x" ? 1 : 0}
-              o={square === "o" ? 1 : 0}
-              onClick={e => handleSquareClick(index, e)}
-            />
-          ))}
+          {squares.map((square, index, arr) => {
+            console.log(square);
+            console.log(arr);
+            return (
+              <Square
+                key={index}
+                // x={squareXValue ? 0 : square === "x" ? 1 : 0}
+                // o={squareOValue ? 0 : square === "o" ? 1 : 0}
+                x={square === "x" ? 1 : 0}
+                o={square === "o" ? 1 : 0}
+                onClick={e => handleSquareClick(index, e)}
+              />
+            );
+          })}
         </Board>
       </div>
-      <div className="my-10 max-w-sm mx-auto">
+      <div className="my-10 max-w-sm mx-auto text-center">
         {!!winner && winner === "x" && (
           <div className="result green">You WON!</div>
         )}
@@ -242,6 +285,14 @@ const TicTacToe = () => {
             <p className="text-[2rem] p-2 bg-blue-400">The match is Draw</p>
           </div>
         )}
+        <Button
+          onClick={e => handleMatchReset(e)}
+          className="my-5"
+          radius="sm"
+          color="primary"
+        >
+          Play Again
+        </Button>
       </div>
     </>
   );
