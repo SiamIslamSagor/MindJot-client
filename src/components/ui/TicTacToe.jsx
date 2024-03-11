@@ -19,6 +19,7 @@ const lines = [
 const TicTacToe = () => {
   const [squares, setSquares] = useState(defaultSquares());
   const [winner, setWinner] = useState(null);
+  const [isMatchDraw, setIsMatchDraw] = useState(false);
   const [winingLineClass1, setWiningLineClass1] = useState("");
   const [winingLineClass2, setWiningLineClass2] = useState("");
   const [winingLineClass3, setWiningLineClass3] = useState("");
@@ -40,57 +41,6 @@ const TicTacToe = () => {
           squareValues[0] === squareValues[2] &&
           !squareValues.includes(null)
         ) {
-          console.log(" up switch case");
-          // if (JSON.stringify(squareIndexes) === JSON.stringify([0, 1, 2])) {
-          //   console.log("row 1");
-          //   setWiningLineClass(
-          //     "h-full scale-y-90 ml-[148px] -mt-[95px] rotate-90"
-          //   );
-          // } else if (
-          //   JSON.stringify(squareIndexes) === JSON.stringify([3, 4, 5])
-          // ) {
-          //   console.log("row 2");
-          //   setWiningLineClass(
-          //     "h-full scale-y-90 ml-[148px] mt-[5px] rotate-90"
-          //   );
-          // } else if (
-          //   JSON.stringify(squareIndexes) === JSON.stringify([6, 7, 8])
-          // ) {
-          //   console.log("row 3");
-          //   setWiningLineClass(
-          //     "h-full scale-y-90 ml-[148px] mt-[105px] rotate-90"
-          //   );
-          // } else if (
-          //   JSON.stringify(squareIndexes) === JSON.stringify([0, 3, 6])
-          // ) {
-          //   console.log("column 1");
-          //   setWiningLineClass("h-full scale-y-90  ml-[51px]");
-          // } else if (
-          //   JSON.stringify(squareIndexes) === JSON.stringify([1, 4, 7])
-          // ) {
-          //   console.log("column 2");
-          //   setWiningLineClass("h-full scale-y-90 ml-[151px]");
-          // } else if (
-          //   JSON.stringify(squareIndexes) === JSON.stringify([2, 5, 8])
-          // ) {
-          //   console.log("column 3");
-          //   setWiningLineClass("h-full scale-y-90 ml-[251px]");
-          // } else if (
-          //   JSON.stringify(squareIndexes) === JSON.stringify([0, 4, 8])
-          // ) {
-          //   console.log("diagonal 1");
-          //   setWiningLineClass(
-          //     "h-full scale-y-110 ml-[148px] mt-[2px] rotate-[135deg]"
-          //   );
-          // } else if (
-          //   JSON.stringify(squareIndexes) === JSON.stringify([2, 4, 6])
-          // ) {
-          //   console.log("diagonal 2");
-          //   setWiningLineClass(
-          //     "h-full scale-y-110 ml-[148px] mt-[8px] -rotate-[135deg]"
-          //   );
-          // }
-
           if (JSON.stringify(squareIndexes) === JSON.stringify([0, 3, 6])) {
             console.log("row 1");
             setWiningLineClass1("scale-y-90");
@@ -130,11 +80,6 @@ const TicTacToe = () => {
             console.log("diagonal 2");
             setWiningLineClass8("scale-y-110");
           }
-
-          console.log(" down switch case");
-          // setWiningLineClass(squareIndexes);
-          console.log(squareIndexes);
-          console.log(squareValues);
         }
         return (
           JSON.stringify([a, b, c].sort()) ===
@@ -156,7 +101,14 @@ const TicTacToe = () => {
     const putComputerAt = index => {
       let newSquares = squares;
       newSquares[index] = "o";
-      setSquares([...newSquares]);
+      console.log(squares);
+      console.log([...newSquares].includes(null));
+      if ([...newSquares].includes(null)) {
+        setSquares([...newSquares]);
+      } else {
+        setIsMatchDraw(true);
+        console.log("board is full, no have enough space for putComputerAt");
+      }
     };
     if (isComputerTurn) {
       const winingLines = linesThatAre("o", "o", null);
@@ -203,64 +155,62 @@ const TicTacToe = () => {
     }
   }
 
-  // console.log(winingLine);
+  // console.log("isMatchDraw", isMatchDraw);
+
   return (
-    <div className="main relative">
-      {/* <div
-        className={cn(
-          "absolute h-0 bg-red-500 w-[1px] rounded-2xl duration-700    ",
-          winingLineClass
-        )}
-      ></div> */}
-      <div
-        className={cn(
-          "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0  ml-[51px]",
-          winingLineClass1
-        )}
-      ></div>
-      <div
-        className={cn(
-          "absolute h-full bg-green-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[151px] ",
-          winingLineClass2
-        )}
-      ></div>
-      <div
-        className={cn(
-          "absolute h-full bg-blue-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[251px]",
-          winingLineClass3
-        )}
-      ></div>
-      <div
-        className={cn(
-          "absolute h-full bg-yellow-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[5px] rotate-90",
-          winingLineClass4
-        )}
-      ></div>
-      <div
-        className={cn(
-          "absolute h-full bg-violet-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[105px] rotate-90",
-          winingLineClass6
-        )}
-      ></div>
-      <div
-        className={cn(
-          "absolute h-full bg-purple-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] -mt-[95px] rotate-90",
-          winingLineClass5
-        )}
-      ></div>
-      <div
-        className={cn(
-          "absolute h-full bg-sky-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[2px] rotate-[135deg]",
-          winingLineClass7
-        )}
-      ></div>
-      <div
-        className={cn(
-          "absolute h-full bg-green-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[8px] -rotate-[135deg]",
-          winingLineClass8
-        )}
-      ></div>
-      {/* <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90  ml-[51px]"></div>
+    <>
+      <div className="main relative">
+        <>
+          <div
+            className={cn(
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0  ml-[51px]",
+              winingLineClass1
+            )}
+          ></div>
+          <div
+            className={cn(
+              "absolute h-full bg-green-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[151px] ",
+              winingLineClass2
+            )}
+          ></div>
+          <div
+            className={cn(
+              "absolute h-full bg-blue-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[251px]",
+              winingLineClass3
+            )}
+          ></div>
+          <div
+            className={cn(
+              "absolute h-full bg-yellow-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[5px] rotate-90",
+              winingLineClass4
+            )}
+          ></div>
+          <div
+            className={cn(
+              "absolute h-full bg-violet-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[105px] rotate-90",
+              winingLineClass6
+            )}
+          ></div>
+          <div
+            className={cn(
+              "absolute h-full bg-purple-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] -mt-[95px] rotate-90",
+              winingLineClass5
+            )}
+          ></div>
+          <div
+            className={cn(
+              "absolute h-full bg-sky-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[2px] rotate-[135deg]",
+              winingLineClass7
+            )}
+          ></div>
+          <div
+            className={cn(
+              "absolute h-full bg-green-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[8px] -rotate-[135deg]",
+              winingLineClass8
+            )}
+          ></div>
+        </>
+        {/* <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90  ml-[51px]"></div>
       <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[151px] "></div>
       <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[251px]"></div>
       <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[148px] mt-[5px] rotate-90"></div>
@@ -269,23 +219,31 @@ const TicTacToe = () => {
       <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-110 ml-[148px] mt-[2px] rotate-[135deg]"></div>
       <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-110 ml-[148px] mt-[8px] -rotate-[135deg]"></div> */}
 
-      <Board>
-        {squares.map((square, index) => (
-          <Square
-            key={index}
-            x={square === "x" ? 1 : 0}
-            o={square === "o" ? 1 : 0}
-            onClick={e => handleSquareClick(index, e)}
-          />
-        ))}
-      </Board>
-      {/* {!!winner && winner === "x" && (
-        <div className="result green">You WON!</div>
-      )}
-      {!!winner && winner === "o" && (
-        <div className="result red">You LOST!</div>
-      )} */}
-    </div>
+        <Board>
+          {squares.map((square, index) => (
+            <Square
+              key={index}
+              x={square === "x" ? 1 : 0}
+              o={square === "o" ? 1 : 0}
+              onClick={e => handleSquareClick(index, e)}
+            />
+          ))}
+        </Board>
+      </div>
+      <div className="my-10 max-w-sm mx-auto">
+        {!!winner && winner === "x" && (
+          <div className="result green">You WON!</div>
+        )}
+        {!!winner && winner === "o" && (
+          <div className="result red">You LOST!</div>
+        )}
+        {isMatchDraw && (
+          <div>
+            <p className="text-[2rem] p-2 bg-blue-400">The match is Draw</p>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
