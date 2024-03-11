@@ -42,7 +42,7 @@ export const HeroParallax = ({ products }) => {
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[290vh] md:min-h-[320vh] 2xl:min-h-[320vh] pt-36 overflow-hidden duration-400 antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -111,14 +111,14 @@ export const ProductCard = ({ product, translate }) => {
         y: -20,
       }}
       key={product.title}
-      className="group/product h-fit mx-auto relative flex-shrink-0 my-10 w-min"
+      className="group/product h-fit w-min mx-auto relative flex-shrink-0 my-10"
     >
-      <div className="w-min flex items-center justify-center mx-auto">
+      <div className="w-min flex items-center justify-center mx-auto p-2 2xl:p-5">
         <PinContainer
           title="/ui.aceternity.com"
           href="https://twitter.com/mannupaaji"
         >
-          <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+          <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem]">
             <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
               Aceternity UI
             </h3>
