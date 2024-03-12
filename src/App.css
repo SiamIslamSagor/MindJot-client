@@ -48,7 +48,7 @@
   width: 100px;
   height: 100px;
 } */
-
+/* 
 .btn_yt {
   position: relative;
   display: inline-flex;
@@ -78,4 +78,11 @@
 .btn_yt:hover::before {
   width: 300px;
   height: 300px;
+} */
+
+.btn_yt::before {
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }

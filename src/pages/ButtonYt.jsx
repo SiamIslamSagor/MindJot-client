@@ -9,9 +9,12 @@ export default function ButtonYt() {
   };
   return (
     <div>
-      <a onMouseMove={handleMouseMove} href="#" className="btn_yt">
-        Button
-      </a>
+      <button
+        onMouseMove={handleMouseMove}
+        className="btn_yt font-semibold uppercase relative inline-flex px-8 py-3 bg-[#252525] text-white tracking-wider overflow-hidden z-10 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-full before:bg-[#ff4439] before:-z-[1] before:size-0  hover:before:size-[500px]"
+      >
+        Click Me
+      </button>
     </div>
   );
 }
