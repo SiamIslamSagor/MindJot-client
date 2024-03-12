@@ -19,8 +19,6 @@ const lines = [
 ];
 const TicTacToe = () => {
   const [squares, setSquares] = useState(defaultSquares());
-  const [squareXValue, setSquareXValue] = useState(false);
-  const [squareOValue, setSquareOValue] = useState(false);
   const [winner, setWinner] = useState(null);
   const [isMatchDraw, setIsMatchDraw] = useState(false);
   const [winingLineClass1, setWiningLineClass1] = useState("");
@@ -152,8 +150,6 @@ const TicTacToe = () => {
   function handleSquareClick(index, e) {
     console.log(e.target.parentNode);
     if (e.target.innerText !== "o" && !winner) {
-      setSquareXValue(false);
-      setSquareOValue(false);
       const isPlayerTurn =
         squares.filter(square => square !== null).length % 2 === 0;
       if (isPlayerTurn) {
@@ -184,15 +180,8 @@ const TicTacToe = () => {
     setWiningLineClass6("");
     setWiningLineClass7("");
     setWiningLineClass8("");
-    setSquareXValue(true);
-    setSquareOValue(true);
     setSquares([null, null, null, null, null, null, null, null, null]);
-    // defaultSquares = [null, null, null, null, null, null, null, null, null];
-    // defaultSquares = () => new Array(9).fill(null);
-
-    // TODO: fil up the defaultSquares by array which have 9 null
   };
-  // console.log("isMatchDraw", isMatchDraw);
 
   return (
     <>
@@ -263,8 +252,6 @@ const TicTacToe = () => {
             return (
               <Square
                 key={index}
-                // x={squareXValue ? 0 : square === "x" ? 1 : 0}
-                // o={squareOValue ? 0 : square === "o" ? 1 : 0}
                 x={square === "x" ? 1 : 0}
                 o={square === "o" ? 1 : 0}
                 onClick={e => handleSquareClick(index, e)}
