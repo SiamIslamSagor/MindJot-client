@@ -13,3 +13,69 @@
 .result.red {
   background-color: #a55;
 }
+
+.custom-btn {
+  position: relative;
+  padding: 10px 30px;
+  border: 2px solid #5a5;
+  color: #5a5;
+  margin: 10px;
+  display: inline-block;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.custom-btn:hover {
+  color: #111;
+}
+/* 
+.custom-btn span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #5a5;
+  transition: width 0.5s, height 0.5s;
+  z-index: -1;
+}
+
+.custom-btn:hover span {
+  width: 100px;
+  height: 100px;
+} */
+
+.btn_yt {
+  position: relative;
+  display: inline-flex;
+  padding: 10px 30px;
+  background: #363636;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.btn_yt::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background: #2196f3;
+  transition: width 0.5s, height 0.5s;
+  z-index: -1;
+}
+
+.btn_yt:hover::before {
+  width: 300px;
+  height: 300px;
+}
