@@ -9,6 +9,7 @@ import CircleButton from "../components/ButtonChat";
 import ButtonBird2 from "../components/ButtonBird2";
 import ButtonMine from "../components/ButtonMine";
 import ButtonYt from "./ButtonYt";
+import LinkItem from "../components/ui/LinkItem";
 
 const Home = () => {
   // const [buttonHoverPosition, setButtonHoverPosition] = useState("");
@@ -33,7 +34,7 @@ const Home = () => {
       <Helmet>
         <title>MindJot | Home</title>
       </Helmet>
-      <div className="flex items-center justify-center my-20">
+      <div className="flex flex-col items-center justify-center my-20">
         {/* <div className="space-x-5">
           <button
             onMouseEnter={e => handleMouseEnter(e)}
@@ -85,7 +86,10 @@ const Home = () => {
         {/* <ButtonBird2 /> */}
         {/* <ButtonMine /> */}
         {/* <CircleButton /> */}
-        <div className="space-y-5">
+        <div className="max-w-2xl min-w-96 bg-[#ff4439] my-10 mx-auto">
+          <LinkItem />
+        </div>
+        <div className="space-y-5 p-10 bg-[#ff4439]">
           <ButtonYt />
           <ButtonYt />
           <ButtonYt />

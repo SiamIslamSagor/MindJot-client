@@ -40,12 +40,81 @@ export default {
             animationTimingFunction: "cubic-bezier(0.8, 0, 0.2, 1)",
           },
         },
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        "jump-x": {
+          "0%, 40%, 80%": {
+            transform: "-translateY(2rem)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 0.2, 1)",
+          },
+          "20%, 60%, 100%": {
+            transform: "-translateY(0)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 0.2, 1)",
+          },
+        },
+        dot: {
+          "0%": {
+            transform: "translate(-50%, 0px)",
+          },
+          "25%": {
+            transform: "translate(-50%, -16px) scale(400%)",
+          },
+          "50%": {
+            transform: "translate(-50%, 0px) scale(400%)",
+          },
+          "75%": {
+            transform: "translate(-50%, -8px) scale(400%)",
+          },
+          "100%": {
+            transform: "translate(-50%, 0px) scale(400%)",
+          },
+        },
+
+        // dot: {
+        //   "0%": {
+        //     transform: "translate(-50%, 0px)",
+        //   },
+        //   "25%": {
+        //     transform: "translate(-50%, -32px) scale(400%)",
+        //   },
+        //   "50%": {
+        //     transform: "translate(-50%, 0px) scale(400%)",
+        //   },
+        //   "75%": {
+        //     transform: "translate(-50%, -16px) scale(400%)",
+        //   },
+        //   "100%": {
+        //     transform: "translate(-50%, 0px) scale(400%)",
+        //   },
+        // },
+
+        // dot: {
+        //   "0%": {
+        //     transform: "translate(-50%, 0px)",
+        //   },
+        //   "25%": {
+        //     transform: "translate(-50%, -32px)",
+        //   },
+        //   "50%": {
+        //     transform: "translate(-50%, 0px)",
+        //   },
+        //   "75%": {
+        //     transform: "translate(-50%, -16px)",
+        //   },
+        //   "100%": {
+        //     transform: "translate(-50%, 0px)",
+        //   },
+        // },
       },
       animation: {
         "spin-slow": "spin 2s linear infinite",
         "move-x": "move-x 1s ease-in-out infinite",
         "bounce-x": "bounce-x 1.9s infinite 350ms",
-        anim: "tra",
+        wiggle: "wiggle 1s ease-in-out infinite",
+        dot: "dot .5s ease-in-out ",
+        "jump-x": "jump-x 350ms ease-in-out infinite",
       },
     },
     screens: {
