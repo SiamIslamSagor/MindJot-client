@@ -59,16 +59,16 @@ export default {
             transform: "translate(-50%, 0px)",
           },
           "25%": {
-            transform: "translate(-50%, -16px) scale(400%)",
+            transform: "translate(-50%, -16px) scale(3)",
           },
           "50%": {
-            transform: "translate(-50%, 0px) scale(400%)",
+            transform: "translate(-50%, 0px) scale(3)",
           },
           "75%": {
-            transform: "translate(-50%, -8px) scale(400%)",
+            transform: "translate(-50%, -8px) scale(3)",
           },
           "100%": {
-            transform: "translate(-50%, 0px) scale(400%)",
+            transform: "translate(-50%, 2px) scale(3)",
           },
         },
 
@@ -113,7 +113,7 @@ export default {
         "move-x": "move-x 1s ease-in-out infinite",
         "bounce-x": "bounce-x 1.9s infinite 350ms",
         wiggle: "wiggle 1s ease-in-out infinite",
-        dot: "dot .5s ease-in-out ",
+        dot: "dot 1s ease-in-out ",
         "jump-x": "jump-x 350ms ease-in-out infinite",
       },
     },
