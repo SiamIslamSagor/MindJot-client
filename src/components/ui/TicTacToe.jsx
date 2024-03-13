@@ -3,7 +3,7 @@ import Board from "./Board";
 import Square from "./Square";
 import "../../../src/App.css";
 import { cn } from "../../utils/cn";
-import { Button } from "@nextui-org/react";
+import ButtonYt from "../../pages/ButtonYt";
 
 let defaultSquares = () => new Array(9).fill(null);
 
@@ -246,9 +246,7 @@ const TicTacToe = () => {
       <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-110 ml-[148px] mt-[8px] -rotate-[135deg]"></div> */}
 
         <Board>
-          {squares.map((square, index, arr) => {
-            console.log(square);
-            console.log(arr);
+          {squares.map((square, index) => {
             return (
               <Square
                 key={index}
@@ -272,14 +270,8 @@ const TicTacToe = () => {
             <p className="text-[2rem] p-2 bg-blue-400">The match is Draw</p>
           </div>
         )}
-        <Button
-          onClick={e => handleMatchReset(e)}
-          className="my-5"
-          radius="sm"
-          color="primary"
-        >
-          Play Again
-        </Button>
+
+        <ButtonYt btnText="play again" onClick={e => handleMatchReset(e)} />
       </div>
     </>
   );

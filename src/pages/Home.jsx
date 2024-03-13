@@ -10,6 +10,7 @@ import ButtonBird2 from "../components/ButtonBird2";
 import ButtonMine from "../components/ButtonMine";
 import ButtonYt from "./ButtonYt";
 import LinkItem from "../components/ui/LinkItem";
+import { GoogleGeminiEffectDemo } from "../components/ui/GoogleGeminiEffectDemo";
 
 const Home = () => {
   // const [buttonHoverPosition, setButtonHoverPosition] = useState("");
@@ -89,6 +90,7 @@ const Home = () => {
         <div className="max-w-2xl min-w-96 bg-[#ff4439] my-10 mx-auto">
           <LinkItem />
         </div>
+        <GoogleGeminiEffectDemo />
         <div className="space-y-5 p-10 bg-[#ff4439]">
           <ButtonYt />
           <ButtonYt />

@@ -8,6 +8,7 @@ import { SparklesCore } from "../components/ui/sparkles";
 import { LampContainer } from "../components/ui/lamp";
 import { HeroParallax } from "../components/ui/hero-kparallax";
 import TicTacToe from "../components/ui/TicTacToe";
+import { ThreeDCardDemo } from "../components/ui/ThreeDCardDemo";
 
 const Dashboard = () => {
   const products = [
@@ -133,6 +134,7 @@ const Dashboard = () => {
           </div>
         </PinContainer>
       </div>
+      {/* <ThreeDCardDemo /> */}
       <div className="h-[40rem] w-full bg-neutral-950 flex flex-col items-center justify-center overflow-hidden rounded-md">
         <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
           dev.

@@ -80,7 +80,7 @@ const MainDash = () => {
           <div className="lg:hidden h-24 sm:h-36 relative"></div>
         </div>
       </div>
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 };
