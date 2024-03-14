@@ -86,3 +86,82 @@
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
 }
+
+.ball {
+  animation: bouncingBall 1s infinite;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+/* @keyframes bouncingBall {
+  10% {
+    height: 50px;
+    width: 50px;
+  }
+  30% {
+    height: 50px;
+    width: 45px;
+  }
+  50% {
+    height: 50px;
+    width: 40px;
+    transform: translateY(-240px);
+  }
+  75% {
+    height: 50px;
+    width: 40px;
+  }
+  100% {
+    height: 40px;
+    width: 55px;
+    transform: translateY(0px);
+  }
+}
+ */
+
+@keyframes bouncingBall {
+  5% {
+    height: 50px;
+    width: 50px;
+  }
+  15% {
+    height: 50px;
+    width: 45px;
+  }
+  25% {
+    height: 50px;
+    width: 40px;
+    transform: translateY(-240px);
+  }
+  40% {
+    height: 50px;
+    width: 40px;
+  }
+  50% {
+    height: 40px;
+    width: 55px;
+    transform: translateY(0px);
+  }
+
+  55% {
+    height: 50px;
+    width: 50px;
+  }
+  65% {
+    height: 50px;
+    width: 45px;
+  }
+  75% {
+    height: 50px;
+    width: 40px;
+    transform: translateY(-140px);
+  }
+  90% {
+    height: 50px;
+    width: 40px;
+  }
+  100% {
+    /* height: px;
+    width: 55px; */
+    transform: translateY(0px);
+  }
+}

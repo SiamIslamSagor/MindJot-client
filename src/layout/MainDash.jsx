@@ -12,6 +12,7 @@ import { Tooltip } from "@nextui-org/react";
 import { Fade } from "react-awesome-reveal";
 import NextNav from "../components/NextNav";
 import { Toaster } from "react-hot-toast";
+import Preloader from "../components/ui/Preloader";
 
 const MainDash = () => {
   return (
@@ -19,6 +20,7 @@ const MainDash = () => {
       <Helmet>
         <title>MindJot | Dashboard</title>
       </Helmet>
+      <Preloader />
       <div className="lg:flex gap-10 min-h-screen">
         <div className="max-w-sm w-full bg-base-100 h-screen sticky top-0 max-lg:hidden">
           <div className="max-w-64 mx-auto">

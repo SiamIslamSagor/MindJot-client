@@ -90,22 +90,98 @@ export default {
         //   },
         // },
 
-        // dot: {
-        //   "0%": {
-        //     transform: "translate(-50%, 0px)",
-        //   },
-        //   "25%": {
-        //     transform: "translate(-50%, -32px)",
-        //   },
-        //   "50%": {
-        //     transform: "translate(-50%, 0px)",
-        //   },
-        //   "75%": {
-        //     transform: "translate(-50%, -16px)",
-        //   },
-        //   "100%": {
-        //     transform: "translate(-50%, 0px)",
-        //   },
+        bigDotBounce: {
+          "0%": {
+            transform: "translateY(0) scaleX(1.5)",
+            opacity: 0,
+          },
+          "10%": {
+            transform: "translateY(-7rem) scaleY(1.3)",
+            opacity: 1,
+          },
+          "40%": {
+            transform: "translateY(0) scaleX(1.2)",
+          },
+          "55%": {
+            transform: "translateY(-2rem) scaleY(1.2)",
+          },
+          "80%": {
+            transform: "translateY(0) scaleX(1.1)",
+          },
+          "90%": {
+            transform: "translateY(-0.5rem) scaleY(1.2)",
+          },
+          // "100%": {
+          //   transform: "translateY(0rem) ",
+          // },
+        },
+
+        /*  bigDotBounce: {
+          "0%": {
+            transform: "translateY(0) ",
+          },
+          "30%": {
+            transform: "translateY(-7rem) ",
+          },
+          "40%": {
+            transform: "translateY(0) ",
+          },
+          "60%": {
+            transform: "translateY(-3rem) ",
+          },
+          "80%": {
+            transform: "translateY(0) ",
+          },
+          "90%": {
+            transform: "translateY(-1rem) ",
+          },
+          "100%": {
+            transform: "translateY(0rem) ",
+          },
+        }, */
+
+        /* bigDotBounce: {
+          "0%": {
+            transform: "translateY(0) scale(1)",
+          },
+          "20%": {
+            transform: "translateY(-7rem) scale(0.9)",
+          },
+          "40%": {
+            transform: "translateY(0) scale(1)",
+          },
+          "60%": {
+            transform: "translateY(-5rem) scale(0.95)",
+          },
+          "80%": {
+            transform: "translateY(0) scale(1)",
+          },
+          "90%": {
+            transform: "translateY(-1rem) scale(0.98)",
+          },
+          "100%": {
+            transform: "translateY(0rem) scale(0.98)",
+          },
+        }, */
+
+        // "65%": {
+        //   transform: "translateY(-0.5rem)",
+        // },
+        // "100%": {
+        //   transform: "translateY(0rem)",
+        // },
+
+        // "51%": {
+        //   transform: "translateY(-3rem)",
+        // },
+        // "75%": {
+        //   transform: "translateY(-1.5rem)",
+        // },
+        // "85%": {
+        //   transform: "translateY(-1rem)",
+        // },
+        // "95%": {
+        //   transform: "translateY(0rem)",
         // },
       },
       animation: {
@@ -114,6 +190,7 @@ export default {
         "bounce-x": "bounce-x 1.9s infinite 350ms",
         wiggle: "wiggle 1s ease-in-out infinite",
         dot: "dot 1s ease-in-out ",
+        bigDotBounce: "bigDotBounce 1.5s ease-in-out ",
         "jump-x": "jump-x 350ms ease-in-out infinite",
       },
     },
