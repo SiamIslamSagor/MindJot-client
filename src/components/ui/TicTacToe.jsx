@@ -18,6 +18,7 @@ const lines = [
   [2, 4, 6],
 ];
 const TicTacToe = () => {
+  const [isGameRunning, setIsGameRunning] = useState(false);
   const [squares, setSquares] = useState(defaultSquares());
   const [winner, setWinner] = useState(null);
   const [isMatchDraw, setIsMatchDraw] = useState(false);
@@ -160,6 +161,7 @@ const TicTacToe = () => {
   }, [squares]);
 
   function handleSquareClick(index, e) {
+    setIsGameRunning(true);
     console.log(e.target.parentNode);
     if (e.target.innerText !== "x" && !winner) {
       const isPlayerTurn =
@@ -193,6 +195,7 @@ const TicTacToe = () => {
     setWiningLineClass7("");
     setWiningLineClass8("");
     setSquares([null, null, null, null, null, null, null, null, null]);
+    setIsGameRunning(false);
   };
   console.log(winner);
 
@@ -336,9 +339,14 @@ const TicTacToe = () => {
           })}
         </Board>
       </div>
-      <div className="my-10 max-w-sm mx-auto text-center">
-        <ButtonYt btnText="play again" onClick={e => handleMatchReset(e)} />
-      </div>
+      {isGameRunning && (
+        <div className="my-10 max-w-sm mx-auto text-center">
+          <ButtonYt
+            btnText={winner || isMatchDraw ? "play again" : "reset"}
+            onClick={e => handleMatchReset(e)}
+          />
+        </div>
+      )}
     </div>
   );
 };
