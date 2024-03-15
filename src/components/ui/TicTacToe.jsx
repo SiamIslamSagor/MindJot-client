@@ -119,7 +119,7 @@ const TicTacToe = () => {
             );
           }
         }
-      }, 200);
+      }, 150);
     };
     if (isComputerTurn) {
       const winingLines = linesThatAre("x", "x", null);
@@ -282,7 +282,7 @@ const TicTacToe = () => {
 
         <div
           className={`border absolute w-full h-full backdrop-blur-[2px] bg-opacity-10 scale-0 duration-300 ${
-            winner && "scale-150"
+            (winner || isMatchDraw) && "scale-150"
           }`}
         >
           <div
@@ -298,6 +298,13 @@ const TicTacToe = () => {
             } p-5 duration-700 left-0  bottom-1/2 translate-y-[50%] bg-gradient-to-r from-transparent via-blue-500  bg-opacity-100 text-center text-white`}
           >
             <h4>YOU WON!!!</h4>
+          </div>
+          <div
+            className={`absolute w-full scale-0 delay-700 ${
+              isMatchDraw && "scale-150"
+            } p-5 duration-700 left-0  bottom-1/2 translate-y-[50%] bg-gradient-to-r from-transparent via-green-500  bg-opacity-100 text-center text-white`}
+          >
+            <h4>THE MATCH IS DRAW!!!</h4>
           </div>
         </div>
 
@@ -315,14 +322,6 @@ const TicTacToe = () => {
             <span>You LOST!</span>
           </div>
         </div> */}
-
-        {isMatchDraw && (
-          <div>
-            <p className="absolute w-full scale-150 duration-700 left-0  text-[2rem] p-2 bg-blue-400">
-              The match is Draw
-            </p>
-          </div>
-        )}
 
         <Board>
           {squares.map((square, index) => {
