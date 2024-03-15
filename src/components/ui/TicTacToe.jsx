@@ -40,7 +40,8 @@ const TicTacToe = () => {
         if (
           squareValues[0] === squareValues[1] &&
           squareValues[0] === squareValues[2] &&
-          !squareValues.includes(null)
+          !squareValues.includes(null) &&
+          !isMatchDraw
         ) {
           if (JSON.stringify(squareIndexes) === JSON.stringify([0, 3, 6])) {
             console.log("row 1");
@@ -91,39 +92,47 @@ const TicTacToe = () => {
     const emptyIndexes = squares
       .map((square, index) => (square === null ? index : null))
       .filter(val => val !== null);
-    const playerWon = linesThatAre("x", "x", "x").length > 0;
-    const computerWon = linesThatAre("o", "o", "o").length > 0;
+    const playerWon = linesThatAre("o", "o", "o").length > 0;
+    const computerWon = linesThatAre("x", "x", "x").length > 0;
     if (playerWon) {
-      setWinner("x");
+      setWinner("o");
+      return;
     }
     if (computerWon) {
-      setWinner("o");
+      setWinner("x");
+      return;
     }
     const putComputerAt = index => {
-      if (!winner) {
-        let newSquares = squares;
-        newSquares[index] = "o";
-        console.log(squares);
-        console.log([...newSquares].includes(null));
-        if ([...newSquares].includes(null)) {
-          setSquares([...newSquares]);
-        } else {
-          setIsMatchDraw(true);
-          console.log("board is full, no have enough space for putComputerAt");
+      setTimeout(() => {
+        if (!winner) {
+          console.log(winner);
+          let newSquares = squares;
+          newSquares[index] = "x";
+          console.log(squares);
+          console.log([...newSquares].includes(null));
+          if ([...newSquares].includes(null)) {
+            setSquares([...newSquares]);
+          } else if (!winner) {
+            setIsMatchDraw(true);
+            console.log(
+              "board is full, no have enough space for putComputerAt"
+            );
+          }
         }
-      }
+      }, 200);
     };
     if (isComputerTurn) {
-      const winingLines = linesThatAre("o", "o", null);
+      const winingLines = linesThatAre("x", "x", null);
       if (winingLines.length > 0) {
         const winIndex = winingLines[0].filter(
           index => squares[index] === null
         )[0];
-        putComputerAt(winIndex);
+        !winner && putComputerAt(winIndex);
+        console.log(winner);
         return;
       }
 
-      const linesToBlock = linesThatAre("x", "x", null);
+      const linesToBlock = linesThatAre("o", "o", null);
       if (linesToBlock.length > 0) {
         const blockIndex = linesToBlock[0].filter(
           index => squares[index] === null
@@ -132,29 +141,32 @@ const TicTacToe = () => {
         return;
       }
 
-      const linesToContinue = linesThatAre("o", null, null);
+      const linesToContinue = linesThatAre("x", null, null);
       if (linesToContinue.length > 0) {
-        putComputerAt(
-          linesToContinue[0].filter(index => squares[index] === null)[0]
-        );
+        !winner &&
+          putComputerAt(
+            linesToContinue[0].filter(index => squares[index] === null)[0]
+          );
+        console.log(winner);
         return;
       }
 
       const randomIndex =
         emptyIndexes[Math.ceil(Math.random() * emptyIndexes.length)];
-      putComputerAt(randomIndex);
+      !winner && putComputerAt(randomIndex);
+      console.log(winner);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [squares]);
 
   function handleSquareClick(index, e) {
     console.log(e.target.parentNode);
-    if (e.target.innerText !== "o" && !winner) {
+    if (e.target.innerText !== "x" && !winner) {
       const isPlayerTurn =
         squares.filter(square => square !== null).length % 2 === 0;
       if (isPlayerTurn) {
         let newSquares = squares;
-        newSquares[index] = "x";
+        newSquares[index] = "o";
         setSquares([...newSquares]);
       }
     }
@@ -165,7 +177,7 @@ const TicTacToe = () => {
       e.target.parentNode.parentNode.childNodes[0].childNodes[8].childNodes
         .length
     );
-    e.target.parentNode.parentNode.childNodes[0].childNodes[8].childNodes.forEach(
+    e.target.parentNode.parentNode.childNodes[0].childNodes[9].childNodes.forEach(
       element => {
         element.innerText = "";
       }
@@ -182,10 +194,11 @@ const TicTacToe = () => {
     setWiningLineClass8("");
     setSquares([null, null, null, null, null, null, null, null, null]);
   };
+  console.log(winner);
 
   return (
-    <>
-      <div className="main relative">
+    <div className="bg-[#111111] py-20">
+      <div className="main relative bg-[#111111] scale-90">
         <>
           <div
             className={cn(
@@ -236,22 +249,88 @@ const TicTacToe = () => {
             )}
           ></div>
         </>
-        {/* <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90  ml-[51px]"></div>
-      <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[151px] "></div>
-      <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[251px]"></div>
-      <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[148px] mt-[5px] rotate-90"></div>
-      <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[148px] mt-[105px] rotate-90"></div>
-      <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-90 ml-[148px] -mt-[95px] rotate-90"></div>
-      <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-110 ml-[148px] mt-[2px] rotate-[135deg]"></div>
-      <div className="absolute h-full bg-red-500 w-[1px] rounded-2xl     scale-y-110 ml-[148px] mt-[8px] -rotate-[135deg]"></div> */}
+
+        {/* <div
+          className={`border absolute w-full h-full backdrop-blur-[2px] bg-opacity-10 scale-0 duration-300 ${
+            winner && winner === "o" && "scale-150"
+          }`}
+        >
+          <div
+            className={`absolute w-full scale-0 delay-1000 ${
+              !!winner && winner === "o" && "scale-150"
+            } duration-700 left-0  bottom-1/2 translate-y-[50%] bg-gradient-to-r from-transparent via-blue-500  bg-opacity-100 text-center text-white mask mask-origin-inside `}
+          >
+            You WON!
+          </div>
+        </div> */}
+
+        {/* <div
+          className={`border absolute w-full h-full backdrop-blur-[2px] bg-opacity-10 scale-0 duration-300 ${
+            winner && winner === "x" && "scale-150"
+          }`}
+        >
+          <div
+            className={`absolute w-full scale-0 delay-1000 ${
+              !!winner && winner === "x" && "scale-150"
+            } p-5 duration-700 left-0  bottom-1/2 translate-y-[50%] bg-gradient-to-r from-transparent via-[#ff4439]  bg-opacity-100 text-center text-white mask mask-origin-inside `}
+          >
+            <span>You LOST!</span>
+          </div>
+        </div> */}
+
+        {/* for "x" */}
+
+        <div
+          className={`border absolute w-full h-full backdrop-blur-[2px] bg-opacity-10 scale-0 duration-300 ${
+            winner && "scale-150"
+          }`}
+        >
+          <div
+            className={`absolute w-full scale-0 delay-700 ${
+              winner && winner === "x" && "scale-150"
+            } p-5 duration-700 left-0  bottom-1/2 translate-y-[50%] bg-gradient-to-r from-transparent via-[#ff4439]  bg-opacity-100 text-center text-white`}
+          >
+            <h4>YOU LOST!!!</h4>
+          </div>
+          <div
+            className={`absolute w-full scale-0 delay-700 ${
+              winner && winner === "o" && "scale-150"
+            } p-5 duration-700 left-0  bottom-1/2 translate-y-[50%] bg-gradient-to-r from-transparent via-blue-500  bg-opacity-100 text-center text-white`}
+          >
+            <h4>YOU WON!!!</h4>
+          </div>
+        </div>
+
+        {/* for "o" */}
+        {/* <div
+          className={`border absolute w-full h-full backdrop-blur-[2px] bg-opacity-10 scale-0 duration-300 ${
+            winner && winner === "o" && "scale-150"
+          }`}
+        >
+          <div
+            className={`absolute w-full scale-0 delay-1000 ${
+              !!winner && winner === "x" && "scale-150"
+            } p-5 duration-700 left-0  bottom-1/2 translate-y-[50%] bg-gradient-to-r from-transparent via-[#ff4439]  bg-opacity-100 text-center text-white mask mask-origin-inside `}
+          >
+            <span>You LOST!</span>
+          </div>
+        </div> */}
+
+        {isMatchDraw && (
+          <div>
+            <p className="absolute w-full scale-150 duration-700 left-0  text-[2rem] p-2 bg-blue-400">
+              The match is Draw
+            </p>
+          </div>
+        )}
 
         <Board>
           {squares.map((square, index) => {
             return (
               <Square
                 key={index}
-                x={square === "x" ? 1 : 0}
                 o={square === "o" ? 1 : 0}
+                x={square === "x" ? 1 : 0}
                 onClick={e => handleSquareClick(index, e)}
               />
             );
@@ -259,21 +338,9 @@ const TicTacToe = () => {
         </Board>
       </div>
       <div className="my-10 max-w-sm mx-auto text-center">
-        {!!winner && winner === "x" && (
-          <div className="result green">You WON!</div>
-        )}
-        {!!winner && winner === "o" && (
-          <div className="result red">You LOST!</div>
-        )}
-        {isMatchDraw && (
-          <div>
-            <p className="text-[2rem] p-2 bg-blue-400">The match is Draw</p>
-          </div>
-        )}
-
         <ButtonYt btnText="play again" onClick={e => handleMatchReset(e)} />
       </div>
-    </>
+    </div>
   );
 };
 

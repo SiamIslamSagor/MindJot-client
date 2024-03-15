@@ -9,6 +9,7 @@ import { LampContainer } from "../components/ui/lamp";
 import { HeroParallax } from "../components/ui/hero-kparallax";
 import TicTacToe from "../components/ui/TicTacToe";
 import { ThreeDCardDemo } from "../components/ui/ThreeDCardDemo";
+import { HoverEffect } from "../components/ui/card-hover-effect.tsx";
 
 const Dashboard = () => {
   const products = [
@@ -134,17 +135,20 @@ const Dashboard = () => {
           </div>
         </PinContainer>
       </div>
+      <div className="max-w-5xl mx-auto px-8 bg-black">
+        <HoverEffect items={projects} />
+      </div>
       {/* <ThreeDCardDemo /> */}
-      <div className="h-[40rem] w-full bg-neutral-950 flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <div className="h-[40rem] w-full bg-[#111111] flex flex-col items-center justify-center overflow-hidden rounded-md">
         <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
           dev.
         </h1>
         <div className="w-[40rem] h-40 relative">
           {/* Gradients */}
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-[2px] w-3/4 blur-sm" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-px w-3/4" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-[5px] w-1/4 blur-sm" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-px w-1/4" />
 
           {/* Core component */}
           <SparklesCore
@@ -157,7 +161,7 @@ const Dashboard = () => {
           />
 
           {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-full bg-neutral-950  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
+          <div className="absolute inset-0 w-full h-full bg-[#161616]  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
         </div>
       </div>
       <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full lg:p-10">
@@ -238,5 +242,43 @@ const Badge = ({ className }) => {
     </svg>
   );
 };
+const projects = [
+  {
+    title: "Stripe",
+    description:
+      "A technology company that builds economic infrastructure for the internet.",
+    link: "https://stripe.com",
+  },
+  {
+    title: "Netflix",
+    description:
+      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+    link: "https://netflix.com",
+  },
+  {
+    title: "Google",
+    description:
+      "A multinational technology company that specializes in Internet-related services and products.",
+    link: "https://google.com",
+  },
+  {
+    title: "Meta",
+    description:
+      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+    link: "https://meta.com",
+  },
+  {
+    title: "Amazon",
+    description:
+      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+    link: "https://amazon.com",
+  },
+  {
+    title: "Microsoft",
+    description:
+      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+    link: "https://microsoft.com",
+  },
+];
 
 export default Dashboard;
