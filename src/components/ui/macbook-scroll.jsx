@@ -24,6 +24,7 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 import { cn } from "../../utils/cn";
+import ImageMagnifier from "./ImageMagnifier";
 
 export const MacbookScroll = ({ src, showGradient, title, badge }) => {
   const ref = useRef(null);
@@ -140,14 +141,43 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
           transformStyle: "preserve-3d",
           transformOrigin: "top",
         }}
-        className="h-96 w-[35rem] absolute inset-0 bg-[#010101] rounded-2xl p-2"
+        className="h-96 w-[35rem] absolute inset-0 bg-[#010101] rounded-2xl p-2 overflow-hidden"
       >
         <div className="absolute inset-0 bg-[#272729] rounded-lg" />
+        {/* <ImageMagnifier width={"100%"} src={src} /> */}
         <img
           src={src}
           alt="aceternity logo"
           className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full"
         />
+        {/* <div
+          className={cn(
+            "size-40 absolute duration-300 top-0 left-0 border-2 rounded-[50%]  bg-transparent -translate-y-[50%] -translate-x-[50%]"
+            // `left-${mousePosition?.x}`
+          )}
+          style={{
+           
+            opacity: "1",
+            border: "1px solid lightgray",
+            backgroundColor: "white",
+            backgroundImage: `url('${src}')`,
+            backgroundRepeat: "no-repeat",
+            // pointerEvents: "none",
+            // cursor: "context-menu",
+
+            //calculate zoomed image size
+            backgroundSize: `${700 * 2}px ${520 * 2}px`,
+
+            //calculete position of zoomed image.
+            // backgroundPositionX: `${-x * zoomLevel + magnifieWidth / 2}px`,
+            // backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
+          }}
+        ></div> */}
+        {/* <div
+          className={cn(
+            "size-80 absolute  duration-300 ease-out -left-10 top-0 bg-[#e30f0f] rounded-[50%] mix-blend-multiply"
+          )}
+        ></div> */}
       </motion.div>
     </div>
   );

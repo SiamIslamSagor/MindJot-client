@@ -10,6 +10,7 @@ import { HeroParallax } from "../components/ui/hero-kparallax";
 import TicTacToe from "../components/ui/TicTacToe";
 import { ThreeDCardDemo } from "../components/ui/ThreeDCardDemo";
 import { HoverEffect } from "../components/ui/card-hover-effect.tsx";
+import ImageMagnifier from "../components/ui/ImageMagnifier.jsx";
 
 const Dashboard = () => {
   const products = [
@@ -111,6 +112,21 @@ const Dashboard = () => {
   return (
     <div className="">
       <TicTacToe />
+      <div className="size-10 bg-[#d00c0c] rounded-[50%]"></div>
+      <ImageMagnifier
+        width={"200px"}
+        src="https://images-na.ssl-images-amazon.com/images/I/616HiOFb1VL._AC_UX679_.jpg"
+      />
+      <div className="border-2 m-10 my-80 p-5 flex items-center justify-center">
+        <div className="size-20 border-2 mx-2"></div>
+        <div className="size-20 border-2 mx-2"></div>
+        <div className="size-20 border-2 mx-2"></div>
+        <div className="size-20 border-2 mx-2"></div>
+        <div className="size-20 border-2 mx-2"></div>
+        <div className="size-20 border-2 mx-2"></div>
+        <div className="size-20 border-2 mx-2"></div>
+        <div className="size-20 border-2 mx-2"></div>
+      </div>
       <div className="h-[40rem] w-full flex items-center justify-center ">
         <PinContainer
           title="/ui.aceternity.com"
@@ -139,16 +155,16 @@ const Dashboard = () => {
         <HoverEffect items={projects} />
       </div>
       {/* <ThreeDCardDemo /> */}
-      <div className="h-[40rem] w-full bg-[#111111] flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <div className="h-[40rem] w-full bg-[#000] flex flex-col items-center justify-center overflow-hidden rounded-md">
         <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
           dev.
         </h1>
         <div className="w-[40rem] h-40 relative">
           {/* Gradients */}
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-[2px] w-3/4 blur-sm" />
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-px w-3/4" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#ff4439] to-transparent h-px w-1/4" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
           {/* Core component */}
           <SparklesCore
@@ -161,7 +177,7 @@ const Dashboard = () => {
           />
 
           {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-full bg-[#161616]  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
+          <div className="absolute inset-0 w-full h-full bg-[#000]  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
         </div>
       </div>
       <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full lg:p-10">
