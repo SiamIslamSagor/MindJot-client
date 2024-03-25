@@ -144,7 +144,6 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
         className="h-96 w-[35rem] absolute inset-0 bg-[#010101] rounded-2xl p-2 overflow-hidden"
       >
         <div className="absolute inset-0 bg-[#272729] rounded-lg" />
-        {/* <ImageMagnifier width={"100%"} src={src} /> */}
         <img
           src={src}
           alt="aceternity logo"
