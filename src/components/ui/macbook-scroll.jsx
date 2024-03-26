@@ -24,7 +24,6 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 import { cn } from "../../utils/cn";
-import ImageMagnifier from "./ImageMagnifier";
 
 export const MacbookScroll = ({ src, showGradient, title, badge }) => {
   const ref = useRef(null);
@@ -55,6 +54,8 @@ export const MacbookScroll = ({ src, showGradient, title, badge }) => {
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+
+  // write a function which accept a string and reverse it , then return reverse string.
 
   return (
     <div
