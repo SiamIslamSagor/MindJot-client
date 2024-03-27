@@ -8,7 +8,6 @@ import { SparklesCore } from "../components/ui/sparkles";
 import { LampContainer } from "../components/ui/lamp";
 import { HeroParallax } from "../components/ui/hero-kparallax";
 import TicTacToe from "../components/ui/TicTacToe";
-import { ThreeDCardDemo } from "../components/ui/ThreeDCardDemo";
 import { HoverEffect } from "../components/ui/card-hover-effect.tsx";
 import ImageMagnifier from "../components/ui/ImageMagnifier.jsx";
 
