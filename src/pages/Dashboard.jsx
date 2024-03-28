@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PinContainer } from "../components/ui/3d-pin";
