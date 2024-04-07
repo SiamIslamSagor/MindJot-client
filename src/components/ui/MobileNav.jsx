@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { cn } from "../../utils/cn";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Bounce, Fade, Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import { IoCloseCircleOutline } from "react-icons/io5";
+
 // import { motion, AnimatePresence } from "framer-motion";
 
 const MobileNav = () => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(true);
   const [pathname, setPathname] = useState("/");
 
   return (
@@ -24,15 +26,23 @@ const MobileNav = () => {
             : "scale-[0] rounded-full duration-[300ms]"
         )}
       >
-        <div className="text-3xl text-right p-5">
-          <span
-            onClick={() => setIsMobileNavOpen(state => !state)}
-            className="border cursor-pointer"
-          >
-            {isMobileNavOpen ? "close" : ""}
-          </span>{" "}
-        </div>
-        <Zoom delay={1200} duration={1200} className="my-32  bggreen-400">
+        {isMobileNavOpen && (
+          <div className="">
+            <div className=" flex items-center justify-end p-5">
+              <Bounce
+                delay={3500}
+                duration={1200}
+                className=" cursor-pointer xsm:p-2 "
+              >
+                <IoCloseCircleOutline
+                  onClick={() => setIsMobileNavOpen(state => !state)}
+                  className="text-4xl max-xsm:size-10 duration-300 xsm:size-12  right-0 "
+                />
+              </Bounce>
+            </div>{" "}
+          </div>
+        )}
+        <Zoom delay={1200} duration={1200} className="my-20  bggreen-400">
           {isMobileNavOpen && (
             <Fade
               delay={1500}
