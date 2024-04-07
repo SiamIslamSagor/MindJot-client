@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { cn } from "../../utils/cn";
 import { Bounce, Fade, Zoom } from "react-awesome-reveal";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
 // import { motion, AnimatePresence } from "framer-motion";
 
 const MobileNav = () => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(true);
-  const [pathname, setPathname] = useState("/");
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  // const [pathname, setPathname] = useState("/");
 
   return (
     <div>
@@ -23,7 +23,7 @@ const MobileNav = () => {
           " bg-[#ff4439] text-white font-semibold  min-h-screen min-w-full z-[9999999999999999999999] fixed",
           isMobileNavOpen
             ? "scale-100 duration-[1000ms] rounded-none"
-            : "scale-[0] rounded-full duration-[300ms]"
+            : "scale-[0] !opacity-75 rounded-full duration-[300ms]"
         )}
       >
         {isMobileNavOpen && (
@@ -116,10 +116,10 @@ const MobileNav = () => {
   );
 };
 
-const activeLinkStyle =
-  "border-x-[48px] border-y-[24px] border-transparent relative text-xs font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-100";
+// const activeLinkStyle =
+//   "border-x-[48px] border-y-[24px] border-transparent relative text-xs font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-100";
 
-const normalLinkStyle =
-  "border-x-[48px] border-y-[24px] border-transparent relative text-xs font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-0";
+// const normalLinkStyle =
+//   "border-x-[48px] border-y-[24px] border-transparent relative text-xs font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-0";
 
 export default MobileNav;
