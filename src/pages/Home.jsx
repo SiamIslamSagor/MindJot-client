@@ -87,10 +87,10 @@ const Home = () => {
         {/* <ButtonBird2 /> */}
         {/* <ButtonMine /> */}
         {/* <CircleButton /> */}
-        <div className="border-4 border-blue-600 max-w-2xl min-w-96 bg-[#ff4439] my-10 mx-auto">
+        {/* <div className="border-4 border-blue-600 max-w-2xl min-w-96 bg-[#ff4439] my-10 mx-auto">
           <LinkItem />
-        </div>
-        <GoogleGeminiEffectDemo />
+        </div> */}
+        {/* <GoogleGeminiEffectDemo /> */}
         <div className="space-y-5 p-10 bg-[#ff4439]">
           <ButtonYt />
           <ButtonYt />

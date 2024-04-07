@@ -12,7 +12,7 @@ const Main = () => {
       <div className="bg-base-100 min-h-screen">
         {/* <NextNav /> */}
 
-        {/* <Navbar /> */}
+        <Navbar />
         <div className="h-24"></div>
         <Outlet />
       </div>
