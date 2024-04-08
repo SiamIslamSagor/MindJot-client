@@ -42,7 +42,7 @@ const MobileNav = () => {
             </div>{" "}
           </div>
         )}
-        <Zoom delay={1200} duration={1200} className="my-20  bggreen-400">
+        <Zoom delay={1200} duration={1500} className="my-20  bggreen-400">
           {isMobileNavOpen && (
             <Fade
               delay={1500}
