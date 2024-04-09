@@ -92,6 +92,7 @@ const Home = () => {
           <LinkItem />
         </div> */}
         {/* <GoogleGeminiEffectDemo /> */}
+        {/* this is new commit content */}
 
         <div className="flex my-20 gap-10">
           <img
