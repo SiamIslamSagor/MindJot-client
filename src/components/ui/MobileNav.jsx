@@ -14,7 +14,7 @@ const MobileNav = () => {
     <div>
       <div
         onClick={() => setIsMobileNavOpen(state => !state)}
-        className="fixed z-[9999999999999] top-0 right-0 p-5 bg-red-300 my-2 cursor-pointer"
+        className="fixed z-[9999999999999] top-20 right-20 p-5 bg-red-300 my-2 cursor-pointer"
       >
         <span className="text-3xl   p-5">open</span>
       </div>

@@ -106,11 +106,11 @@ const TicTacToe = () => {
     const putComputerAt = index => {
       setTimeout(() => {
         if (!winner) {
-          console.log(winner);
+          // console.log(winner);
           let newSquares = squares;
           newSquares[index] = "x";
-          console.log(squares);
-          console.log([...newSquares].includes(null));
+          // console.log(squares);
+          // console.log([...newSquares].includes(null));
           if ([...newSquares].includes(null)) {
             setSquares([...newSquares]);
           } else if (!winner) {
@@ -155,14 +155,14 @@ const TicTacToe = () => {
       const randomIndex =
         emptyIndexes[Math.ceil(Math.random() * emptyIndexes.length)];
       !winner && putComputerAt(randomIndex);
-      console.log(winner);
+      // console.log(winner);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [squares]);
 
   function handleSquareClick(index, e) {
     setIsGameRunning(true);
-    console.log(e.target.parentNode);
+    // console.log(e.target.parentNode);
     if (e.target.innerText !== "x" && !winner) {
       const isPlayerTurn =
         squares.filter(square => square !== null).length % 2 === 0;
@@ -175,10 +175,10 @@ const TicTacToe = () => {
   }
 
   const handleMatchReset = e => {
-    console.log(
-      e.target.parentNode.parentNode.childNodes[0].childNodes[8].childNodes
-        .length
-    );
+    // console.log(
+    //   e.target.parentNode.parentNode.childNodes[0].childNodes[8].childNodes
+    //     .length
+    // );
     e.target.parentNode.parentNode.childNodes[0].childNodes[9].childNodes.forEach(
       element => {
         element.innerText = "";
@@ -197,7 +197,7 @@ const TicTacToe = () => {
     setSquares([null, null, null, null, null, null, null, null, null]);
     setIsGameRunning(false);
   };
-  console.log(winner);
+  // console.log(winner);
 
   return (
     <div className="bg-[#111111] py-20">
