@@ -94,7 +94,7 @@ const Home = () => {
         {/* <GoogleGeminiEffectDemo /> */}
         {/* this is new commit content */}
 
-        <div className="flex my-20 gap-10">
+        {/* <div className="flex my-20 gap-10">
           <img
             className="border bg-red-500 size-60 text-white"
             src={img1}
@@ -105,7 +105,7 @@ const Home = () => {
             src={img2}
             alt=""
           />
-        </div>
+        </div> */}
 
         {/* <div className="space-y-5 p-10 bg-[#ff4439]">
           <ButtonYt />
