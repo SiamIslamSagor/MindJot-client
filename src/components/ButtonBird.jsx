@@ -25,6 +25,8 @@ export default function ButtonBird() {
     const { clientX, clientY } = event; // Destructure event object
     const buttonElement = event.currentTarget; // Get the button element
 
+    // this is new commit from github
+
     // Calculate relative position of mouse within the button
     const relativeX = clientX - buttonElement.offsetLeft;
     const relativeY = clientY - buttonElement.offsetTop;
