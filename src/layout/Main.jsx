@@ -8,7 +8,7 @@ import EntryView from "../components/ui/EntryView";
 const Main = () => {
   return (
     <>
-      <Preloader />
+      {/* <Preloader /> */}
       {/* <MobileNav /> */}
       <EntryView />
       <div className="bg-base-100 min-h-screen">
