@@ -107,12 +107,12 @@ const Home = () => {
           />
         </div> */}
 
-        {/* <div className="space-y-5 p-10 bg-[#ff4439]">
+        <div className="space-y-5 p-10 bg-[#ff4439]">
           <ButtonYt />
           <ButtonYt />
           <ButtonYt />
           <ButtonYt />
-        </div> */}
+        </div>
       </div>
       <div className=" h-[300vh] bg-light-blue"></div>
     </div>

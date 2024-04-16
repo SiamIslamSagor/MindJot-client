@@ -9,6 +9,7 @@ export default function ButtonYt(props) {
 
     btn.style.setProperty("--x", x + "px");
     btn.style.setProperty("--y", y + "px");
+    console.log("mouse moved");
   };
   return (
     <Button
@@ -16,7 +17,7 @@ export default function ButtonYt(props) {
       size="lg"
       {...props}
       onMouseMove={handleMouseMove}
-      className="btn_yt hover:!opacity-100 font-semibold uppercase relative inline-flex px-8 py-3 bg-[#252525] text-white tracking-widest overflow-hidden z-50 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-full  before:bg-[#ff4439] before:bg-opacity-90 before:-z-[1] before:size-0  hover:before:size-[500px]"
+      className="btn_yt hover:!opacity-100 font-semibold uppercase relative inline-flex px-8 py-7 bg-[#151515] text-white tracking-widest overflow-hidden z-50 before:content-[''] before:absolute before:top-0 before:left-0 before:rounded-full  before:bg-[#ff4439] before:bg-opacity-90 before:-z-[1] before:size-0  hover:before:size-[500px]"
     >
       {props?.btnText ? props.btnText : "Click Me"}
     </Button>

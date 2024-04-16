@@ -99,11 +99,11 @@
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
-.sticky-nav {
-  position: -webkit-sticky !important; /* Safari */
+/* .sticky-nav {
+  position: -webkit-sticky !important; 
   position: sticky !important;
   top: 0;
-}
+} */
 
 /* @keyframes bouncingBall {
   10% {

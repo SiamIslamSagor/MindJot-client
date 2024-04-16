@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const LinkItem = () => {
   const [pathname, setPathname] = useState("/");
   return (
-    <div className="text-white w-max mx-auto space--10 h-full p-10">
+    <Fade
+      cascade
+      damping={0.1}
+      duration={1500}
+      className="text-white w-max mx-auto h-full "
+    >
       {/* <Link className="py-5  relative text-xs leading-6 uppercase  after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-300 after:bottom-[25%] after:left-0 after:scale-x-0 hover:after:scale-100">
         homee
       </Link> */}
@@ -15,18 +21,30 @@ const LinkItem = () => {
         home
       </Link>
       <Link
-        onClick={() => setPathname("/project")}
-        className={pathname === "/project" ? activeLinkStyle : normalLinkStyle}
+        onClick={() => setPathname("/about me")}
+        className={pathname === "/about me" ? activeLinkStyle : normalLinkStyle}
       >
-        project
+        about me
       </Link>
       <Link
-        onClick={() => setPathname("/contact-me")}
+        onClick={() => setPathname("/skills")}
+        className={pathname === "/skills" ? activeLinkStyle : normalLinkStyle}
+      >
+        skills
+      </Link>
+      <Link
+        onClick={() => setPathname("/works")}
+        className={pathname === "/works" ? activeLinkStyle : normalLinkStyle}
+      >
+        works
+      </Link>
+      <Link
+        onClick={() => setPathname("/education")}
         className={
-          pathname === "/contact-me" ? activeLinkStyle : normalLinkStyle
+          pathname === "/education" ? activeLinkStyle : normalLinkStyle
         }
       >
-        contact me
+        education
       </Link>
       {/* <Link className="p-4 relative text-xs leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:left-0 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3]">
         home
@@ -46,14 +64,14 @@ const LinkItem = () => {
       <Link className="p-4 border relative text-xs leading-6 uppercase before:content-[''] before:absolute before:size-1 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:left-0 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-300 hover:before:scale-[4]">
         contact me
       </Link> */}
-    </div>
+    </Fade>
   );
 };
 
 const activeLinkStyle =
-  "border-x-[48px] border-y-[24px] border-transparent relative text-xs font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-100";
+  "border-x-[20px] border-y-[24px] border-transparent relative text-xs 2xl:text-sm font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-100";
 
 const normalLinkStyle =
-  "border-x-[48px] border-y-[24px] border-transparent relative text-xs font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-0";
+  "border-x-[20px] border-y-[24px] border-transparent relative text-xs 2xl:text-sm font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-0";
 
 export default LinkItem;
