@@ -116,6 +116,29 @@ export default {
           // },
         },
 
+        "r2l-slide": {
+          "0%": {
+            transform: "translateX(7rem)",
+            opacity: 0,
+          },
+
+          "90%": {
+            transform: "translateX(0rem)",
+            opacity: 1,
+          },
+        },
+
+        "vertical-bounce": {
+          "0%, 100%": {
+            transform: "translateY(-50%)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "50%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
+          },
+        },
+
         /*  bigDotBounce: {
           "0%": {
             transform: "translateY(0) ",
@@ -191,6 +214,7 @@ export default {
         wiggle: "wiggle 1s ease-in-out infinite",
         dot: "dot 1s ease-in-out ",
         bigDotBounce: "bigDotBounce 1.5s ease-in-out ",
+        verticalBounce: "vertical-bounce 1.5s ease-in-out infinite",
         "jump-x": "jump-x 350ms ease-in-out infinite",
       },
     },

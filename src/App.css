@@ -31,6 +31,13 @@
 .custom-btn:hover {
   color: #111;
 }
+
+.after-animation-delay-class-3000::after {
+  animation-delay: 3s;
+}
+.after-animation-delay-class-2200::after {
+  animation-delay: 2.2s;
+}
 /* 
 .custom-btn span {
   position: absolute;
