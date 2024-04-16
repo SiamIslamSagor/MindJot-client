@@ -32,13 +32,13 @@ const EntryView = () => {
           <div className="borderr ">
             <h1 className="tracking-tight 2xl:leading-[150px]">
               MERN Stack <br className="max-lg:hidden 2xl:leading-[150px]" />{" "}
-              <span className="mt-20 brdjcjer leading-6  md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 2xl:after:size-5 after:duration-500 after:rounded-[50%] after:bg-black after:-right-[15px] sm:after:-right-[18px] lg:after:-right-[20px] 2xl:after:-right-[28px] after:bottom-[4px] sm:after:bottom-[6px] md:after:bottom-[8px] lg:after:bottom-[12px] xl:after:bottom-[14px] 2xl:after:bottom-[30px] max-md:after:scale75 after-animation-delay-class-3000 after:animate-[bigDotBounce_1.5s_ease-in-out]">
+              <span className="mt-20 brdjcjer leading-6  md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 2xl:after:size-8 after:duration-500 after:rounded-[50%] after:bg-black after:-right-[15px] sm:after:-right-[18px] lg:after:-right-[20px] 2xl:after:-right-[38px] after:bottom-[4px] sm:after:bottom-[6px] md:after:bottom-[8px] lg:after:bottom-[12px] xl:after:bottom-[14px] 2xl:after:bottom-[30px] max-md:after:scale75 after-animation-delay-class-3000 after:animate-[bigDotBounce_1.5s_ease-in-out]">
                 Solutions
               </span>
             </h1>{" "}
           </div>
         </div>
-        <div className="absolute bottom-10 opacity-50 cursor-pointer">
+        <div className="absolute bottom-10 opacity-50 cursor-pointer max-xsm:scale-75">
           <div className="flex items-center justify-center">
             <PiMouseSimpleThin className="text-4xl 2xl:text-5xl animate-verticalBounce" />
           </div>
@@ -63,7 +63,7 @@ const EntryView = () => {
       </div>
       <div
         id="nav"
-        className="bg-red-800 min-h-20 stickynav sticky  top-0 z-[9999]"
+        className="bg-[#ff4439] min-h-20 stickynav sticky  top-0 z-[9999]"
       ></div>
       <div className=" ">
         {/* <div className="h-[500vh] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
