@@ -21,7 +21,7 @@ export default function ButtonBird() {
     });
   };
   // commit 
-
+// commot
   const handleMouseLeave = event => {
     const { clientX, clientY } = event; // Destructure event object
     const buttonElement = event.currentTarget; // Get the button element
