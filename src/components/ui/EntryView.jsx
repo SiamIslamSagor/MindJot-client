@@ -6,10 +6,12 @@ import LinkItem from "./LinkItem";
 import ButtonYt from "../../pages/ButtonYt";
 import { Button } from "@nextui-org/react";
 import SectionVisibility from "./section-visibility";
+import { useState } from "react";
 
 // import "../../../src/App.css";
 
 const EntryView = () => {
+  const [activeSection, setActiveSection] = useState("#");
   return (
     <div className="min-h-[400vh] border border-blue-700 ">
       <div
@@ -81,18 +83,23 @@ const EntryView = () => {
             </h2>
           </div>
           <div className="flex items-center  bg-[#ff4439] ">
-            <LinkItem />
+            <LinkItem
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+            />
             {/* <div>
               <a href=""></a>
             </div> */}
             <div className="lg:ml-10 2xl:ml-20">
-              <Button
-                radius="none"
-                size="lg"
-                className=" hover:!opacity-100 font-semibold uppercase relative inline-flex p-8 bg-[#151515] hover:bg-white hover:text-black text-white tracking-w overflow-hidden z-50 text-xs 2xl:text-sm tracking-tightkkk"
-              >
-                get in touch
-              </Button>
+              <a href="#get-in-touch">
+                <Button
+                  radius="none"
+                  size="lg"
+                  className=" hover:!opacity-100 font-semibold uppercase relative inline-flex p-8 bg-[#151515] hover:bg-white hover:text-black text-white tracking-w overflow-hidden z-50 text-xs 2xl:text-sm tracking-tightkkk"
+                >
+                  get in touch
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -104,32 +111,50 @@ const EntryView = () => {
           <ButtonYt />
           <ButtonYt />
         </div> */}
-        <SectionVisibility sectionName={"home"}>
+        <SectionVisibility
+          setActiveSection={setActiveSection}
+          sectionName={"home"}
+        >
           <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#ff7392]">
             1
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"about me"}>
+        <SectionVisibility
+          setActiveSection={setActiveSection}
+          sectionName={"about me"}
+        >
           <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
             2
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"skills"}>
+        <SectionVisibility
+          setActiveSection={setActiveSection}
+          sectionName={"skills"}
+        >
           <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
             3
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"works"}>
+        <SectionVisibility
+          setActiveSection={setActiveSection}
+          sectionName={"works"}
+        >
           <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
             4
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"education"}>
+        <SectionVisibility
+          setActiveSection={setActiveSection}
+          sectionName={"education"}
+        >
           <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
             5
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"get-in-touch"}>
+        <SectionVisibility
+          setActiveSection={setActiveSection}
+          sectionName={"get-in-touch"}
+        >
           <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
             6
           </div>

@@ -2,7 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "../../utils/cn";
 
-const SectionVisibility = ({ children, sectionName, className }) => {
+const SectionVisibility = ({
+  children,
+  sectionName,
+  className,
+  setActiveSection,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Intersection Observer setup with options for better precision
@@ -31,8 +36,11 @@ const SectionVisibility = ({ children, sectionName, className }) => {
   useEffect(() => {
     if (isVisible) {
       console.log(`Section ${sectionName} is now visible!`);
+      console.log(sectionName);
+      setActiveSection(sectionName);
     }
   }, [isVisible, sectionName]);
+  // console.log(setActiveSection);
 
   return (
     <section ref={observerRef} id={sectionName} className={cn(className)}>

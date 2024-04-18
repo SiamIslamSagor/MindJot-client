@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
-const LinkItem = () => {
+const LinkItem = ({ activeSection, setActiveSection }) => {
   const [pathname, setPathname] = useState("/");
   console.log(pathname);
   return (
@@ -18,40 +19,48 @@ const LinkItem = () => {
       <a
         // to={"#"}
         href="#"
-        onClick={() => setPathname("")}
-        className={pathname === "" ? activeLinkStyle : normalLinkStyle}
+        onClick={() => setActiveSection("#")}
+        className={activeSection === "" ? activeLinkStyle : normalLinkStyle}
       >
         home
       </a>
       <a
         // to={"#about me"}
         href="#about me"
-        onClick={() => setPathname("about me")}
-        className={pathname === "about me" ? activeLinkStyle : normalLinkStyle}
+        onClick={() => setActiveSection("about me")}
+        className={
+          activeSection === "about me" ? activeLinkStyle : normalLinkStyle
+        }
       >
         about me
       </a>
       <a
         // to={"#skills"}
         href="#skills"
-        onClick={() => setPathname("skills")}
-        className={pathname === "skills" ? activeLinkStyle : normalLinkStyle}
+        onClick={() => setActiveSection("skills")}
+        className={
+          activeSection === "skills" ? activeLinkStyle : normalLinkStyle
+        }
       >
         skills
       </a>
       <a
         // to={"#works"}
         href="#works"
-        onClick={() => setPathname("works")}
-        className={pathname === "works" ? activeLinkStyle : normalLinkStyle}
+        onClick={() => setActiveSection("works")}
+        className={
+          activeSection === "works" ? activeLinkStyle : normalLinkStyle
+        }
       >
         works
       </a>
       <a
         // to={"#education"}
         href="#education"
-        onClick={() => setPathname("education")}
-        className={pathname === "education" ? activeLinkStyle : normalLinkStyle}
+        onClick={() => setActiveSection("education")}
+        className={
+          activeSection === "education" ? activeLinkStyle : normalLinkStyle
+        }
       >
         education
       </a>
