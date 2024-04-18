@@ -107,7 +107,7 @@ const Home = () => {
           />
         </div> */}
 
-        <div className="space-y-5 p-10 bg-[#ff4439]">
+        <div id="btn-div" className="space-y-5 p-10 bg-[#ff4439]">
           <ButtonYt />
           <ButtonYt />
           <ButtonYt />

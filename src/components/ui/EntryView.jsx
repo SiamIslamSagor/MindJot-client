@@ -42,27 +42,32 @@ const EntryView = () => {
             </h1>{" "}
           </div>
         </div>
-        <div className="absolute bottom-10 opacity-50 cursor-pointer max-xsm:scale-75">
-          <div className="flex items-center justify-center">
-            <PiMouseSimpleThin className="text-4xl 2xl:text-5xl animate-verticalBounce" />
-          </div>
-          <div>
-            <Fade
-              className="uppercase font-semibold  inline-block text-center"
-              cascade
-              damping={0.1}
-              direction="up"
-              delay={2500}
-              duration={1800}
-            >
-              <span>s</span>
-              <span>c</span>
-              <span>r</span>
-              <span>o</span>
-              <span>l</span>
-              <span>l</span>
-            </Fade>
-          </div>
+        <div></div>
+        <div className="absolute bottom-10 opacity-50 cursor-pointer max-xsm:scale-75 ">
+          <a href="#home">
+            <div>
+              <div className="flex items-center justify-center ">
+                <PiMouseSimpleThin className="text-4xl 2xl:text-5xl animate-verticalBounce" />
+              </div>
+              <div>
+                <Fade
+                  className="uppercase font-semibold  inline-block text-center"
+                  cascade
+                  damping={0.1}
+                  direction="up"
+                  delay={2500}
+                  duration={1800}
+                >
+                  <span>s</span>
+                  <span>c</span>
+                  <span>r</span>
+                  <span>o</span>
+                  <span>l</span>
+                  <span>l</span>
+                </Fade>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
       <div
@@ -77,6 +82,9 @@ const EntryView = () => {
           </div>
           <div className="flex items-center  bg-[#ff4439] ">
             <LinkItem />
+            {/* <div>
+              <a href=""></a>
+            </div> */}
             <div className="lg:ml-10 2xl:ml-20">
               <Button
                 radius="none"
@@ -96,33 +104,33 @@ const EntryView = () => {
           <ButtonYt />
           <ButtonYt />
         </div> */}
-        <SectionVisibility sectionName={"/"}>
-          <div className="min-h-screen flex items-center justify-center text-9xl  text-white font-black  bg-[#ff7392]">
+        <SectionVisibility sectionName={"home"}>
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#ff7392]">
             1
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"/about me"}>
-          <div className="min-h-screen flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
+        <SectionVisibility sectionName={"about me"}>
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
             2
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"/skills"}>
-          <div className="min-h-screen flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
+        <SectionVisibility sectionName={"skills"}>
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
             3
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"/works"}>
-          <div className="min-h-screen flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
+        <SectionVisibility sectionName={"works"}>
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
             4
           </div>
         </SectionVisibility>
-        <SectionVisibility sectionName={"/education"}>
-          <div className="min-h-screen flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
+        <SectionVisibility sectionName={"education"}>
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
             5
           </div>
         </SectionVisibility>
         <SectionVisibility sectionName={"get-in-touch"}>
-          <div className="min-h-screen flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
             6
           </div>
         </SectionVisibility>

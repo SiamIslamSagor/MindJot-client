@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const LinkItem = () => {
   const [pathname, setPathname] = useState("/");
+  console.log(pathname);
   return (
     <Fade
       cascade
@@ -14,38 +15,46 @@ const LinkItem = () => {
       {/* <Link className="py-5  relative text-xs leading-6 uppercase  after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-300 after:bottom-[25%] after:left-0 after:scale-x-0 hover:after:scale-100">
         homee
       </Link> */}
-      <Link
-        onClick={() => setPathname("/")}
-        className={pathname === "/" ? activeLinkStyle : normalLinkStyle}
+      <a
+        // to={"#"}
+        href="#"
+        onClick={() => setPathname("")}
+        className={pathname === "" ? activeLinkStyle : normalLinkStyle}
       >
         home
-      </Link>
-      <Link
-        onClick={() => setPathname("/about me")}
-        className={pathname === "/about me" ? activeLinkStyle : normalLinkStyle}
+      </a>
+      <a
+        // to={"#about me"}
+        href="#about me"
+        onClick={() => setPathname("about me")}
+        className={pathname === "about me" ? activeLinkStyle : normalLinkStyle}
       >
         about me
-      </Link>
-      <Link
-        onClick={() => setPathname("/skills")}
-        className={pathname === "/skills" ? activeLinkStyle : normalLinkStyle}
+      </a>
+      <a
+        // to={"#skills"}
+        href="#skills"
+        onClick={() => setPathname("skills")}
+        className={pathname === "skills" ? activeLinkStyle : normalLinkStyle}
       >
         skills
-      </Link>
-      <Link
-        onClick={() => setPathname("/works")}
-        className={pathname === "/works" ? activeLinkStyle : normalLinkStyle}
+      </a>
+      <a
+        // to={"#works"}
+        href="#works"
+        onClick={() => setPathname("works")}
+        className={pathname === "works" ? activeLinkStyle : normalLinkStyle}
       >
         works
-      </Link>
-      <Link
-        onClick={() => setPathname("/education")}
-        className={
-          pathname === "/education" ? activeLinkStyle : normalLinkStyle
-        }
+      </a>
+      <a
+        // to={"#education"}
+        href="#education"
+        onClick={() => setPathname("education")}
+        className={pathname === "education" ? activeLinkStyle : normalLinkStyle}
       >
         education
-      </Link>
+      </a>
       {/* <Link className="p-4 relative text-xs leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:left-0 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3]">
         home
       </Link>
