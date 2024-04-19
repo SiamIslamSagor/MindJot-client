@@ -1,26 +1,23 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
-import { Link } from "react-router-dom";
+import { cn } from "../../utils/cn";
 
-const LinkItem = ({ activeSection, setActiveSection }) => {
-  const [pathname, setPathname] = useState("/");
-  console.log(pathname);
+const LinkItem = ({ activeSection, setActiveSection, className }) => {
   return (
     <Fade
       cascade
       damping={0.1}
       duration={1500}
-      className="text-white w-max mx-auto h-full "
+      className={cn("text-white w-max mx-auto h-full ", className)}
     >
       {/* <Link className="py-5  relative text-xs leading-6 uppercase  after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-300 after:bottom-[25%] after:left-0 after:scale-x-0 hover:after:scale-100">
         homee
       </Link> */}
       <a
         // to={"#"}
-        href="#"
-        onClick={() => setActiveSection("#")}
-        className={activeSection === "" ? activeLinkStyle : normalLinkStyle}
+        href="#home"
+        onClick={() => setActiveSection("home")}
+        className={activeSection === "home" ? activeLinkStyle : normalLinkStyle}
       >
         home
       </a>

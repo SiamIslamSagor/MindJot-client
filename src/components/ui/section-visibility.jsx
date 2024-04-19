@@ -39,7 +39,7 @@ const SectionVisibility = ({
       console.log(sectionName);
       setActiveSection(sectionName);
     }
-  }, [isVisible, sectionName]);
+  }, [isVisible, sectionName, setActiveSection]);
   // console.log(setActiveSection);
 
   return (

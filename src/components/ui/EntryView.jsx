@@ -7,11 +7,13 @@ import ButtonYt from "../../pages/ButtonYt";
 import { Button } from "@nextui-org/react";
 import SectionVisibility from "./section-visibility";
 import { useState } from "react";
+import { cn } from "../../utils/cn";
+import TicTacToe from "./TicTacToe";
 
 // import "../../../src/App.css";
 
 const EntryView = () => {
-  const [activeSection, setActiveSection] = useState("#");
+  const [activeSection, setActiveSection] = useState("home");
   return (
     <div className="min-h-[400vh] border border-blue-700 ">
       <div
@@ -78,12 +80,13 @@ const EntryView = () => {
       >
         <div className="w-full flex items-center justify-between container mx-auto">
           <div className="w-fit flex">
-            <h2 className="duration-500 h-min text-white font-extrabold text-[21px] leading-6 md:text-[40px] md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 after:duration-500 after:rounded-[50%] after:bg-white after:-right-[13px] after:bottom-[2px] md:after:bottom-[3px] max-md:after:scale75 after:animate-[bigDotBounce_1.5s_ease-in-out]">
+            <h2 className="max-md:px-2 duration-500 h-min text-white font-extrabold text-[21px] leading-6 md:text-[40px] md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 after:duration-500 after:rounded-[50%] after:bg-white after:-right-[13px] after:bottom-[2px] md:after:bottom-[3px] max-md:after:scale75 after:animate-[bigDotBounce_1.5s_ease-in-out]">
               dev
             </h2>
           </div>
           <div className="flex items-center  bg-[#ff4439] ">
             <LinkItem
+              className={"max-md:hidden"}
               activeSection={activeSection}
               setActiveSection={setActiveSection}
             />
@@ -95,7 +98,12 @@ const EntryView = () => {
                 <Button
                   radius="none"
                   size="lg"
-                  className=" hover:!opacity-100 font-semibold uppercase relative inline-flex p-8 bg-[#151515] hover:bg-white hover:text-black text-white tracking-w overflow-hidden z-50 text-xs 2xl:text-sm tracking-tightkkk"
+                  className={cn(
+                    "hover:!opacity-100 font-semibold uppercase relative inline-flex p-8 bg-[#151515] hover:bg-white hover:text-black text-white tracking-w overflow-hidden z-50 text-xs 2xl:text-sm",
+                    activeSection === "get-in-touch"
+                      ? "bg-white text-black"
+                      : "bg-[#151515]"
+                  )}
                 >
                   get in touch
                 </Button>
@@ -104,7 +112,7 @@ const EntryView = () => {
           </div>
         </div>
       </div>
-      <div className=" ">
+      <div className="">
         {/* <div className="space-y-5 p-10 space-x-4">
           <ButtonYt />
           <ButtonYt />
@@ -113,49 +121,55 @@ const EntryView = () => {
         </div> */}
         <SectionVisibility
           setActiveSection={setActiveSection}
+          className={"scroll-mt-[63px]"}
           sectionName={"home"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#ff7392]">
-            1
+          <div className="min-h-[80vh] bg-[#ff7392]">
+            <TicTacToe />
           </div>
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
+          className={"scroll-mt-[63px]"}
           sectionName={"about me"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
+          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
             2
           </div>
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
+          className={"scroll-mt-[63px]"}
           sectionName={"skills"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
+          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
             3
           </div>
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
+          className={"scroll-mt-[63px]"}
           sectionName={"works"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
+          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
             4
           </div>
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
+          className={"scroll-mt-[63px]"}
           sectionName={"education"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
+          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
             5
           </div>
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
+          className={"scroll-mt-[63px]"}
           sectionName={"get-in-touch"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
+          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
             6
           </div>
         </SectionVisibility>
