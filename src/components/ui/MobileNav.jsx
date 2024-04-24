@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { cn } from "../../utils/cn";
 import { Bounce, Fade, Zoom } from "react-awesome-reveal";
@@ -6,21 +7,26 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 
 // import { motion, AnimatePresence } from "framer-motion";
 
-const MobileNav = () => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+const MobileNav = ({
+  isMobileNavOpen,
+  setIsMobileNavOpen,
+  activeSection,
+  setActiveSection,
+}) => {
+  // const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   // const [pathname, setPathname] = useState("/");
 
   return (
     <div>
-      <div
-        onClick={() => setIsMobileNavOpen(state => !state)}
-        className="fixed z-[9999999999999] top-20 right-20 p-5 bg-red-300 my-2 cursor-pointer"
+      {/* <div
+        // onClick={() => setIsMobileNavOpen(state => !state)}
+        className="fixed z-[99999999999999999999999999999999999999999999999999999999999999999999999999999999] top-20 right-20 p-5 bg-red-300 my-2 cursor-pointer"
       >
         <span className="text-3xl   p-5">open</span>
-      </div>
+      </div> */}
       <div
         className={cn(
-          " bg-[#ff4439] text-white font-semibold  min-h-screen min-w-full z-[9999999999999999999999] fixed",
+          " bg-[#ff4439] text-white font-semibold  !min-h-screen min-w-full z-[999999999999999999999999999999999999999999999999999999] fixed",
           isMobileNavOpen
             ? "scale-100 duration-[1000ms] rounded-none"
             : "scale-[0] !opacity-75 rounded-full duration-[300ms]"
@@ -54,12 +60,66 @@ const MobileNav = () => {
               {/* <p>
                 home, about me, skills, project, education, contact me first...
               </p> */}
-              <p>home</p>
+              {/* <p>home</p>
               <p>about me</p>
               <p>skills</p>
               <p>works</p>
               <p>education</p>
-              <p>contact me</p>
+              <p>contact me</p> */}
+              <a
+                // to={"#"}
+                href="#home"
+                onClick={() => setActiveSection("home")}
+                className={
+                  activeSection === "home" ? activeLinkStyle : normalLinkStyle
+                }
+              >
+                home
+              </a>
+              <a
+                // to={"#about me"}
+                href="#about me"
+                onClick={() => setActiveSection("about me")}
+                className={
+                  activeSection === "about me"
+                    ? activeLinkStyle
+                    : normalLinkStyle
+                }
+              >
+                about me
+              </a>
+              <a
+                // to={"#skills"}
+                href="#skills"
+                onClick={() => setActiveSection("skills")}
+                className={
+                  activeSection === "skills" ? activeLinkStyle : normalLinkStyle
+                }
+              >
+                skills
+              </a>
+              <a
+                // to={"#works"}
+                href="#works"
+                onClick={() => setActiveSection("works")}
+                className={
+                  activeSection === "works" ? activeLinkStyle : normalLinkStyle
+                }
+              >
+                works
+              </a>
+              <a
+                // to={"#education"}
+                href="#education"
+                onClick={() => setActiveSection("education")}
+                className={
+                  activeSection === "education"
+                    ? activeLinkStyle
+                    : normalLinkStyle
+                }
+              >
+                education
+              </a>
 
               {/* <Link
                 onClick={() => setPathname("/")}
@@ -121,5 +181,11 @@ const MobileNav = () => {
 
 // const normalLinkStyle =
 //   "border-x-[48px] border-y-[24px] border-transparent relative text-xs font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-0";
+
+const activeLinkStyle =
+  "border-x-[20px] border-transparent relative text-xl font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-100";
+
+const normalLinkStyle =
+  "border-x-[20px] border-transparent relative text-xl font-semibold leading-6 uppercase before:content-[''] before:absolute before:size-1 before:scale-0 before:rotate-45 before:-translate-x-1/2 before:bg-white before:rounded-full before:-left-4 hover:before:animate-dot before:bottom-1/2 before:translate-y-1/2 before:duration-500 hover:before:scale-[3] after:absolute after:content-[''] after:bg-white after:rounded-xl after:h-1 after:w-full after:duration-500 after:-bottom-1 after:left-0 after:scale-x-0";
 
 export default MobileNav;

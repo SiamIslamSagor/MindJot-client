@@ -1,4 +1,6 @@
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
+import { Sling as Hamburger } from "hamburger-react";
+
 // import { BackgroundBeams } from "./background-beams";
 import { PiMouseSimpleThin } from "react-icons/pi";
 // import { BsMouse } from "react-icons/bs";
@@ -9,13 +11,27 @@ import SectionVisibility from "./section-visibility";
 import { useState } from "react";
 import { cn } from "../../utils/cn";
 import TicTacToe from "./TicTacToe";
+import MobileNav from "./MobileNav";
+import { IoMenu } from "react-icons/io5";
 
 // import "../../../src/App.css";
 
 const EntryView = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  // const [isOpen, setOpen] = useState(false);
+  console.log(isMobileNavOpen);
+
   return (
     <div className="min-h-[400vh] border border-blue-700 ">
+      <div>
+        <MobileNav
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+          setIsMobileNavOpen={setIsMobileNavOpen}
+          isMobileNavOpen={isMobileNavOpen}
+        />
+      </div>
       <div
         id="entry-view"
         className="bg-[#e23c32] borderrr relative duration500 min-h-[400px] xsm:min-h-[550px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[100vh] flex items-center justify-center"
@@ -82,13 +98,28 @@ const EntryView = () => {
       </div>
       <div
         id="nav"
-        className="bg-[#ff4439] mmmmin-h-20 stickynav sticky uppercase border-black  top-0 z-[9999] flex items-center"
+        className="bg-[#ff4439] mmmmin-h-20 stickynav sticky uppercase border-black  top-0 z-[9999] flex items-center border"
       >
+        {/* <div>
+          <MobileNav />
+        </div> */}
+
         <div className="w-full flex items-center justify-between container mx-auto">
-          <div className="w-fit flex">
-            <h2 className="max-md:px-2 duration-500 h-min text-white font-extrabold text-[21px] leading-6 md:text-[40px] md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 after:duration-500 after:rounded-[50%] after:bg-white after:-right-[13px] after:bottom-[2px] md:after:bottom-[3px] max-md:after:scale75 after:animate-[bigDotBounce_1.5s_ease-in-out]">
-              dev
-            </h2>
+          <div className="max-sm:pl-2 flex  items-center justify-center gap-2 xsm:gap-">
+            <div
+              onClick={() => setIsMobileNavOpen(state => !state)}
+              className="text-white text-3xl md:hidden  "
+            >
+              {/* <h3>
+                <IoMenu />
+              </h3> */}
+              <Hamburger size={28} toggled={isMobileNavOpen} />
+            </div>
+            <div className="w-fit flex">
+              <h2 className="max-md:px-2 duration-500 h-min text-white font-extrabold text-[21px] leading-6 md:text-[40px] md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 after:duration-500 after:rounded-[50%] after:bg-white after:-right-[13px] after:bottom-[2px] md:after:bottom-[3px] max-md:after:scale75 after:animate-[bigDotBounce_1.5s_ease-in-out]">
+                dev
+              </h2>
+            </div>
           </div>
           <div className="flex items-center  bg-[#ff4439] ">
             <LinkItem
@@ -130,7 +161,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"home"}
         >
-          <div className="min-h-[80vh] bg-[#ff7392]">
+          <div className="min-h-[180vh] bg-[#ff7392]">
             <TicTacToe />
           </div>
         </SectionVisibility>
@@ -139,7 +170,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"about me"}
         >
-          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
             2
           </div>
         </SectionVisibility>
@@ -148,7 +179,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"skills"}
         >
-          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
             3
           </div>
         </SectionVisibility>
@@ -157,7 +188,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"works"}
         >
-          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
             4
           </div>
         </SectionVisibility>
@@ -166,7 +197,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"education"}
         >
-          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
             5
           </div>
         </SectionVisibility>
@@ -175,7 +206,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"get-in-touch"}
         >
-          <div className="min-h-[80vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
             6
           </div>
         </SectionVisibility>
