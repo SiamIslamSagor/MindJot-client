@@ -99,6 +99,11 @@
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
+/* .after\:bg-default-foreground::after {
+  background-color: red !important;
+  color: #fff !important;
+} */
+
 /* .sticky-nav {
   position: -webkit-sticky !important; 
   position: sticky !important;

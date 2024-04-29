@@ -13,6 +13,7 @@ import { cn } from "../../utils/cn";
 import TicTacToe from "./TicTacToe";
 import MobileNav from "./MobileNav";
 import { IoMenu } from "react-icons/io5";
+import Contact from "./Contact";
 
 // import "../../../src/App.css";
 
@@ -149,7 +150,7 @@ const EntryView = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div className="selection:text-[#111111] selection:bg-[#ff4439] ">
         {/* <div className="space-y-5 p-10 space-x-4">
           <ButtonYt />
           <ButtonYt />
@@ -163,6 +164,9 @@ const EntryView = () => {
         >
           <div className="min-h-[180vh] bg-[#ff7392]">
             <TicTacToe />
+            <div className="flex items-center justify-center min-h-96">
+              <img src="/bpi--favicon.ico" alt="" className="size-20" />
+            </div>
           </div>
         </SectionVisibility>
         <SectionVisibility
@@ -206,8 +210,10 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"get-in-touch"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#e90f74]">
-            6
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#111111]">
+            <div className="w-full flex items-center justify-center">
+              <Contact />
+            </div>
           </div>
         </SectionVisibility>
       </div>
