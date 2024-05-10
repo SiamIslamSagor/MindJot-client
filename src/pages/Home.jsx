@@ -13,6 +13,7 @@ import LinkItem from "../components/ui/LinkItem";
 import { GoogleGeminiEffectDemo } from "../components/ui/GoogleGeminiEffectDemo";
 import img1 from "../assets/images/s1.png";
 import img2 from "../assets/images/s2.png";
+import GlobeDemo from "../components/aceternityUi/GlobeDemo";
 const Home = () => {
   // const [buttonHoverPosition, setButtonHoverPosition] = useState("");
   // const handleMouseEnter = e => {
@@ -114,6 +115,9 @@ const Home = () => {
           <ButtonYt />
         </div>
       </div>
+      {/* <div className="min-h-96 rounded-3xl w-full grow ">
+        <GlobeDemo />
+      </div> */}
       <div className=" h-[300vh] bg-light-blue"></div>
     </div>
   );

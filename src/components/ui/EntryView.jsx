@@ -163,7 +163,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"home"}
         >
-          <div className="min-h-[180vh] bg-[#ff7392]">
+          <div className="min-h-[100vh] bg-[#ff7392]">
             <TicTacToe />
             <div className="flex items-center justify-center min-h-96">
               <img src="/bpi--favicon.ico" alt="" className="size-20" />
@@ -175,7 +175,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"about me"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
+          <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
             2
           </div>
         </SectionVisibility>
@@ -187,7 +187,7 @@ const EntryView = () => {
           <div className="w-full  bg-[#0a0a0a]">
             <CardHoverEffectDemo />
           </div>
-          {/* <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
+          {/* <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
             3
           </div> */}
         </SectionVisibility>
@@ -196,7 +196,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"works"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
+          <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
             4
           </div>
         </SectionVisibility>
@@ -205,7 +205,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"education"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
+          <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#a8bb12]">
             5
           </div>
         </SectionVisibility>
@@ -214,8 +214,8 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"get-in-touch"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#0a0a0a]">
-            <div className="w-full flex flex-col lg:flex-row gap-20 items-center justify-center container mx-auto max-w-7xl">
+          <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#0a0a0a]">
+            <div className="w-full flex flex-col lg:flex-row gap-5 items-center justify-center container mx-auto max-w-7xl">
               <Contact className={"grow border-none"} />
               <div className="min-h-96 rounded-3xl w-full grow ">
                 <GlobeDemo />
