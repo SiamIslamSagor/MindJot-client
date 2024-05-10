@@ -14,6 +14,7 @@ import TicTacToe from "./TicTacToe";
 import MobileNav from "./MobileNav";
 import Contact from "./Contact";
 import GlobeDemo from "../aceternityUi/GlobeDemo";
+import { CardHoverEffectDemo } from "../aceternityUi/CardHoverEffectDemo";
 
 // import "../../../src/App.css";
 
@@ -99,13 +100,13 @@ const EntryView = () => {
       </div>
       <div
         id="nav"
-        className="bg-[#ff4439] mmmmin-h-20 stickynav sticky uppercase border-black  top-0 z-[9999] flex items-center border"
+        className="bg-[#ff4439] mmmmin-h-20 stickynav sticky uppercase  top-0 z-[9999] flex items-center "
       >
         {/* <div>
           <MobileNav />
         </div> */}
 
-        <div className="w-full flex items-center justify-between container mx-auto">
+        <div className="w-full flex items-center justify-between container mx-auto 2xl:max-w-7xl md:px-2 lg:px-5">
           <div className="max-sm:pl-2 flex  items-center justify-center gap-2 xsm:gap-">
             <div
               onClick={() => setIsMobileNavOpen(state => !state)}
@@ -137,10 +138,10 @@ const EntryView = () => {
                   radius="none"
                   size="lg"
                   className={cn(
-                    "hover:!opacity-100 font-semibold uppercase relative inline-flex p-8 bg-[#151515] hover:bg-white hover:text-black text-white tracking-w overflow-hidden z-50 text-xs 2xl:text-sm",
+                    "hover:!opacity-100 font-semibold uppercase relative inline-flex p-8 bg-[#0a0a0a] hover:bg-white hover:text-black text-white hover:duration-300 overflow-hidden z-50 text-xs 2xl:text-sm",
                     activeSection === "get-in-touch"
                       ? "bg-white text-black"
-                      : "bg-[#151515]"
+                      : "bg-[#0a0a0a]"
                   )}
                 >
                   get in touch
@@ -183,9 +184,12 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"skills"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
-            3
+          <div className="w-full  bg-[#0a0a0a]">
+            <CardHoverEffectDemo />
           </div>
+          {/* <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
+            3
+          </div> */}
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
@@ -210,10 +214,10 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"get-in-touch"}
         >
-          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#111111]">
-            <div className="w-full flex flex-col lg:flex-row gap-20 items-center justify-center container mx-auto ">
+          <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#0a0a0a]">
+            <div className="w-full flex flex-col lg:flex-row gap-20 items-center justify-center container mx-auto max-w-7xl">
               <Contact className={"grow border-none"} />
-              <div className="min-h-96 order rounded-3xl w-full grow ">
+              <div className="min-h-96 rounded-3xl w-full grow ">
                 <GlobeDemo />
               </div>
             </div>

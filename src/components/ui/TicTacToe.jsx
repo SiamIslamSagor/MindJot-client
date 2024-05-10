@@ -200,8 +200,8 @@ const TicTacToe = () => {
   // console.log(winner);
 
   return (
-    <div className="bg-[#111111] py-20">
-      <div className="main relative bg-[#111111] scale-90">
+    <div className="bg-[#0a0a0a] py-20">
+      <div className="main relative bg-[#0a0a0a] scale-90">
         <>
           <div
             className={cn(

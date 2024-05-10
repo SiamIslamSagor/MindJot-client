@@ -20,6 +20,9 @@ export default {
         "deep-green": "#38d39f",
         "light-black": "#1b1a2e",
         "gray-black": "#737791",
+        "primary-deep-black": "#0a0a0a",
+        "primary-deep-red": "#e23c32",
+        "primary-light-red": "#ff4439",
       },
       keyframes: {
         "move-x": {

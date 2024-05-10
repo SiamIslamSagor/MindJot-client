@@ -18,7 +18,7 @@ const Contact = ({ className }) => {
               variant="underlined"
               label="Full Name"
               // color="danger"
-              className="!text-white"
+              className="!text-white !text-3xl"
             />
           </div>
           <div className="flex flex-col !text-white">
@@ -27,7 +27,7 @@ const Contact = ({ className }) => {
               variant="underlined"
               label="E-mail"
               // color="danger"
-              className="!text-white"
+              className="!text-white !text-3xl"
             />
           </div>
           <div className="flex flex-col !text-white">
@@ -36,7 +36,7 @@ const Contact = ({ className }) => {
               variant="underlined"
               label="Subject"
               // color="danger"
-              className="!text-white"
+              className="!text-white !text-3xl"
             />
           </div>
           <div className="flex flex-col !text-white">
