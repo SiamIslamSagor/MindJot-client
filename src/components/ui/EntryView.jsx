@@ -5,15 +5,15 @@ import { Sling as Hamburger } from "hamburger-react";
 import { PiMouseSimpleThin } from "react-icons/pi";
 // import { BsMouse } from "react-icons/bs";
 import LinkItem from "./LinkItem";
-import ButtonYt from "../../pages/ButtonYt";
+// import ButtonYt from "../../pages/ButtonYt";
 import { Button } from "@nextui-org/react";
 import SectionVisibility from "./section-visibility";
 import { useState } from "react";
 import { cn } from "../../utils/cn";
 import TicTacToe from "./TicTacToe";
 import MobileNav from "./MobileNav";
-import { IoMenu } from "react-icons/io5";
 import Contact from "./Contact";
+import GlobeDemo from "../aceternityUi/GlobeDemo";
 
 // import "../../../src/App.css";
 
@@ -211,8 +211,11 @@ const EntryView = () => {
           sectionName={"get-in-touch"}
         >
           <div className="min-h-[180vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#111111]">
-            <div className="w-full flex items-center justify-center">
-              <Contact />
+            <div className="w-full flex flex-col lg:flex-row gap-20 items-center justify-center container mx-auto ">
+              <Contact className={"grow border-none"} />
+              <div className="min-h-96 order rounded-3xl w-full grow ">
+                <GlobeDemo />
+              </div>
             </div>
           </div>
         </SectionVisibility>

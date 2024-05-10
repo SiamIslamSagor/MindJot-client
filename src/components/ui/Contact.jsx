@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 import { Input, Textarea } from "@nextui-org/react";
+import { cn } from "../../utils/cn";
 
-const Contact = () => {
+const Contact = ({ className }) => {
   return (
-    <div className="selection:text-[#111111] selection:bg-[#ff4439]s max-w-2xl w-full">
-      df
+    <div
+      className={cn(
+        "selection:text-[#111111] selection:bg-[#ff4439] max-w-2xl w-full dark border",
+        className
+      )}
+    >
       <div>
         <form>
           <div className="flex flex-col !text-white">
@@ -42,7 +48,7 @@ const Contact = () => {
               // placeholder="Enter your description"
               className="col-span-12 md:col-span-6 mb-6 md:mb-0"
               classNames={{
-                input: "resize-y max-h-[400px]",
+                input: "resize-y max-h-[400px] selection:bg-[#ff4439]",
               }}
             />
           </div>
