@@ -14,6 +14,7 @@ import { GoogleGeminiEffectDemo } from "../components/ui/GoogleGeminiEffectDemo"
 import img1 from "../assets/images/s1.png";
 import img2 from "../assets/images/s2.png";
 import GlobeDemo from "../components/aceternityUi/GlobeDemo";
+import { Button } from "@nextui-org/react";
 const Home = () => {
   // const [buttonHoverPosition, setButtonHoverPosition] = useState("");
   // const handleMouseEnter = e => {
@@ -114,7 +115,40 @@ const Home = () => {
           <ButtonYt />
           <ButtonYt />
         </div>
+
+        <div
+          id="btn-div"
+          className=" p-10 bg-primary-deep-black mt-20 space-y-20 btn-container relative"
+        >
+          <Button
+            radius="none"
+            className=" hover:!opacity-100 secondary-btn pt-[18px] gap-0 z-0 group relative inline-flex items-center justify-center box-border appearance-auto select-none whitespace-nowrap font-normal subpixel-antialiased tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-0 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-0 px-unit-0 min-w-unit-0 h-unit-0 text-small rounded-none [&>svg]:max-w-[theme(spacing.unit-0)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-default text-default-foreground data-[hover=true]:opacity-hover "
+          >
+            <span>Button</span>
+            <span>Button</span>
+          </Button>
+
+          <button radius="none" className="secondary-btn !w[150px]">
+            <span>Button</span>
+            <span>Button</span>
+          </button>
+        </div>
+
+        <div className="bg-black w-full flex items-center flex-col min-h-96 justify-center my-40">
+          <Button
+            radius="none"
+            className="relative p-0 h-[50px] w-[150px] flex flex-col text-xl uppercase tracking-[2px] font-medium text-white bg-[#191919] gap-0 overflow-visible"
+          >
+            <span className="group-hover:-translate-y-[100%]  group-hover:[transition:0.4s_ease-in] border !w-full !h-full relative flex  items-center justify-center leading-[55px] ">
+              Button
+            </span>
+            <span className="group-hover:-translate-y-[100%]  group-hover:[transition:0.4s_ease-in] border !w-full !h-full relative flex  items-center justify-center leading-[55px] ">
+              Button
+            </span>
+          </Button>
+        </div>
       </div>
+
       {/* <div className="min-h-96 rounded-3xl w-full grow ">
         <GlobeDemo />
       </div> */}
