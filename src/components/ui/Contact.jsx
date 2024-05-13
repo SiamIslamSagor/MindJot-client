@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { Input, Textarea } from "@nextui-org/react";
 import { cn } from "../../utils/cn";
-import { useState } from "react";
+import CustomInp from "./custom-inp";
+// import { useState } from "react";
 
 const Contact = ({ className }) => {
-  const [hasValue, setHasValue] = useState("");
+  // const [hasValue, setHasValue] = useState("");
   return (
     <div
       className={cn(
@@ -14,17 +14,17 @@ const Contact = ({ className }) => {
     >
       <div>
         <form>
-          <div className="border my-10 min-h-96 p-5">
-            <div className="flex flex-col relative group ">
+          <div className=" my-10 min-h-96 p-5 space-y-8">
+            {/* <div className="flex flex-col relative group ">
               <input
                 id="full name"
                 type="text"
-                className="borde py-2 active:ring-0 active:border-none active:outline-none focus:ring-0 focus:border-none focus:outline-none font-normal bg-transparent peer  "
+                className="py-2 active:ring-0 active:border-none active:outline-none focus:ring-0 focus:border-none focus:outline-none font-normal bg-transparent peer  "
                 onChange={e => {
                   setHasValue(e.target.value);
                 }}
               />
-              <div className="border-b-2 rounded-md border-[#202020] relative w-full bottom-0 after:content-[''] after:absolute after:h-[2px] after:w-full after:bg-white after:duration-300 after:ease-in-out after:scale-x-0 peer-focus:after:scale-x-100"></div>
+              <div className="border-b-2 rounded-xl border-[#202020] relative w-full bottom-0 after:content-[''] after:absolute after:h-[2px] after:w-full after:bg-white after:duration-300 after:ease-in-out after:scale-x-0 after:rounded-xl peer-focus:after:scale-x-100"></div>
 
               <label
                 htmlFor="full name"
@@ -35,7 +35,11 @@ const Contact = ({ className }) => {
               >
                 Full Name
               </label>
-            </div>
+            </div> */}
+            <CustomInp />
+            <CustomInp />
+            <CustomInp />
+            <CustomInp />
           </div>
         </form>
       </div>
