@@ -15,6 +15,13 @@ const CustomInp = ({ className }) => {
           setHasValue(e.target.value);
         }}
       />
+
+      {/* input top text */}
+      {/* <span className="min-h-5 bg-[#0a0a0a] w-fit px-2 mx2 absolute -translate-y-3 scale-x-0 duration-300 peer-focus:scale-x-100 text-opacity-0">
+        <span className="opacity-0">Full Name</span>
+      </span> */}
+
+      {/* input bottom line */}
       <div className="border-b-2 rounded-xl border-[#202020] relative w-full bottom-0 after:content-[''] after:absolute after:h-[2px] after:w-full after:bg-white after:duration-300 after:ease-in-out after:scale-x-0 after:rounded-xl peer-focus:after:scale-x-100"></div>
 
       <label
