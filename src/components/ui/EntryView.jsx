@@ -214,7 +214,7 @@ const EntryView = () => {
           className={"scroll-mt-[63px]"}
           sectionName={"get-in-touch"}
         >
-          <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#0a0a0a]">
+          <div className="min-h-[100vh] flex items-center justify-center text9xl  text-white font-black  bg-[#0a0a0a]">
             <div className="w-full flex flex-col lg:flex-row gap-5 items-center justify-center container mx-auto max-w-7xl">
               <Contact className={"grow border-none"} />
               <div className="min-h-96 rounded-3xl w-full grow ">

@@ -1,56 +1,41 @@
 /* eslint-disable react/prop-types */
 import { Input, Textarea } from "@nextui-org/react";
 import { cn } from "../../utils/cn";
+import { useState } from "react";
 
 const Contact = ({ className }) => {
+  const [hasValue, setHasValue] = useState("");
   return (
     <div
       className={cn(
-        "selection:text-[#111111] selection:bg-[#ff4439] max-w-2xl w-full dark border",
+        "selection:text-[#111111] selection:bg-[#ff4439] max-w-2xl w-full dark border font-normal",
         className
       )}
     >
       <div>
         <form>
-          <div className="flex flex-col !text-white">
-            <Input
-              type="text"
-              variant="underlined"
-              label="Full Name"
-              // color="danger"
-              className="!text-white !text-3xl"
-            />
-          </div>
-          <div className="flex flex-col !text-white">
-            <Input
-              type="email"
-              variant="underlined"
-              label="E-mail"
-              // color="danger"
-              className="!text-white !text-3xl"
-            />
-          </div>
-          <div className="flex flex-col !text-white">
-            <Input
-              type="text"
-              variant="underlined"
-              label="Subject"
-              // color="danger"
-              className="!text-white !text-3xl"
-            />
-          </div>
-          <div className="flex flex-col !text-white">
-            <Textarea
-              onResize={true}
-              variant="underlined"
-              label="Description"
-              // color="danger"
-              // placeholder="Enter your description"
-              className="col-span-12 md:col-span-6 mb-6 md:mb-0"
-              classNames={{
-                input: "resize-y max-h-[400px] selection:bg-[#ff4439]",
-              }}
-            />
+          <div className="border my-10 min-h-96 p-5">
+            <div className="flex flex-col relative group ">
+              <input
+                id="full name"
+                type="text"
+                className="borde py-2 active:ring-0 active:border-none active:outline-none focus:ring-0 focus:border-none focus:outline-none font-normal bg-transparent peer  "
+                onChange={e => {
+                  setHasValue(e.target.value);
+                }}
+              />
+              <div className="border-b-2 rounded-md border-[#202020] relative w-full bottom-0 after:content-[''] after:absolute after:h-[2px] after:w-full after:bg-white after:duration-300 after:ease-in-out after:scale-x-0 peer-focus:after:scale-x-100"></div>
+
+              <label
+                htmlFor="full name"
+                className={cn(
+                  "absolute bottom-[11px]  px-5 peer-focus:bottom-[35px]  [transition:0.3s_ease-in-out] peer-focus:px-0 text-gray-300",
+                  hasValue ? "bottom-[35px] px-0" : "bottom-[9px]"
+                )}
+              >
+                Full Name
+              </label>
+            </div>
           </div>
         </form>
       </div>
