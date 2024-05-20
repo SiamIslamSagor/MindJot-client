@@ -99,12 +99,12 @@
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
-.btn-container {
+/* .btn-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .btn-container .secondary-btn {
   display: flex;
@@ -137,7 +137,7 @@
 }
 
 .btn-container .secondary-btn:hover span {
-  transition: 0.4s ease-in;
+  transition: 0.5s ease-in;
   transform: translateY(-100%);
 }
 
@@ -151,7 +151,7 @@
   height: 250px;
   background: #2299ff;
   border-radius: 50%;
-  transition: 0.4s ease-in;
+  transition: 0.5s ease-in;
 }
 
 .btn-container .secondary-btn:hover::before {
