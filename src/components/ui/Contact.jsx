@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { cn } from "../../utils/cn";
-import CustomInp from "./custom-inp";
+import { CustomInp, CustomTextArea } from "./custom-inp";
 // import { useState } from "react";
 
 const Contact = ({ className }) => {
@@ -36,10 +36,10 @@ const Contact = ({ className }) => {
                 Full Name
               </label>
             </div> */}
-            <CustomInp />
-            <CustomInp />
-            <CustomInp />
-            <CustomInp />
+            <CustomInp label={"Full Name"} />
+            <CustomInp label={"E-mail"} />
+            <CustomInp label={"Subject"} />
+            <CustomTextArea label={"Message"} />
           </div>
         </form>
       </div>

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { cn } from "../../utils/cn";
 
-const CustomInp = ({ className }) => {
+const CustomInp = ({ className, label }) => {
   const [hasValue, setHasValue] = useState("");
 
   return (
@@ -22,19 +22,48 @@ const CustomInp = ({ className }) => {
       </span> */}
 
       {/* input bottom line */}
-      <div className="border-b-2 rounded-xl border-[#202020] relative w-full bottom-0 after:content-[''] after:absolute after:h-[2px] after:w-full after:bg-white after:duration-300 after:ease-in-out after:scale-x-0 after:rounded-xl peer-focus:after:scale-x-100"></div>
+      <div className="border-b-2 rounded-xl border-[#202020] relative w-full bottom-0 after:content-[''] after:absolute after:h-[2px] after:w-full after:bg-slate-200 after:duration-300 after:ease-in-out after:scale-x-0 after:rounded-xl peer-focus:after:scale-x-100"></div>
 
       <label
-        htmlFor="full name"
+        htmlFor={label}
         className={cn(
-          "absolute bottom-[11px]  px-5 peer-focus:bottom-[35px]  [transition:0.3s_ease-in-out] peer-focus:px-0 text-gray-300  pointer-events-none selection:text-[#111111] selection:bg-[#ff4439] ",
-          hasValue ? "bottom-[35px] px-0" : "bottom-[9px]"
+          "absolute bottom-[11px]  px-5 peer-focus:bottom-[35px]  [transition:0.3s_ease-in-out] peer-focus:px-0 text-slate-500 text-lg peer-focus:text-slate-200  pointer-events-none selection:text-[#111111] selection:bg-[#ff4439] tracking-widest",
+          hasValue ? "bottom-[35px] px-0 text-slate-400" : "bottom-[9px]"
         )}
       >
-        Full Name
+        {label}
       </label>
     </div>
   );
 };
 
-export default CustomInp;
+const CustomTextArea = ({ className, label }) => {
+  const [hasValue, setHasValue] = useState("");
+
+  return (
+    <div className={cn("flex flex-col relative group ", className)}>
+      <textarea
+        id="full name"
+        type="text"
+        className="py-2 ring2 active:ring-0 active:border-none active:outline-none focus:ring-0 focus:border-none focus:outline-none font-normal bg-transparent peer selection:text-[#111111] selection:bg-[#ff4439] tracking-widest "
+        onChange={e => {
+          setHasValue(e.target.value);
+        }}
+      />
+      {/* input bottom line */}
+      <div className="border-b-2 rounded-xl border-[#202020] relative w-full bottom-0 after:content-[''] after:absolute after:h-[2px] after:w-full after:bg-slate-200 after:duration-300 after:ease-in-out after:scale-x-0 after:rounded-xl peer-focus:after:scale-x-100"></div>
+
+      <label
+        htmlFor={label}
+        className={cn(
+          "absolute bottom-[11px]  px-5 peer-focus:bottom-[35px]  [transition:0.3s_ease-in-out] peer-focus:px-0 peer-focus:-top-[20px] text-lg text-slate-500 peer-focus:text-slate-200  pointer-events-none selection:text-[#111111] selection:bg-[#ff4439] tracking-widest",
+          hasValue ? "-top-[20px] px-0 text-slate-400" : "top-2"
+        )}
+      >
+        {label}
+      </label>
+    </div>
+  );
+};
+
+export { CustomInp, CustomTextArea };
