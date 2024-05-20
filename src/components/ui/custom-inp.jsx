@@ -2,14 +2,16 @@
 import { useState } from "react";
 import { cn } from "../../utils/cn";
 
-const CustomInp = ({ className, label }) => {
+const CustomInp = ({ className, label, name, type = "text" }) => {
   const [hasValue, setHasValue] = useState("");
 
   return (
     <div className={cn("flex flex-col relative group ", className)}>
       <input
         id="full name"
-        type="text"
+        name={name}
+        type={type}
+        required
         className="py-2 active:ring-0 active:border-none active:outline-none focus:ring-0 focus:border-none focus:outline-none font-normal bg-transparent peer selection:text-[#111111] selection:bg-[#ff4439]  "
         onChange={e => {
           setHasValue(e.target.value);
@@ -45,7 +47,9 @@ const CustomTextArea = ({ className, label }) => {
       <textarea
         id="full name"
         type="text"
-        className="py-2 ring2 active:ring-0 active:border-none active:outline-none focus:ring-0 focus:border-none focus:outline-none font-normal bg-transparent peer selection:text-[#111111] selection:bg-[#ff4439] tracking-widest "
+        required
+        name="mail_body_message"
+        className="py-2 ring2 active:ring-0 active:border-none active:outline-none focus:ring-0 focus:border-none focus:outline-none font-normal bg-transparent peer selection:text-[#111111] selection:bg-[#ff4439] tracking-widest min-h-20"
         onChange={e => {
           setHasValue(e.target.value);
         }}

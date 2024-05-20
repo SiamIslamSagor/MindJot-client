@@ -15,6 +15,7 @@ import MobileNav from "./MobileNav";
 import Contact from "./Contact";
 import GlobeDemo from "../aceternityUi/GlobeDemo";
 import { CardHoverEffectDemo } from "../aceternityUi/CardHoverEffectDemo";
+import { Toaster } from "react-hot-toast";
 
 // import "../../../src/App.css";
 
@@ -158,6 +159,7 @@ const EntryView = () => {
           <ButtonYt />
           <ButtonYt />
         </div> */}
+        <Toaster />
         <SectionVisibility
           setActiveSection={setActiveSection}
           className={"scroll-mt-[63px]"}
