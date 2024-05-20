@@ -16,6 +16,7 @@ import Contact from "./Contact";
 import GlobeDemo from "../aceternityUi/GlobeDemo";
 import { CardHoverEffectDemo } from "../aceternityUi/CardHoverEffectDemo";
 import { Toaster } from "react-hot-toast";
+import SectionHeading from "./section-heading";
 
 // import "../../../src/App.css";
 
@@ -213,11 +214,14 @@ const EntryView = () => {
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
-          className={"scroll-mt-[63px]"}
+          className={"scroll-mt-[63px] overflow-hidden"}
           sectionName={"get-in-touch"}
         >
-          <div className="min-h-[100vh] flex items-center justify-center text9xl  text-white font-black  bg-[#0a0a0a]">
-            <div className="w-full flex flex-col lg:flex-row gap-5 items-center justify-center container mx-auto max-w-7xl">
+          <div className="min-h-[100vh] flex flex-col items-center justify-center text9xl  text-white font-black  bg-primary-deep-black">
+            <div className="mt-20 -mb-28">
+              <SectionHeading className={"borderrr"} heading="Contact." />
+            </div>
+            <div className="borderrr w-full flex flex-col lg:flex-row gap-5 items-center justify-center container mx-auto max-w-7xl">
               <Contact className={"grow border-none"} />
               <div className="min-h-96 rounded-3xl w-full grow ">
                 <GlobeDemo />

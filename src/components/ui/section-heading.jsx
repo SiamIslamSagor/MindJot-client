@@ -8,7 +8,7 @@ const SectionHeading = ({ className, heading = "Heading" }) => {
     <div className={cn(className)}>
       <div className="overflow-hidden">
         <Fade direction="up" duration={1400}>
-          <h1 className="md:text-5xl text-3xl lg:text-7xl font-bold text-center text-white pb-2 relative z-20 duration-1000">
+          <h1 className="md:text-5xl text-3xl lg:text-7xl font-bold text-center text-white pb-2 relative z-20 duration-1000 selection:text-[#111111] selection:bg-[#ff4439]">
             {heading}
           </h1>
         </Fade>
@@ -31,7 +31,7 @@ const SectionHeading = ({ className, heading = "Heading" }) => {
         />
 
         {/* Radial Gradient to prevent sharp edges */}
-        <div className="absolute inset-0 w-full h-full bg-[#000]  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
+        <div className="absolute inset-0 w-full h-full bg-primary-deep-black  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
       </div>
     </div>
   );
