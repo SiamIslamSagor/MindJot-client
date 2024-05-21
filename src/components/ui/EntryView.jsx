@@ -65,7 +65,8 @@ const EntryView = () => {
           </div>
           <div className="borderr ">
             <h1 className="[textshadow:1px_1px_0_#d4d4d4,2px_2px_0_#d4d4d4,3px_3px_0_#d4d4d4,4px_4px_0_#d4d4d4,5px_5px_0_#d4d4d4,6px_6px_0_#d4d4d4,7px_7px_0_#d4d4d4,8px_8px_0_#d4d4d4,9px_9px_0_#d4d4d4] [text-shadow:1px_1px_0_#b91c1c,2px_2px_0_#b91c1c,3px_3px_0_#b91c1c,4px_4px_0_#b91c1c,5px_5px_0_#b91c1c,6px_6px_0_#b91c1c,7px_7px_0_#b91c1c,8px_8px_0_#b91c1c,9px_9px_0_#b91c1c] tracking-tight 2xl:leading-[150px]">
-              MERN Stack <br className="max-lg:hidden 2xl:leading-[150px]" />{" "}
+              <span className="[font-family:Bangers,cursive]">MERN Stack</span>{" "}
+              <br className="max-lg:hidden 2xl:leading-[150px]" />{" "}
               <span className="mt-20 brdjcjer leading-6  md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 2xl:after:size-8 after:duration-500 after:rounded-[50%] after:bg-black after:-right-[15px] sm:after:-right-[18px] lg:after:-right-[20px] 2xl:after:-right-[38px] after:bottom-[4px] sm:after:bottom-[6px] md:after:bottom-[8px] lg:after:bottom-[12px] xl:after:bottom-[14px] 2xl:after:bottom-[30px] max-md:after:scale75 after-animation-delay-class-3000 after:animate-[bigDotBounce_1.5s_ease-in-out]">
                 Solutions
               </span>
@@ -120,9 +121,11 @@ const EntryView = () => {
               <Hamburger size={28} toggled={isMobileNavOpen} />
             </div>
             <div className="w-fit flex">
-              <h2 className="max-md:px-2 duration-500 h-min text-white font-extrabold text-[21px] leading-6 md:text-[40px] md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 after:duration-500 after:rounded-[50%] after:bg-white after:-right-[13px] after:bottom-[2px] md:after:bottom-[3px] max-md:after:scale75 after:animate-[bigDotBounce_1.5s_ease-in-out]">
-                dev
-              </h2>
+              <a href="#">
+                <h2 className="max-md:px-2 duration-500 h-min text-white font-extrabold text-[21px] leading-6 md:text-[40px] md:leading-10 font-sans relative after:content-[''] after:absolute after:size-3 after:duration-500 after:rounded-[50%] after:bg-white after:-right-[13px] after:bottom-[2px] md:after:bottom-[3px] max-md:after:scale75 after:animate-[bigDotBounce_1.5s_ease-in-out]">
+                  dev
+                </h2>
+              </a>
             </div>
           </div>
           <div className="flex items-center  bg-[#ff4439] ">
@@ -188,6 +191,7 @@ const EntryView = () => {
           sectionName={"skills"}
         >
           <div className="w-full  bg-[#0a0a0a]">
+            <SectionHeading heading="Skills" />
             <CardHoverEffectDemo />
           </div>
           {/* <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
@@ -218,9 +222,7 @@ const EntryView = () => {
           sectionName={"get-in-touch"}
         >
           <div className="min-h-[100vh] flex flex-col items-center justify-center text9xl  text-white font-black  bg-primary-deep-black">
-            <div className="mt-20 -mb-28">
-              <SectionHeading className={"borderrr"} heading="Contact." />
-            </div>
+            <SectionHeading className={"borderrr"} heading="Contact" />
             <div className="borderrr w-full flex flex-col lg:flex-row gap-5 items-center justify-center container mx-auto max-w-7xl">
               <Contact className={"grow border-none"} />
               <div className="min-h-96 rounded-3xl w-full grow ">

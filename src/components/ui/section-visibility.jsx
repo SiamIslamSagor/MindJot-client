@@ -43,7 +43,11 @@ const SectionVisibility = ({
   // console.log(setActiveSection);
 
   return (
-    <section ref={observerRef} id={sectionName} className={cn(className)}>
+    <section
+      ref={observerRef}
+      id={sectionName}
+      className={cn("overflow-hidden", className)}
+    >
       {children}
     </section>
   );
