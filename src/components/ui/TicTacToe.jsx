@@ -200,7 +200,7 @@ const TicTacToe = () => {
   // console.log(winner);
 
   return (
-    <div className="bg-[#0a0a0a] py-20">
+    <div className="bg-[#0a0a0a] py-20 [font-family:Nunito]">
       <div className="main relative bg-[#0a0a0a] scale-90">
         <>
           <div
@@ -211,43 +211,43 @@ const TicTacToe = () => {
           ></div>
           <div
             className={cn(
-              "absolute h-full bg-green-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[151px] ",
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[151px] ",
               winingLineClass2
             )}
           ></div>
           <div
             className={cn(
-              "absolute h-full bg-blue-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[251px]",
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[251px]",
               winingLineClass3
             )}
           ></div>
           <div
             className={cn(
-              "absolute h-full bg-yellow-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[5px] rotate-90",
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[5px] rotate-90",
               winingLineClass4
             )}
           ></div>
           <div
             className={cn(
-              "absolute h-full bg-violet-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[105px] rotate-90",
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[105px] rotate-90",
               winingLineClass6
             )}
           ></div>
           <div
             className={cn(
-              "absolute h-full bg-purple-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] -mt-[95px] rotate-90",
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] -mt-[95px] rotate-90",
               winingLineClass5
             )}
           ></div>
           <div
             className={cn(
-              "absolute h-full bg-sky-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[2px] rotate-[135deg]",
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[2px] rotate-[135deg]",
               winingLineClass7
             )}
           ></div>
           <div
             className={cn(
-              "absolute h-full bg-green-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[8px] -rotate-[135deg]",
+              "absolute h-full bg-red-500 w-[1px] rounded-2xl  duration-700   scale-y-0 ml-[148px] mt-[8px] -rotate-[135deg]",
               winingLineClass8
             )}
           ></div>
