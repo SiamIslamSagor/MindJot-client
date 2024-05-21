@@ -1,0 +1,72 @@
+[
+  {
+    "title": "React",
+    "icon": "JS library for building user interfaces",
+    "url": "https://legacy.reactjs.org/"
+  },
+  {
+    "title": "JavaScript",
+    "icon": "High-level, interpreted programming language",
+    "url": "https://www.javascript.com/"
+  },
+  {
+    "title": "Next.js",
+    "icon": "React framework for server-side rendering",
+    "url": "https://cdn.ampproject.org/c/s/nextjs.org/?amp=1"
+  },
+  {
+    "title": "Tailwind CSS",
+    "icon": "Utility-first CSS framework for rapid styling",
+    "url": "https://tailwindcss.com/docs/installation"
+  },
+  {
+    "title": "Node.js",
+    "icon": "JavaScript runtime environment for server-side development",
+    "url": "https://nodejs.org/en"
+  },
+  {
+    "title": "MongoDB",
+    "icon": "NoSQL document database",
+    "url": "https://www.mongodb.com/"
+  },
+  {
+    "title": "Express.js",
+    "icon": "Web framework for Node.js applications",
+    "url": "https://expressjs.com/"
+  },
+  {
+    "title": "GitHub",
+    "icon": "Version control system for software development",
+    "url": "https://github.com/Index"
+  },
+  {
+    "title": "HTML5",
+    "icon": "Hypertext markup language for web pages",
+    "url": "https://www.w3schools.com/html/"
+  },
+  {
+    "title": "CSS3",
+    "icon": "Cascading Style Sheets for styling web pages",
+    "url": "https://www.w3schools.com/css/"
+  },
+  {
+    "title": "Firebase",
+    "icon": "Backend-as-a-service platform by Google",
+    "url": "https://firebase.google.com/"
+  },
+  {
+    "title": "Netlify",
+    "icon": "Platform for deploying web applications",
+    "url": "https://www.netlify.com/"
+  },
+  {
+    "title": "Vercel",
+    "icon": "Platform for deploying web applications",
+    "url": "https://vercel.com/"
+  },
+  {
+    "title": "VSCode",
+    "icon": "Code editor by Microsoft",
+    "url": "https://code.visualstudio.com/"
+  }
+]

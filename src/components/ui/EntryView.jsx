@@ -1,9 +1,7 @@
-import { AttentionSeeker, Fade } from "react-awesome-reveal";
+import { AttentionSeeker } from "react-awesome-reveal";
 import { Sling as Hamburger } from "hamburger-react";
 
 // import { BackgroundBeams } from "./background-beams";
-import { PiMouseSimpleThin } from "react-icons/pi";
-import { IoIosArrowRoundDown } from "react-icons/io";
 
 // import { BsMouse } from "react-icons/bs";
 import LinkItem from "./LinkItem";
@@ -29,7 +27,7 @@ const EntryView = () => {
   console.log(isMobileNavOpen);
 
   return (
-    <div className="min-h-[400vh] border border-blue-700 ">
+    <div className="min-h-[400vh] brder border-blue-700 ">
       <div>
         <MobileNav
           activeSection={activeSection}
@@ -244,6 +242,38 @@ const EntryView = () => {
           <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#950d2a]">
             2
           </div>
+          {/* <div className="min-h-[100vh] flex items-center justify-center w-full text-white  bg-[#950d2a]">
+            <div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+                {posts.map((post, idx) => {
+                  return (
+                    <div
+                      key={post._id}
+                      className={`border m-2 duration-1000 ${
+                        idx === 1
+                          ? "bg-blue-500 lg:col-span-2 lg:row-span-2"
+                          : ""
+                      }`}
+                    >
+                      <div>
+                        <img
+                          src={post.img}
+                          alt={post.title}
+                          className="size-full"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xl font-medium text-center">
+                          {post.title}
+                        </p>
+                        <p>{post.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div> */}
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
@@ -282,8 +312,8 @@ const EntryView = () => {
           sectionName={"get-in-touch"}
         >
           <div className="min-h-[100vh] flex flex-col items-center justify-center text9xl  text-white font-black  bg-primary-deep-black">
-            <SectionHeading className={"borderrr"} heading="Contact" />
-            <div className="borderrr w-full flex flex-col lg:flex-row gap-5 items-center justify-center container mx-auto max-w-7xl">
+            <SectionHeading heading="Contact" />
+            <div className=" w-full flex flex-col lg:flex-row gap-5 items-center justify-center container mx-auto max-w-7xl">
               <Contact className={"grow border-none"} />
               <div className="min-h-96 rounded-3xl w-full grow ">
                 <GlobeDemo />
@@ -295,5 +325,38 @@ const EntryView = () => {
     </div>
   );
 };
+
+// const posts = [
+//   {
+//     _id: "100000",
+//     img: "https://thumbs.dreamstime.com/b/funny-shocked-man-covering-mouth-hand-laughs-making-big-eyes-oops-absurd-accident-frightened-guy-red-sweater-opened-mouth-287432688.jpg",
+//     title: "Product 1",
+//     description: "This is a description of product 1.",
+//   },
+//   {
+//     _id: "200000",
+//     img: "https://thumbs.dreamstime.com/b/funny-shocked-man-covering-mouth-hand-laughs-making-big-eyes-oops-absurd-accident-frightened-guy-red-sweater-opened-mouth-287432688.jpg",
+//     title: "Product 2",
+//     description: "This is a description of product 2.",
+//   },
+//   {
+//     _id: "300000",
+//     img: "https://thumbs.dreamstime.com/b/funny-shocked-man-covering-mouth-hand-laughs-making-big-eyes-oops-absurd-accident-frightened-guy-red-sweater-opened-mouth-287432688.jpg",
+//     title: "Product 3",
+//     description: "This is a description of product 3.",
+//   },
+//   {
+//     _id: "400000",
+//     img: "https://thumbs.dreamstime.com/b/funny-shocked-man-covering-mouth-hand-laughs-making-big-eyes-oops-absurd-accident-frightened-guy-red-sweater-opened-mouth-287432688.jpg",
+//     title: "Product 4",
+//     description: "This is a description of product 4.",
+//   },
+//   {
+//     _id: "500000",
+//     img: "https://thumbs.dreamstime.com/b/funny-shocked-man-covering-mouth-hand-laughs-making-big-eyes-oops-absurd-accident-frightened-guy-red-sweater-opened-mouth-287432688.jpg",
+//     title: "Product 5",
+//     description: "This is a description of product 5.",
+//   },
+// ];
 
 export default EntryView;

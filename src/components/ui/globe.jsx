@@ -7,7 +7,7 @@ import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import countries from "../../../public/data/globe.json";
+import countries from "../../../src/assets/data/globe.json";
 
 /* const Globe = () => {
   console.log(countries.features.length);

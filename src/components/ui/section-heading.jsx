@@ -42,7 +42,7 @@ const SectionHeading = ({ className, heading = "Heading" }) => {
           />
 
           {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-full bg-primary-deep-black  [mask-image:radial-gradient(250px_100px_at_top,transparent_20%,white)]"></div>
+          <div className="absolute inset-0 w-full h-full bg-primary-deep-black  [mask-image:radial-gradient(250px_20px_at_top,transparent_20%,white)]"></div>
         </div>
       </div>
     </div>
