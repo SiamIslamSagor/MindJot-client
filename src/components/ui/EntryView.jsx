@@ -17,6 +17,9 @@ import GlobeDemo from "../aceternityUi/GlobeDemo";
 import { CardHoverEffectDemo } from "../aceternityUi/CardHoverEffectDemo";
 import { Toaster } from "react-hot-toast";
 import SectionHeading from "./section-heading";
+import HorizontalScroll from "./HorizontalScroll";
+import "../../../src/App.css";
+import HybridScrolling from "./HybridScrolling";
 
 // import "../../../src/App.css";
 
@@ -321,6 +324,42 @@ const EntryView = () => {
             </div>
           </div>
         </SectionVisibility>
+        <div className="min-h-screen mt1 bg-black">
+          {/* <HorizontalScroll /> */}
+          <section>
+            <div className="container - p-[5rem] text-white">
+              <h1 className="text-5xl">Hybrid Scrolling</h1>
+              <p>Dummy text dummy text dummy text dummy text dummy text.</p>
+            </div>
+          </section>
+
+          {/* <div className="scroll_container - h-[400vh]">
+            <div className="sticky_wrap - overflow-hidden sticky top-0 h-screen">
+              <div className="horizontal_scroll - absolute top-0 h-full w-[400vw] [will-change:transform] flex justify-between">
+                <div className="scroll_contents red - h-full w-screen bg-red-600">
+                  <h2 className="left - mt-[5vh] ml-[5vh] text-4xl text-white">
+                    Hello
+                  </h2>
+                </div>
+                <div className="scroll_contents yellow - h-full w-screen bg-yellow-600"></div>
+                <div className="scroll_contents green - h-full w-screen bg-green-600"></div>
+                <div className="scroll_contents blue - h-full w-screen bg-blue-600">
+                  <h2 className="right text-right mt-[85vh] mr-[5vh] text-4xl text-white">
+                    Goodbye
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div> */}
+          <HybridScrolling />
+
+          <section>
+            <div className="container - p-[5rem] text-white">
+              <h1 className="text-5xl">The End</h1>
+              <p>Dummy text dummy text dummy text dummy text dummy text.</p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
