@@ -20,6 +20,8 @@ import SectionHeading from "./section-heading";
 import HorizontalScroll from "./HorizontalScroll";
 import "../../../src/App.css";
 import HybridScrolling from "./HybridScrolling";
+import { Link } from "react-router-dom";
+import p1img from "../../assets/images/fh-ss.png";
 
 // import "../../../src/App.css";
 
@@ -286,6 +288,15 @@ const EntryView = () => {
           <div className="w-full  bg-[#0a0a0a]">
             <SectionHeading heading="Skills" />
             <CardHoverEffectDemo />
+            {/* <div className="border py-20 relative">
+              <div className="size-96 overflow-hidden mx-auto relative object-bottom">
+                <img
+                  src={p1img}
+                  className="object-cover object-bottom relative"
+                  alt=""
+                />
+              </div>
+            </div> */}
           </div>
           {/* <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#07af20]">
             3
@@ -293,11 +304,36 @@ const EntryView = () => {
         </SectionVisibility>
         <SectionVisibility
           setActiveSection={setActiveSection}
-          className={"scroll-mt-[63px]"}
+          className={"scroll-mt-[63px] overflow-visible"}
           sectionName={"works"}
         >
-          <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#100e9f]">
+          {/* <div className="min-h-[100vh] flex items-center justify-center text-9xl  text-white font-black  bg-[#071757]">
             4
+          </div> */}
+
+          {/* <div className="w-96 m-auto">
+            <img
+              className="w-full object-cover hover:object-bottom object-top h-48 [transition:1s_all_ease]"
+              src="https://i.ibb.co/7rzgLhb/cm-ss-dark.png"
+            />
+          </div> */}
+
+          <div className="min-h-screen mt1 bg-black">
+            <section>
+              <div className="container - p-[5rem] text-white">
+                <h1 className="text-5xl">Hybrid Scrolling</h1>
+                <p>Dummy text dummy text dummy text dummy text dummy text.</p>
+              </div>
+            </section>
+
+            <HybridScrolling />
+
+            <section>
+              <div className="container - p-[5rem] text-white">
+                <h1 className="text-5xl">The End</h1>
+                <p>Dummy text dummy text dummy text dummy text dummy text.</p>
+              </div>
+            </section>
           </div>
         </SectionVisibility>
         <SectionVisibility
@@ -324,8 +360,7 @@ const EntryView = () => {
             </div>
           </div>
         </SectionVisibility>
-        <div className="min-h-screen mt1 bg-black">
-          {/* <HorizontalScroll /> */}
+        {/* <div className="min-h-screen mt1 bg-black">
           <section>
             <div className="container - p-[5rem] text-white">
               <h1 className="text-5xl">Hybrid Scrolling</h1>
@@ -333,24 +368,6 @@ const EntryView = () => {
             </div>
           </section>
 
-          {/* <div className="scroll_container - h-[400vh]">
-            <div className="sticky_wrap - overflow-hidden sticky top-0 h-screen">
-              <div className="horizontal_scroll - absolute top-0 h-full w-[400vw] [will-change:transform] flex justify-between">
-                <div className="scroll_contents red - h-full w-screen bg-red-600">
-                  <h2 className="left - mt-[5vh] ml-[5vh] text-4xl text-white">
-                    Hello
-                  </h2>
-                </div>
-                <div className="scroll_contents yellow - h-full w-screen bg-yellow-600"></div>
-                <div className="scroll_contents green - h-full w-screen bg-green-600"></div>
-                <div className="scroll_contents blue - h-full w-screen bg-blue-600">
-                  <h2 className="right text-right mt-[85vh] mr-[5vh] text-4xl text-white">
-                    Goodbye
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div> */}
           <HybridScrolling />
 
           <section>
@@ -359,7 +376,8 @@ const EntryView = () => {
               <p>Dummy text dummy text dummy text dummy text dummy text.</p>
             </div>
           </section>
-        </div>
+        </div> */}
+        <div id="btm-section" className="min-h-[250vh] bg-green-400"></div>
       </div>
     </div>
   );
@@ -397,5 +415,69 @@ const EntryView = () => {
 //     description: "This is a description of product 5.",
 //   },
 // ];
+
+/* https://i.ibb.co/gT1Z6MM/df-ss-dark.png
+https://i.ibb.co/SxvJ86P/df-ss.png
+https://i.ibb.co/HFhPYzv/cm-ss.png
+https://i.ibb.co/7rzgLhb/cm-ss-dark.png
+https://i.ibb.co/6JY91G3/fh-ss.png
+https://i.ibb.co/rdBV9ts/ppp-ss.png */
+
+/* const works = [
+  {
+    _id: "60887408",
+    home_page_img: "https://source.unsplash.com/random/project1",
+    project_title: "Project 1 Title",
+    project_description: "This is a description for project 1.",
+    project_tech: ["HTML", "CSS", "JavaScript"],
+    live_site_link: "https://www.example.com/project1",
+    server_side_link: null,
+  },
+  {
+    _id: "61250403",
+    home_page_img: "https://source.unsplash.com/random/project2",
+    project_title: "Project 2 Title",
+    project_description: "This is a description for project 2.",
+    project_tech: ["HTML", "CSS", "JavaScript"],
+    live_site_link: "https://www.example.com/project2",
+    server_side_link: null,
+  },
+  {
+    _id: "66187216",
+    home_page_img: "https://source.unsplash.com/random/project3",
+    project_title: "Project 3 Title",
+    project_description: "This is a description for project 3.",
+    project_tech: ["HTML", "CSS", "JavaScript"],
+    live_site_link: "https://www.example.com/project3",
+    server_side_link: null,
+  },
+  {
+    _id: "96178618",
+    home_page_img: "https://source.unsplash.com/random/project4",
+    project_title: "Project 4 Title",
+    project_description: "This is a description for project 4.",
+    project_tech: ["HTML", "CSS", "JavaScript"],
+    live_site_link: "https://www.example.com/project4",
+    server_side_link: null,
+  },
+  {
+    _id: "71003674",
+    home_page_img: "https://source.unsplash.com/random/project5",
+    project_title: "Project 5 Title",
+    project_description: "This is a description for project 5.",
+    project_tech: ["HTML", "CSS", "JavaScript"],
+    live_site_link: "https://www.example.com/project5",
+    server_side_link: null,
+  },
+  {
+    _id: "87215171",
+    home_page_img: "https://source.unsplash.com/random/project6",
+    project_title: "Project 6 Title",
+    project_description: "This is a description for project 6.",
+    project_tech: ["HTML", "CSS", "JavaScript"],
+    live_site_link: "https://www.example.com/project6",
+    server_side_link: null,
+  },
+]; */
 
 export default EntryView;
